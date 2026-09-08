@@ -1,0 +1,44 @@
+name: Product Hunt Daily Sync
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 10 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  producthunt-sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Fetch Product Hunt
+        env:
+          PRODUCTHUNT_TOKEN: ${{ secrets.PRODUCTHUNT_TOKEN }}
+        run: |
+          python scripts/fetch_producthunt.py
+
+      - name: Build dashboard data
+        run: |
+          python scripts/build_dashboard_data.py
+
+      - name: Commit updated data
+        run: |
+          git config user.name "product-radar-bot"
+          git config user.email "product-radar-bot@users.noreply.github.com"
+          git add data/
+          git diff --cached --quiet || git commit -m "Auto-update Product Hunt data"
+          git push
