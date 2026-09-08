@@ -1,0 +1,982 @@
+{
+  "version": "2026-09-08-v31",
+  "description": "Extracted from 2C AI Opportunity Radar v31. Classifiers must choose an existing sceneId; new scenes only via newSceneCandidate.",
+  "scenes": [
+    {
+      "sceneId": 1,
+      "domain": "学习与教育",
+      "scene": "K12学习辅导",
+      "need": "讲解知识点、答疑、错题分析、个性化辅导",
+      "tasks": [
+        "理解",
+        "生成",
+        "持续管理"
+      ],
+      "aiAdvantage": 4,
+      "frequency": 5
+    },
+    {
+      "sceneId": 2,
+      "domain": "学习与教育",
+      "scene": "考试备考",
+      "need": "制定备考计划、刷题、模拟考试、薄弱点复盘",
+      "tasks": [
+        "理解",
+        "生成",
+        "决策",
+        "持续管理"
+      ],
+      "aiAdvantage": 4,
+      "frequency": 4
+    },
+    {
+      "sceneId": 3,
+      "domain": "学习与教育",
+      "scene": "语言学习",
+      "need": "口语陪练、纠错、词汇语法学习、情景对话",
+      "tasks": [
+        "理解",
+        "生成",
+        "持续管理"
+      ],
+      "aiAdvantage": 5,
+      "frequency": 5
+    },
+    {
+      "sceneId": 4,
+      "domain": "学习与教育",
+      "scene": "大学课程与论文学习",
+      "need": "读论文、解释课程、资料整理、研究辅助",
+      "tasks": [
+        "搜索",
+        "理解",
+        "生成"
+      ],
+      "aiAdvantage": 4,
+      "frequency": 4
+    },
+    {
+      "sceneId": 5,
+      "domain": "学习与教育",
+      "scene": "职业技能学习",
+      "need": "编程、设计、数据、办公等技能训练与项目陪练",
+      "tasks": [
+        "搜索",
+        "理解",
+        "生成",
+        "持续管理"
+      ],
+      "aiAdvantage": 4,
+      "frequency": 4
+    },
+    {
+      "sceneId": 6,
+      "domain": "求职与职业发展",
+      "scene": "岗位发现与匹配",
+      "need": "根据背景和偏好筛选岗位、公司与机会",
+      "tasks": [
+        "搜索",
+        "发现",
+        "比较",
+        "决策"
+      ],
+      "aiAdvantage": 3,
+      "frequency": 3
+    },
+    {
+      "sceneId": 7,
+      "domain": "求职与职业发展",
+      "scene": "简历与求职材料",
+      "need": "优化简历、Cover Letter、作品集与职位定制材料",
+      "tasks": [
+        "理解",
+        "生成"
+      ],
+      "aiAdvantage": 4,
+      "frequency": 3
+    },
+    {
+      "sceneId": 8,
+      "domain": "求职与职业发展",
+      "scene": "自动投递与求职管理",
+      "need": "自动填写申请、批量投递、跟踪进度与提醒",
+      "tasks": [
+        "执行",
+        "持续管理"
+      ],
+      "aiAdvantage": 5,
+      "frequency": 3
+    },
+    {
+      "sceneId": 9,
+      "domain": "求职与职业发展",
+      "scene": "面试训练",
+      "need": "模拟面试、即时反馈、岗位定制问题与复盘",
+      "tasks": [
+        "理解",
+        "生成",
+        "决策",
+        "持续管理"
+      ],
+      "aiAdvantage": 4,
+      "frequency": 3
+    },
+    {
+      "sceneId": 10,
+      "domain": "求职与职业发展",
+      "scene": "职业规划与跳槽决策",
+      "need": "分析职业路径、行业机会、能力缺口和跳槽时机",
+      "tasks": [
+        "搜索",
+        "理解",
+        "比较",
+        "决策"
+      ],
+      "aiAdvantage": 3,
+      "frequency": 2
+    },
+    {
+      "sceneId": 11,
+      "domain": "工作与生产力",
+      "scene": "搜索与研究",
+      "need": "跨网页搜索、资料汇总、事实核验、形成研究结论",
+      "tasks": [
+        "搜索",
+        "理解",
+        "生成"
+      ],
+      "aiAdvantage": 5,
+      "frequency": 5
+    },
+    {
+      "sceneId": 12,
+      "domain": "工作与生产力",
+      "scene": "文档写作",
+      "need": "邮件、报告、方案、总结、翻译与润色",
+      "tasks": [
+        "理解",
+        "生成"
+      ],
+      "aiAdvantage": 4,
+      "frequency": 5
+    },
+    {
+      "sceneId": 13,
+      "domain": "工作与生产力",
+      "scene": "PPT与报告生成",
+      "need": "从材料或大纲生成故事线、图表和演示文稿",
+      "tasks": [
+        "搜索",
+        "理解",
+        "生成"
+      ],
+      "aiAdvantage": 5,
+      "frequency": 4
+    },
+    {
+      "sceneId": 14,
+      "domain": "工作与生产力",
+      "scene": "表格与数据分析",
+      "need": "Excel处理、数据清洗、公式、分析、可视化",
+      "tasks": [
+        "理解",
+        "生成",
+        "执行"
+      ],
+      "aiAdvantage": 5,
+      "frequency": 4
+    },
+    {
+      "sceneId": 15,
+      "domain": "工作与生产力",
+      "scene": "会议与个人工作流",
+      "need": "会议纪要、待办、日程、邮件协同和跨应用自动化",
+      "tasks": [
+        "理解",
+        "生成",
+        "执行",
+        "持续管理"
+      ],
+      "aiAdvantage": 5,
+      "frequency": 5
+    },
+    {
+      "sceneId": 16,
+      "domain": "创作与内容生产",
+      "scene": "AI图像与设计",
+      "need": "生成图片、海报、素材、品牌视觉与设计稿",
+      "tasks": [
+        "发现",
+        "生成"
+      ],
+      "aiAdvantage": 5,
+      "frequency": 4
+    },
+    {
+      "sceneId": 17,
+      "domain": "创作与内容生产",
+      "scene": "AI视频生成与剪辑",
+      "need": "文生视频、图生视频、剪辑、字幕、镜头编排",
+      "tasks": [
+        "生成",
+        "执行"
+      ],
+      "aiAdvantage": 5,
+      "frequency": 4
+    },
+    {
+      "sceneId": 18,
+      "domain": "创作与内容生产",
+      "scene": "音乐与音频创作",
+      "need": "生成音乐、配音、播客、音效与声音编辑",
+      "tasks": [
+        "生成",
+        "执行"
+      ],
+      "aiAdvantage": 5,
+      "frequency": 3
+    },
+    {
+      "sceneId": 19,
+      "domain": "创作与内容生产",
+      "scene": "小说剧本与故事创作",
+      "need": "写小说、剧本、角色设定、世界观与情节推进",
+      "tasks": [
+        "理解",
+        "生成",
+        "持续管理"
+      ],
+      "aiAdvantage": 4,
+      "frequency": 3
+    },
+    {
+      "sceneId": 20,
+      "domain": "创作与内容生产",
+      "scene": "自媒体与内容运营",
+      "need": "选题、脚本、配图、发布、复盘和账号增长",
+      "tasks": [
+        "搜索",
+        "发现",
+        "生成",
+        "执行",
+        "持续管理"
+      ],
+      "aiAdvantage": 5,
+      "frequency": 5
+    },
+    {
+      "sceneId": 21,
+      "domain": "婚恋与家庭组建",
+      "scene": "约会与对象匹配",
+      "need": "优化资料、筛选匹配对象、约会建议与沟通辅助",
+      "tasks": [
+        "发现",
+        "比较",
+        "决策",
+        "生成"
+      ],
+      "aiAdvantage": 3,
+      "frequency": 3
+    },
+    {
+      "sceneId": 22,
+      "domain": "婚恋与家庭组建",
+      "scene": "恋爱关系决策",
+      "need": "分析关系、沟通模式、重要节点与长期适配性",
+      "tasks": [
+        "理解",
+        "决策"
+      ],
+      "aiAdvantage": 3,
+      "frequency": 3
+    },
+    {
+      "sceneId": 23,
+      "domain": "婚恋与家庭组建",
+      "scene": "婚礼筹备",
+      "need": "预算、场地、供应商、流程、宾客与进度管理",
+      "tasks": [
+        "搜索",
+        "比较",
+        "决策",
+        "执行",
+        "持续管理"
+      ],
+      "aiAdvantage": 3,
+      "frequency": 2
+    },
+    {
+      "sceneId": 24,
+      "domain": "婚恋与家庭组建",
+      "scene": "备孕与生育准备",
+      "need": "备孕知识、检查计划、营养、时间管理与家庭准备",
+      "tasks": [
+        "搜索",
+        "理解",
+        "决策",
+        "持续管理"
+      ],
+      "aiAdvantage": 4,
+      "frequency": 2
+    },
+    {
+      "sceneId": 25,
+      "domain": "婚恋与家庭组建",
+      "scene": "家庭事务协同",
+      "need": "家庭日程、采购、分工、账单和重要事项提醒",
+      "tasks": [
+        "生成",
+        "执行",
+        "持续管理"
+      ],
+      "aiAdvantage": 3,
+      "frequency": 4
+    },
+    {
+      "sceneId": 26,
+      "domain": "情感与关系",
+      "scene": "AI情感陪伴",
+      "need": "倾诉、聊天、情绪支持、长期人格化陪伴",
+      "tasks": [
+        "理解",
+        "生成",
+        "持续管理"
+      ],
+      "aiAdvantage": 4,
+      "frequency": 5
+    },
+    {
+      "sceneId": 27,
+      "domain": "情感与关系",
+      "scene": "伴侣沟通辅助",
+      "need": "分析冲突、帮助组织表达、给出沟通建议",
+      "tasks": [
+        "理解",
+        "决策",
+        "生成"
+      ],
+      "aiAdvantage": 3,
+      "frequency": 3
+    },
+    {
+      "sceneId": 28,
+      "domain": "情感与关系",
+      "scene": "家庭关系沟通",
+      "need": "亲子、夫妻、代际关系中的表达和冲突管理",
+      "tasks": [
+        "理解",
+        "决策",
+        "生成"
+      ],
+      "aiAdvantage": 3,
+      "frequency": 3
+    },
+    {
+      "sceneId": 29,
+      "domain": "情感与关系",
+      "scene": "朋友与社交关系",
+      "need": "社交建议、关系维护、礼物与活动建议",
+      "tasks": [
+        "发现",
+        "决策",
+        "生成"
+      ],
+      "aiAdvantage": 2,
+      "frequency": 3
+    },
+    {
+      "sceneId": 30,
+      "domain": "情感与关系",
+      "scene": "社交表达与消息回复",
+      "need": "聊天回复、措辞优化、社交媒体互动与人设维护",
+      "tasks": [
+        "理解",
+        "生成"
+      ],
+      "aiAdvantage": 4,
+      "frequency": 5
+    },
+    {
+      "sceneId": 31,
+      "domain": "金融与财富",
+      "scene": "个人预算与记账",
+      "need": "分类支出、预算规划、现金流分析和节省建议",
+      "tasks": [
+        "理解",
+        "决策",
+        "持续管理"
+      ],
+      "aiAdvantage": 4,
+      "frequency": 4
+    },
+    {
+      "sceneId": 32,
+      "domain": "金融与财富",
+      "scene": "股票与投资研究",
+      "need": "财报、行业、市场信息、标的比较与观点形成",
+      "tasks": [
+        "搜索",
+        "理解",
+        "比较",
+        "决策"
+      ],
+      "aiAdvantage": 4,
+      "frequency": 4
+    },
+    {
+      "sceneId": 33,
+      "domain": "金融与财富",
+      "scene": "资产配置与理财规划",
+      "need": "基于目标和风险偏好配置资产并动态调整",
+      "tasks": [
+        "理解",
+        "比较",
+        "决策",
+        "持续管理"
+      ],
+      "aiAdvantage": 4,
+      "frequency": 2
+    },
+    {
+      "sceneId": 34,
+      "domain": "金融与财富",
+      "scene": "保险配置",
+      "need": "理解需求、比较产品、分析保单与家庭保障缺口",
+      "tasks": [
+        "搜索",
+        "理解",
+        "比较",
+        "决策"
+      ],
+      "aiAdvantage": 3,
+      "frequency": 2
+    },
+    {
+      "sceneId": 35,
+      "domain": "金融与财富",
+      "scene": "税务与债务管理",
+      "need": "报税、税务理解、贷款比较、还款规划与债务优化",
+      "tasks": [
+        "搜索",
+        "理解",
+        "比较",
+        "决策",
+        "持续管理"
+      ],
+      "aiAdvantage": 4,
+      "frequency": 2
+    },
+    {
+      "sceneId": 36,
+      "domain": "法律",
+      "scene": "通用法律问答",
+      "need": "理解权利义务、法律概念、处理路径与风险",
+      "tasks": [
+        "搜索",
+        "理解",
+        "决策"
+      ],
+      "aiAdvantage": 4,
+      "frequency": 2
+    },
+    {
+      "sceneId": 37,
+      "domain": "法律",
+      "scene": "合同审阅",
+      "need": "识别风险条款、解释合同、提出修改建议",
+      "tasks": [
+        "理解",
+        "比较",
+        "决策",
+        "生成"
+      ],
+      "aiAdvantage": 4,
+      "frequency": 3
+    },
+    {
+      "sceneId": 38,
+      "domain": "法律",
+      "scene": "劳动纠纷",
+      "need": "劳动合同、解雇、赔偿、仲裁与证据准备",
+      "tasks": [
+        "搜索",
+        "理解",
+        "决策",
+        "生成"
+      ],
+      "aiAdvantage": 4,
+      "frequency": 2
+    },
+    {
+      "sceneId": 39,
+      "domain": "法律",
+      "scene": "婚姻家事法律",
+      "need": "离婚、财产、抚养、继承等法律咨询与材料准备",
+      "tasks": [
+        "理解",
+        "决策",
+        "生成"
+      ],
+      "aiAdvantage": 4,
+      "frequency": 1
+    },
+    {
+      "sceneId": 40,
+      "domain": "法律",
+      "scene": "消费维权与法律文书",
+      "need": "投诉、退费、维权路径、律师函与申诉材料",
+      "tasks": [
+        "搜索",
+        "理解",
+        "生成",
+        "执行"
+      ],
+      "aiAdvantage": 4,
+      "frequency": 2
+    },
+    {
+      "sceneId": 41,
+      "domain": "医疗与健康",
+      "scene": "症状问答与轻问诊",
+      "need": "判断症状严重程度、可能原因、是否就医与去哪就医",
+      "tasks": [
+        "理解",
+        "决策"
+      ],
+      "aiAdvantage": 4,
+      "frequency": 3
+    },
+    {
+      "sceneId": 42,
+      "domain": "医疗与健康",
+      "scene": "体检与检查报告解读",
+      "need": "解释化验单、影像报告、指标异常和下一步建议",
+      "tasks": [
+        "理解",
+        "决策"
+      ],
+      "aiAdvantage": 4,
+      "frequency": 2
+    },
+    {
+      "sceneId": 43,
+      "domain": "医疗与健康",
+      "scene": "慢病与长期健康管理",
+      "need": "跟踪指标、用药、复诊、生活方式与长期档案",
+      "tasks": [
+        "理解",
+        "决策",
+        "持续管理"
+      ],
+      "aiAdvantage": 5,
+      "frequency": 5
+    },
+    {
+      "sceneId": 44,
+      "domain": "医疗与健康",
+      "scene": "饮食营养与运动健身",
+      "need": "饮食计划、训练计划、数据跟踪与动态调整",
+      "tasks": [
+        "理解",
+        "生成",
+        "决策",
+        "持续管理"
+      ],
+      "aiAdvantage": 4,
+      "frequency": 5
+    },
+    {
+      "sceneId": 45,
+      "domain": "医疗与健康",
+      "scene": "女性与儿童健康",
+      "need": "经期、孕期、育儿健康、儿童症状和长期记录",
+      "tasks": [
+        "理解",
+        "决策",
+        "持续管理"
+      ],
+      "aiAdvantage": 4,
+      "frequency": 4
+    },
+    {
+      "sceneId": 46,
+      "domain": "公共事务",
+      "scene": "政务办理",
+      "need": "查政策、理解流程、准备材料、办理进度跟踪",
+      "tasks": [
+        "搜索",
+        "理解",
+        "生成",
+        "执行"
+      ],
+      "aiAdvantage": 3,
+      "frequency": 1
+    },
+    {
+      "sceneId": 47,
+      "domain": "公共事务",
+      "scene": "签证申请",
+      "need": "判断签证类型、准备材料、填表、进度和风险提示",
+      "tasks": [
+        "搜索",
+        "理解",
+        "生成",
+        "执行",
+        "持续管理"
+      ],
+      "aiAdvantage": 4,
+      "frequency": 1
+    },
+    {
+      "sceneId": 48,
+      "domain": "公共事务",
+      "scene": "移民规划",
+      "need": "国家比较、资格判断、材料准备和长期流程管理",
+      "tasks": [
+        "搜索",
+        "比较",
+        "决策",
+        "生成",
+        "持续管理"
+      ],
+      "aiAdvantage": 4,
+      "frequency": 1
+    },
+    {
+      "sceneId": 49,
+      "domain": "公共事务",
+      "scene": "社保医保与福利",
+      "need": "资格判断、政策解释、报销路径与材料准备",
+      "tasks": [
+        "搜索",
+        "理解",
+        "决策",
+        "生成"
+      ],
+      "aiAdvantage": 3,
+      "frequency": 2
+    },
+    {
+      "sceneId": 50,
+      "domain": "公共事务",
+      "scene": "证件与材料办理",
+      "need": "护照、驾照、户籍等证件办理与材料清单",
+      "tasks": [
+        "搜索",
+        "理解",
+        "生成",
+        "执行"
+      ],
+      "aiAdvantage": 3,
+      "frequency": 1
+    },
+    {
+      "sceneId": 51,
+      "domain": "居住与房产",
+      "scene": "租房决策",
+      "need": "找房、区域比较、通勤、价格判断、合同注意事项",
+      "tasks": [
+        "搜索",
+        "发现",
+        "比较",
+        "决策"
+      ],
+      "aiAdvantage": 3,
+      "frequency": 2
+    },
+    {
+      "sceneId": 52,
+      "domain": "居住与房产",
+      "scene": "买房决策",
+      "need": "筛房、楼盘比较、预算、学区、通勤、风险判断",
+      "tasks": [
+        "搜索",
+        "理解",
+        "比较",
+        "决策"
+      ],
+      "aiAdvantage": 3,
+      "frequency": 1
+    },
+    {
+      "sceneId": 53,
+      "domain": "居住与房产",
+      "scene": "装修设计与预算",
+      "need": "风格设计、户型规划、预算、材料与施工计划",
+      "tasks": [
+        "发现",
+        "比较",
+        "决策",
+        "生成",
+        "持续管理"
+      ],
+      "aiAdvantage": 4,
+      "frequency": 2
+    },
+    {
+      "sceneId": 54,
+      "domain": "居住与房产",
+      "scene": "家居搭配与购买",
+      "need": "空间搭配、尺寸校验、家具软装推荐与购买",
+      "tasks": [
+        "发现",
+        "比较",
+        "决策",
+        "生成",
+        "执行"
+      ],
+      "aiAdvantage": 3,
+      "frequency": 3
+    },
+    {
+      "sceneId": 55,
+      "domain": "居住与房产",
+      "scene": "搬家与家庭维修",
+      "need": "搬家计划、维修判断、服务商搜索、报价比较",
+      "tasks": [
+        "搜索",
+        "比较",
+        "决策",
+        "执行"
+      ],
+      "aiAdvantage": 3,
+      "frequency": 2
+    },
+    {
+      "sceneId": 56,
+      "domain": "商品消费",
+      "scene": "商品消费",
+      "need": "理解购买需求、发现商品、跨平台比较价格与参数、辅助决策并完成下单",
+      "tasks": [
+        "搜索",
+        "发现",
+        "比较",
+        "决策",
+        "执行"
+      ],
+      "aiAdvantage": 4,
+      "frequency": 5
+    },
+    {
+      "sceneId": 57,
+      "domain": "旅行与出行",
+      "scene": "目的地发现",
+      "need": "根据预算、季节、兴趣和同行人推荐目的地",
+      "tasks": [
+        "搜索",
+        "发现",
+        "比较",
+        "决策"
+      ],
+      "aiAdvantage": 3,
+      "frequency": 2
+    },
+    {
+      "sceneId": 58,
+      "domain": "旅行与出行",
+      "scene": "行程规划",
+      "need": "多日路线、景点、餐饮、交通与时间安排",
+      "tasks": [
+        "搜索",
+        "发现",
+        "比较",
+        "决策",
+        "生成"
+      ],
+      "aiAdvantage": 4,
+      "frequency": 2
+    },
+    {
+      "sceneId": 59,
+      "domain": "旅行与出行",
+      "scene": "机票酒店搜索比价",
+      "need": "跨平台找机酒、比较价格和条件",
+      "tasks": [
+        "搜索",
+        "比较",
+        "决策"
+      ],
+      "aiAdvantage": 3,
+      "frequency": 2
+    },
+    {
+      "sceneId": 60,
+      "domain": "旅行与出行",
+      "scene": "旅行预订Agent",
+      "need": "自动订机酒、餐厅、门票与当地服务",
+      "tasks": [
+        "比较",
+        "决策",
+        "执行"
+      ],
+      "aiAdvantage": 5,
+      "frequency": 2
+    },
+    {
+      "sceneId": 61,
+      "domain": "旅行与出行",
+      "scene": "在途旅行助手",
+      "need": "根据天气、延误、位置和现场变化动态调整行程",
+      "tasks": [
+        "搜索",
+        "决策",
+        "执行",
+        "持续管理"
+      ],
+      "aiAdvantage": 4,
+      "frequency": 2
+    },
+    {
+      "sceneId": 62,
+      "domain": "本地生活",
+      "scene": "到餐",
+      "need": "根据位置、预算、口味和场景发现餐厅、比较评价与价格并完成预订/到店决策",
+      "tasks": [
+        "搜索",
+        "发现",
+        "比较",
+        "决策",
+        "执行"
+      ],
+      "aiAdvantage": 3,
+      "frequency": 5
+    },
+    {
+      "sceneId": 63,
+      "domain": "本地生活",
+      "scene": "到综",
+      "need": "发现和购买非餐饮本地服务，如美容美发、健身、家政维修、摄影、休闲娱乐等",
+      "tasks": [
+        "搜索",
+        "发现",
+        "比较",
+        "决策",
+        "执行"
+      ],
+      "aiAdvantage": 3,
+      "frequency": 4
+    },
+    {
+      "sceneId": 64,
+      "domain": "娱乐与兴趣",
+      "scene": "影视内容发现",
+      "need": "根据口味、时间和场景推荐影视并解释看点",
+      "tasks": [
+        "搜索",
+        "发现",
+        "比较"
+      ],
+      "aiAdvantage": 2,
+      "frequency": 5
+    },
+    {
+      "sceneId": 65,
+      "domain": "娱乐与兴趣",
+      "scene": "游戏助手",
+      "need": "攻略、配装、任务、角色养成、实时问答",
+      "tasks": [
+        "搜索",
+        "理解",
+        "决策"
+      ],
+      "aiAdvantage": 3,
+      "frequency": 5
+    },
+    {
+      "sceneId": 66,
+      "domain": "娱乐与兴趣",
+      "scene": "体育赛事助手",
+      "need": "赛程、数据、新闻、战术解释和观赛陪伴",
+      "tasks": [
+        "搜索",
+        "理解",
+        "发现"
+      ],
+      "aiAdvantage": 3,
+      "frequency": 4
+    },
+    {
+      "sceneId": 67,
+      "domain": "娱乐与兴趣",
+      "scene": "阅读与书单",
+      "need": "书籍发现、内容理解、阅读笔记和知识整理",
+      "tasks": [
+        "搜索",
+        "发现",
+        "理解",
+        "生成"
+      ],
+      "aiAdvantage": 3,
+      "frequency": 3
+    },
+    {
+      "sceneId": 68,
+      "domain": "娱乐与兴趣",
+      "scene": "兴趣学习与活动发现",
+      "need": "摄影、园艺、烹饪等兴趣学习及线下活动发现",
+      "tasks": [
+        "搜索",
+        "发现",
+        "理解",
+        "生成"
+      ],
+      "aiAdvantage": 3,
+      "frequency": 4
+    },
+    {
+      "sceneId": 69,
+      "domain": "养宠",
+      "scene": "宠物医疗与健康",
+      "need": "症状判断、检查报告理解、就医决策、疫苗驱虫与长期健康记录",
+      "tasks": [
+        "理解",
+        "决策",
+        "持续管理"
+      ],
+      "aiAdvantage": 4,
+      "frequency": 3
+    },
+    {
+      "sceneId": 70,
+      "domain": "养宠",
+      "scene": "宠物饮食与喂养",
+      "need": "根据品种、年龄、体重和健康情况制定饮食与喂养方案",
+      "tasks": [
+        "理解",
+        "决策",
+        "持续管理"
+      ],
+      "aiAdvantage": 3,
+      "frequency": 4
+    },
+    {
+      "sceneId": 71,
+      "domain": "养宠",
+      "scene": "宠物用品选购",
+      "need": "宠物食品、用品、保险等商品和服务的搜索、比较与推荐",
+      "tasks": [
+        "搜索",
+        "发现",
+        "比较",
+        "决策"
+      ],
+      "aiAdvantage": 3,
+      "frequency": 4
+    },
+    {
+      "sceneId": 72,
+      "domain": "养宠",
+      "scene": "宠物服务",
+      "need": "日常洗护、美容、寄养、训练、上门服务、丧葬等服务的发现、比较与预约",
+      "tasks": [
+        "搜索",
+        "发现",
+        "比较",
+        "决策",
+        "执行"
+      ],
+      "aiAdvantage": 3,
+      "frequency": 3
+    }
+  ]
+}

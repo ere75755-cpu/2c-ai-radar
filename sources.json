@@ -1,0 +1,13 @@
+{
+  "product_hunt": {
+    "enabled": true,
+    "api": "https://api.producthunt.com/v2/api/graphql",
+    "daily_lookback_days": 3,
+    "page_size": 50,
+    "max_pages": 10,
+    "orders": [
+      "NEWEST"
+    ],
+    "note": "Daily ingestion uses NEWEST + postedAfter/postedBefore. Metrics are snapshotted on every run."
+  }
+}

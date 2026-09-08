@@ -1,0 +1,45 @@
+name: Product Hunt Daily Sync
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 18 * * *"
+      timezone: "Asia/Shanghai"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: product-hunt-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+      - name: Install optional AI classifier dependency
+        run: pip install -r requirements.txt
+      - name: Fetch Product Hunt
+        env:
+          PRODUCTHUNT_TOKEN: ${{ secrets.PRODUCTHUNT_TOKEN }}
+        run: python scripts/fetch_producthunt.py
+      - name: Classify and map scenes
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: gpt-5.6-luna
+        run: python scripts/classify_products.py
+      - name: Build dashboard data
+        run: python scripts/build_dashboard_data.py
+      - name: Commit data updates
+        run: |
+          git config user.name "product-radar-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/
+          git diff --cached --quiet && exit 0
+          git commit -m "chore: sync Product Hunt data"
+          git push

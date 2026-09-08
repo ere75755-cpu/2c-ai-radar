@@ -1,13 +1,34 @@
-第一次部署（最短路径）
+2C AI Radar v31 自动同步版｜第一次部署（小白版）
 
-1. GitHub 新建仓库：2c-product-radar
-2. 上传本项目全部文件
-3. GitHub → Settings → Secrets and variables → Actions → New repository secret
-   Name: PRODUCTHUNT_TOKEN
-   Secret: 你在 Product Hunt API Dashboard 生成的 developer token
-4. 可选：再添加 OPENAI_API_KEY
-5. GitHub → Actions → Product Hunt Daily Sync → Run workflow
-6. 成功后 Settings → Pages → main / root 开启 GitHub Pages
-7. 打开 https://<你的用户名>.github.io/2c-product-radar/dashboard/
+一、上传到 GitHub
+1. 打开 repo → Code → Add file → Upload files。
+2. 上传解压后项目中的文件夹/文件，不要只上传 ZIP。
+3. Code 首页必须看到：
+   .github/workflows
+   config
+   dashboard
+   data
+   scripts
+   README.md
+   requirements.txt
 
-注意：不要把 token 写进 .env 后提交到 GitHub；.env 已在 .gitignore。
+二、Secret
+Settings → Secrets and variables → Actions
+必须有：PRODUCTHUNT_TOKEN
+可选：OPENAI_API_KEY
+
+三、第一次运行
+Actions → Product Hunt Daily Sync → Run workflow → Run workflow
+成功会显示绿色 ✓。
+
+四、检查抓取
+回 Code 页面，看：
+data/products_raw.json
+data/products_auto.json
+data/product_metrics.json
+data/scan_status.json
+是否刚刚更新。
+
+五、查看 Dashboard
+后续建议开启 GitHub Pages，让 dashboard/index.html 在线读取 data/products_auto.json。
+本地双击 HTML 仍可使用 v31，但通常不会自动 fetch GitHub 数据。

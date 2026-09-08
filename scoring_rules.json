@@ -1,0 +1,24 @@
+{
+  "autoResearchPriority": {
+    "description": "Conservative first-pass score. Manual researchPriority in dashboard always wins.",
+    "rules": [
+      {
+        "if": "isAI=false",
+        "score": 1
+      },
+      {
+        "if": "isAI=true and votes>=500",
+        "score": 4
+      },
+      {
+        "if": "isAI=true and votes>=200",
+        "score": 3
+      },
+      {
+        "if": "isAI=true otherwise",
+        "score": 2
+      }
+    ]
+  },
+  "newSceneCandidateThreshold": 0.55
+}
