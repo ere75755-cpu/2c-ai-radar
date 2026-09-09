@@ -1,0 +1,1797 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>2C AI 场景机会雷达</title>
+<style>
+:root{
+  --bg:#f6f8fb;--panel:#fff;--text:#18212f;--muted:#6b7280;--line:#e6eaf0;
+  --accent:#2367d1;--accent2:#eaf2ff;--green:#0f9d78;--yellow:#d99a00;--red:#d9534f;
+  --shadow:0 10px 30px rgba(31,41,55,.07)
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text)}
+.app{display:grid;grid-template-columns:240px 1fr;min-height:100vh}
+.sidebar{background:#101827;color:#fff;padding:26px 20px;position:sticky;top:0;height:100vh}
+.brand{font-size:20px;font-weight:800}.brand-sub{font-size:12px;color:#9fb0c8;margin-top:5px}
+.nav{margin-top:30px;display:flex;flex-direction:column;gap:8px}
+.nav button{border:0;background:transparent;color:#c7d2e3;text-align:left;padding:11px 12px;border-radius:10px;cursor:pointer;font-size:14px}
+.nav button.active,.nav button:hover{background:#1e2a3d;color:#fff}
+.side-note{position:absolute;bottom:24px;left:20px;right:20px;font-size:12px;color:#91a0b5;line-height:1.5}
+main{padding:28px 32px 40px}
+.topbar{display:flex;justify-content:space-between;align-items:flex-start;gap:20px}
+h1{font-size:28px;margin:0 0 8px}.subtitle{color:var(--muted);font-size:14px}
+.actions{display:flex;gap:10px;flex-wrap:wrap}
+button.primary,button.secondary,button.danger{border-radius:10px;padding:10px 14px;font-weight:700;cursor:pointer}
+.primary{background:var(--accent);color:#fff;border:0}
+.secondary{background:#fff;color:var(--text);border:1px solid var(--line)}
+.danger{background:#fff0f0;color:#b42318;border:1px solid #ffd0d0}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:24px 0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}
+.kpi{padding:18px}.kpi .label{font-size:12px;color:var(--muted);margin-bottom:10px}.kpi .value{font-size:26px;font-weight:800}.kpi .meta{font-size:12px;color:var(--muted);margin-top:6px}
+.section{padding:20px;margin-top:16px}.section-head{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:16px}
+.section-title{font-size:16px;font-weight:800}.filters{display:flex;gap:8px;flex-wrap:wrap}
+input,select,textarea{border:1px solid var(--line);background:#fff;border-radius:9px;padding:9px 10px;font:inherit;color:var(--text)}
+input:focus,select:focus,textarea:focus{outline:2px solid #d8e7ff;border-color:#9ec0ff}.filters input{min-width:220px}
+.map-wrap{display:grid;grid-template-columns:1fr 260px;gap:18px}
+.map{position:relative;height:420px;border:1px solid var(--line);border-radius:14px;background:
+linear-gradient(to right,transparent 49.8%,#edf0f5 50%,transparent 50.2%),
+linear-gradient(to top,transparent 49.8%,#edf0f5 50%,transparent 50.2%),#fff;overflow:hidden}
+.axis-x,.axis-y{position:absolute;font-size:11px;color:var(--muted)}.axis-x{bottom:8px;left:50%;transform:translateX(-50%)}.axis-y{left:10px;top:50%;transform:rotate(-90deg) translateY(-50%);transform-origin:left top}
+.bubble{position:absolute;transform:translate(-50%,-50%);border-radius:999px;background:rgba(35,103,209,.14);border:1px solid rgba(35,103,209,.45);display:flex;align-items:center;justify-content:center;text-align:center;padding:7px;cursor:pointer;transition:.15s}
+.bubble:hover{transform:translate(-50%,-50%) scale(1.05);background:rgba(35,103,209,.2)}.bubble strong{font-size:11px;line-height:1.2}
+.legend{padding:14px;border:1px solid var(--line);border-radius:14px;background:#fbfcfe}.legend h3{font-size:13px;margin:0 0 10px}.legend p{font-size:12px;line-height:1.6;color:var(--muted);margin:6px 0}
+.heat{display:grid;grid-template-columns:repeat(8,1fr);gap:8px}.heat-cell{padding:14px 10px;border:1px solid var(--line);border-radius:12px;background:#fff;min-height:82px}.heat-cell .n{font-size:20px;font-weight:800}.heat-cell .l{font-size:11px;color:var(--muted);margin-top:5px}
+.table-wrap{overflow:auto}table{border-collapse:collapse;width:100%;min-width:1450px}th,td{border-bottom:1px solid var(--line);padding:10px 9px;text-align:left;font-size:12px;vertical-align:top}th{position:sticky;top:0;background:#fbfcfe;color:#536071;z-index:1;min-width:110px} th input,th select{width:100%;margin-top:6px;padding:6px 7px;font-size:11px}td[contenteditable="true"]{background:#fffdf3}
+.tag{display:inline-block;padding:4px 7px;border-radius:999px;background:#eef3fb;color:#315d98;font-size:11px;margin:2px 3px 2px 0}
+.product-link{display:inline-flex;align-items:center;gap:4px;padding:5px 8px;margin:2px 4px 2px 0;border-radius:8px;background:#f4f7fb;border:1px solid #dfe6ef;color:#245da8;cursor:pointer;font-size:11px;font-weight:700}
+.product-link:hover{background:#eaf2ff;border-color:#bdd4fb}
+.score{font-weight:800}.score.high{color:var(--green)}.score.mid{color:var(--yellow)}.score.low{color:var(--red)}
+.modal{display:none;position:fixed;inset:0;background:rgba(15,23,42,.42);align-items:center;justify-content:center;padding:20px;z-index:20}.modal.show{display:flex}
+.modal-box{width:min(780px,96vw);max-height:90vh;overflow:auto;background:#fff;border-radius:18px;padding:22px;box-shadow:0 25px 70px rgba(15,23,42,.25)}
+.modal-box.wide{width:min(980px,96vw)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{display:flex;flex-direction:column;gap:6px}.field.full{grid-column:1/-1}.field label{font-size:12px;color:var(--muted);font-weight:700}.field textarea{min-height:80px;resize:vertical}
+.modal-actions{display:flex;justify-content:space-between;gap:10px;margin-top:18px}.right-actions{display:flex;gap:10px}
+.product-hero{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;padding-bottom:16px;border-bottom:1px solid var(--line)}
+.product-name{font-size:24px;font-weight:800;margin-bottom:6px}.product-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.pill{font-size:11px;padding:5px 8px;border-radius:999px;background:#f1f5f9;color:#42526a}
+.product-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}.info-block{border:1px solid var(--line);border-radius:12px;padding:14px;background:#fbfcfe}.info-block.full{grid-column:1/-1}.info-title{font-size:12px;color:var(--muted);font-weight:800;margin-bottom:8px}.info-text{font-size:13px;line-height:1.65;white-space:pre-wrap}
+.link-btn{display:inline-block;text-decoration:none;background:var(--accent);color:#fff;padding:9px 12px;border-radius:9px;font-size:12px;font-weight:700;margin-right:8px}
+.link-btn.secondary-link{background:#fff;color:var(--accent);border:1px solid #c8d8ef}
+.product-list{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px}
+.product-card{border:1px solid var(--line);border-radius:14px;padding:14px;background:#fff;cursor:pointer;transition:.15s}.product-card:hover{box-shadow:var(--shadow);transform:translateY(-1px)}.product-card .name{font-weight:800}.product-card .reason{font-size:11px;color:var(--muted);margin-top:6px;line-height:1.5}
+.empty{padding:18px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:12px}
+.sortable{cursor:pointer;user-select:none}
+.sortable:hover{background:#f0f5fb}
+.sort-indicator{font-size:10px;color:#8a97a8;margin-left:4px}
+.trace-link{color:var(--accent);font-weight:800;cursor:pointer;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px}
+.source-link{display:inline-block;color:var(--accent);font-weight:700;font-size:11px;text-decoration:none;margin-top:4px}
+.source-link:hover{text-decoration:underline}
+.secondary-source{color:#65758b}
+.conf-badge{display:inline-block;min-width:28px;text-align:center;padding:4px 8px;border-radius:999px;font-size:11px;font-weight:800;cursor:pointer}
+.conf-A{background:#e8f7f0;color:#087a55}.conf-B{background:#fff6dc;color:#9a6a00}.conf-C{background:#fdecec;color:#b42318}
+.tier{display:inline-block;min-width:32px;text-align:center;padding:4px 8px;border-radius:999px;font-size:11px;font-weight:900}
+.tier-S{background:#e9f3ff;color:#1557a8}.tier-A{background:#eaf8f1;color:#087a55}.tier-B{background:#f3f4f6;color:#596273}
+.weight-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.threshold-grid{display:grid;grid-template-columns:repeat(2,220px);gap:12px;margin-top:14px}
+.collapsible-head{display:flex;justify-content:space-between;align-items:center;gap:14px;cursor:pointer}
+.collapse-toggle{border:1px solid var(--line);background:#fff;border-radius:9px;padding:7px 10px;font-size:12px;font-weight:800;cursor:pointer}
+.collapsed{display:none!important}
+.jump-link{color:var(--accent);font-weight:800;cursor:pointer;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px}
+.row-highlight{animation:rowFlash 2.2s ease-out}
+@keyframes rowFlash{0%{background:#fff4bf}100%{background:transparent}}
+.filter-chip-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.domain-group-row td{background:#f7f9fc;font-weight:900;font-size:13px;border-top:1px solid var(--line);cursor:pointer}
+.domain-group-row:hover td{background:#eef4fb}
+.star-btn{border:0;background:transparent;font-size:18px;cursor:pointer;padding:2px 5px}
+.note-input{min-width:160px;width:100%}
+.small-count{font-size:11px;color:var(--muted);font-weight:700;margin-left:6px}
+.map .quadrant{position:absolute;border:1px dashed #d8e0ea;border-radius:10px;pointer-events:none;font-size:11px;color:#8793a3;padding:8px}
+.map .q-tl{left:4%;top:4%;width:56%;height:34%}.map .q-tr{left:62%;top:4%;width:34%;height:34%;background:rgba(46,125,246,.035)}
+.map .q-bl{left:4%;top:40%;width:56%;height:54%}.map .q-br{left:62%;top:40%;width:34%;height:54%}
+.map .bubble.domain-bubble{font-size:9px;font-weight:900;border-width:2px;line-height:1.12;padding:2px;text-align:center;display:flex;align-items:center;justify-content:center;overflow:hidden;opacity:.88}
+.map .bubble.scene-bubble{font-size:8px;opacity:.84}
+.map-grid-v,.map-grid-h{position:absolute;background:#edf1f6;pointer-events:none}
+.map-grid-v{width:1px;top:52px;bottom:56px}.map-grid-h{height:1px;left:76px;right:36px}
+.map-tick{position:absolute;font-size:10px;color:#8c98a8;pointer-events:none}
+
+.pattern-title{font-size:12px;font-weight:800;color:#536071;margin:10px 0 8px}
+
+
+.weight-box{border:1px solid var(--line);border-radius:12px;padding:12px;background:#fbfcfe}
+.weight-box label{display:block;font-size:11px;color:var(--muted);font-weight:800;margin-bottom:8px}
+.weight-box input{width:100%}
+
+
+.source-note{font-size:10px;line-height:1.4;color:var(--muted);margin-top:4px;max-width:230px}
+
+.formula-box{padding:14px;border-radius:12px;background:#f7f9fc;border:1px solid var(--line);font-size:13px;line-height:1.7}
+.trace-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.trace-value{font-size:18px;font-weight:800;margin-top:4px}
+
+@media(max-width:1000px){.app{grid-template-columns:1fr}.sidebar{display:none}.kpis{grid-template-columns:repeat(2,1fr)}.map-wrap,.product-grid{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.product-list{grid-template-columns:1fr}}
+
+.coverage-done td{background:#eef9f1!important}
+.coverage-partial td{background:#fff8df!important}
+.coverage-todo td{background:#f4f6f8!important;color:#667085}
+.coverage-done:hover td,.coverage-partial:hover td,.coverage-todo:hover td{filter:brightness(.985)}
+
+.trend-card-head{display:flex;gap:8px;align-items:center;justify-content:space-between}
+.trend-actions{display:flex;gap:5px;align-items:center}
+.trend-mini-btn{border:1px solid var(--line);background:#fff;border-radius:7px;padding:4px 7px;font-size:11px;cursor:pointer}
+.trend-edit-input{width:100%;margin-top:8px;font-size:11px;display:none}.trend-edit-input.show{display:block}
+.trend-product-row{display:flex;gap:5px;align-items:center;flex-wrap:wrap;margin-top:8px}
+.trend-product-unit{display:inline-flex;align-items:center;gap:2px}
+.trend-hidden{opacity:.55}
+
+.migration-modal{position:fixed;inset:0;background:rgba(15,23,42,.42);z-index:9999;display:none;align-items:center;justify-content:center;padding:24px}
+.migration-modal.show{display:flex}
+.migration-card{width:min(900px,96vw);max-height:90vh;overflow:auto;background:#fff;border-radius:16px;box-shadow:0 24px 80px rgba(15,23,42,.25);padding:20px}
+.migration-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:12px}
+.migration-title{font-size:18px;font-weight:900}
+.migration-textarea{width:100%;min-height:280px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:11px;line-height:1.5;border:1px solid var(--line);border-radius:10px;padding:12px;resize:vertical}
+.migration-actions{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.migration-note{font-size:12px;color:var(--muted);line-height:1.6}
+
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+<div class="brand">2C AI Radar</div><div class="brand-sub">2C 场景机会看板</div>
+<div class="nav"><button class="active" id="navOverview" onclick="showTab('overview')">总览</button><button id="navPriority" onclick="showTab('priority')">场景优先级</button><button id="navMarket" onclick="showTab('market')">市场规模测算</button><button id="navProducts" onclick="showTab('products')">产品扫描</button></div>
+<div class="side-note">场景与产品均可编辑，数据自动保存在浏览器 LocalStorage。</div>
+</aside>
+<main><div class="card" id="publicSafeBanner" style="margin:12px 24px;padding:12px 14px;border:1px solid #cfe0ff;background:#f7fbff;line-height:1.55">
+<div style="font-weight:900">Public-safe 模式</div>
+<div class="subtitle">公开仓库只包含网页框架与公开自动数据，不内嵌内部场景、TAM、产品研究判断或团队评价。首次使用请点击“迁移人工数据”，导入你保存在本地的私有配置 JSON。私有配置不要上传到 GitHub。</div>
+</div><div class="card" style="margin:12px 24px;padding:10px 14px;display:flex;justify-content:flex-end;gap:8px;align-items:center">
+<button class="secondary" onclick="openMigrationModal()">迁移人工数据</button>
+<input id="configFileInput" type="file" accept=".json,application/json" style="display:none" onchange="importDashboardConfig(event)">
+<span class="subtitle">用于跨电脑/浏览器迁移评分、星标、评价、权重与趋势配置</span>
+<span id="autoSyncBadge" class="subtitle" style="margin-left:auto;padding:5px 9px;border:1px solid var(--line);border-radius:999px;background:#fff">PH自动同步：待检测</span>
+</div>
+<div id="overviewTab">
+<div class="topbar">
+<div><h1>2C AI 场景机会雷达</h1><div class="subtitle">需求域 × 用户希望 AI 干什么 × AI 优势 × 市场规模 × 创业热度 × 代表产品</div></div>
+<div class="actions">
+<button class="secondary" onclick="exportData()">导出 JSON</button>
+<button class="secondary" onclick="document.getElementById('importFile').click()">导入 JSON</button>
+<input accept=".json" hidden="" id="importFile" onchange="importData(event)" type="file"/>
+<button class="primary" onclick="openSceneEditor()">+ 新增场景</button>
+</div>
+</div>
+<div class="kpis">
+<div class="card kpi"><div class="label">场景数</div><div class="value" id="kpiScenes">0</div><div class="meta">当前 Mapping</div></div>
+<div class="card kpi"><div class="label">产品案例</div><div class="value" id="kpiProducts">0</div><div class="meta">已收录产品</div></div>
+<div class="card kpi"><div class="label">高 AI 优势</div><div class="value" id="kpiHighAI">0</div><div class="meta">AI 优势=5 且覆盖≥4类AI任务</div></div>
+<div class="card kpi"><div class="label">高潜机会</div><div class="value" id="kpiOpp">0</div><div class="meta">S级场景 且 TAM可信度A/B</div></div>
+</div>
+<section class="card section">
+<div class="collapsible-head" onclick="toggleSection('opportunityMapBody','opportunityMapBtn')">
+<div><div class="section-title">机会地图</div><div class="subtitle">AI优势高/低分界=3.5。地图会先按场景ID去重；单场景一级域严格等于该场景当前分数，多场景一级域才做TAM加权。气泡内直接显示AI优势值。</div></div>
+<div class="actions" style="margin-left:auto;display:flex;gap:8px;align-items:center"><div class="filters"><select id="mapLevel" onchange="renderMap()"><option value="domain">一级需求域</option><option value="scene">二级场景</option></select><select id="domainFilter" onchange="renderAll()"><option value="">全部需求域</option></select><select id="taskFilter" onchange="renderAll()"><option value="">全部 AI 任务</option></select></div><button class="collapse-toggle" id="opportunityMapBtn" onclick="event.stopPropagation();toggleSection('opportunityMapBody','opportunityMapBtn')">收起</button></div>
+</div>
+<div id="opportunityMapBody"><div class="map-wrap">
+<div class="map" id="map">
+<div class="quadrant q-tl">AI优势≥3.5 / 低频<br/>高价值、复杂决策</div>
+<div class="quadrant q-tr">重点机会区<br/>频次≥3.5 + AI优势≥3.5</div>
+<div class="quadrant q-bl">低频 / AI优势&lt;3.5</div>
+<div class="quadrant q-br">频次≥3.5 / AI优势&lt;3.5</div>
+<div class="axis-x">需求频次 →</div><div class="axis-y">AI 优势 →</div>
+</div>
+<div class="legend"><h3>怎么看</h3><p><b>右上：</b>更值得优先研究。</p><p><b>左上：</b>低频但AI价值高，适合高客单/Agent。</p><p><b>气泡越大：</b>AI Revenue TAM越高。</p><p><b>默认一级需求域：</b>位置取域内场景加权平均；点击气泡自动筛选该需求域，再切二级场景可下钻。</p></div>
+</div></div>
+</section>
+<section class="card section">
+<div class="section-head"><div><div class="section-title">AI 任务分布</div><div class="subtitle">用户究竟希望 AI “干什么”</div></div></div>
+<div class="heat" id="taskHeat"></div>
+</section>
+<section class="card section">
+<div class="section-head">
+<div><div class="section-title">场景库</div><div class="subtitle">代表产品可点击查看产品画像，也可一键跳到产品扫描；TAM、优先级可跳到对应分析模块</div></div>
+<div class="filters"><select id="sceneStarFilter" onchange="renderTable()"><option value="">全部</option><option value="star">仅看星标</option></select><input id="searchInput" oninput="renderTable()" placeholder="搜索场景 / 需求 / 产品..."/></div>
+</div>
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>一级需求域<br/><select id="thDomain" onchange="renderTable()"><option value="">全部</option></select></th>
+<th>二级场景<br/><input id="thScene" oninput="renderTable()" placeholder="筛选"/></th>
+<th>典型用户需求<br/><input id="thNeed" oninput="renderTable()" placeholder="筛选"/></th>
+<th>AI 任务<br/><select id="thTask" onchange="renderTable()"><option value="">全部</option></select></th>
+<th>AI 优势<br/><select id="thAI" onchange="renderTable()"><option value="">全部</option><option>5</option><option>4</option><option>3</option><option>2</option><option>1</option></select></th>
+<th>需求频次<br/><select id="thFreq" onchange="renderTable()"><option value="">全部</option><option>5</option><option>4</option><option>3</option><option>2</option><option>1</option></select></th>
+<th>AI Revenue TAM<br/><input id="thMarketTam" oninput="renderTable()" placeholder="≥ 亿元" type="number"/></th>
+<th>商业模式<br/><input id="thBiz" oninput="renderTable()" placeholder="筛选"/></th>
+<th>创业热度<br/><select id="thHeat" onchange="renderTable()"><option value="">全部</option><option>5</option><option>4</option><option>3</option><option>2</option><option>1</option></select></th>
+<th>代表产品<br/><input id="thProduct" oninput="renderTable()" placeholder="筛选"/></th>
+<th>机会判断<br/><input id="thOpp" oninput="renderTable()" placeholder="筛选"/></th>
+<th>场景优先级</th>
+<th>人工关注</th>
+<th>团队评价</th>
+<th>编辑</th>
+</tr></thead>
+<tbody id="sceneTable"></tbody>
+</table>
+</div>
+</section>
+</div>
+<div id="priorityTab" style="display:none">
+<div class="topbar">
+<div><h1>场景优先级</h1><div class="subtitle">用于决定首次产品扫描投入顺序。默认综合 AI 优势、AI Revenue TAM、需求频次、创业热度，并用 TAM 可信度修正。</div></div>
+</div>
+<section class="card section" style="margin-top:24px">
+<div class="collapsible-head" onclick="toggleSection('priorityConfigBody','priorityConfigBtn')">
+<div><div class="section-title">评分权重与分层规则</div><div class="subtitle">属于方法配置，默认折叠；需要调整时再展开。</div></div>
+<button class="collapse-toggle" id="priorityConfigBtn" onclick="event.stopPropagation();toggleSection('priorityConfigBody','priorityConfigBtn')">展开</button>
+</div>
+<div class="collapsed" id="priorityConfigBody" style="margin-top:16px">
+<div class="section-head">
+<div><div class="subtitle">权重可编辑，系统自动归一化；TAM 可信度作为乘数修正，不单独占权重。</div></div>
+<div><button class="secondary" onclick="resetPriorityWeights()">恢复默认</button></div>
+</div>
+<div class="info-block full" style="margin-bottom:14px">
+<div class="info-title">各维度 1–5 分规则</div>
+<div class="info-text">
+<b>AI优势：</b>5=AI-native，核心价值依赖生成/推理/多模态/Memory/Agent执行，传统产品难以完成；4=AI带来明显质变，但传统工具/人工仍有可用替代；3=AI有帮助，但搜索、Marketplace、规则工具已能解决大部分需求；2=主要是便利性/推荐增强，AI并非必要；1=几乎没有独立AI价值。<br/>
+<b>需求频次：</b>5=周频及以上；4=月2–4次；3=月度/季度；2=年1–3次；1=低于年1次。<br/>
+<b>创业热度：</b>默认自动计算，来自Product Hunt / YC / GitHub / 跨渠道覆盖 / a16z&amp;CBI等外部验证；不是主观硬填。<br/>
+<b>AI Revenue TAM：</b>不手工打分，按当前场景TAM做平方根归一化到1–5附近，并乘TAM可信度(A=1.0/B=0.9/C=0.75)。<br/>
+<b>完整链路潜力：</b>按AI任务覆盖数量：1类=1分、2类=2、3类=3、4–5类=4、≥6类=5。
+      </div>
+</div>
+<div class="product-grid" style="margin-bottom:16px">
+<div class="info-block full" style="margin-bottom:12px"><div class="info-title">创业热度配置</div><div class="info-text" style="display:flex;gap:12px;align-items:center;flex-wrap:wrap"><label style="font-weight:800"><input ${useautostartupheat?'checked':''}="" id="autoHeatToggle" onchange="updateHeatConfig()" type="checkbox"/> 自动计算</label><span class="muted">关闭后=手动模式，下方“创业热度”列可直接编辑</span><span>PH <input id="heatWPH" style="width:48px" type="number" value="${startupHeatWeights.ph}"/>%</span><span>YC <input id="heatWYC" style="width:48px" type="number" value="${startupHeatWeights.yc}"/>%</span><span>GitHub <input id="heatWGH" style="width:48px" type="number" value="${startupHeatWeights.github}"/>%</span><span>跨渠道 <input id="heatWBreadth" style="width:48px" type="number" value="${startupHeatWeights.breadth}"/>%</span><span>外部验证 <input id="heatWVal" style="width:48px" type="number" value="${startupHeatWeights.validation}"/>%</span><button class="secondary" onclick="updateHeatConfig()">应用</button></div><div class="info-text" style="margin-top:8px;display:flex;gap:10px;align-items:center;flex-wrap:wrap"><span>阈值：</span><span>2分≥<input id="heatT2" style="width:44px" type="number" value="${startupHeatThresholds.s2}"/></span><span>3分≥<input id="heatT3" style="width:44px" type="number" value="${startupHeatThresholds.s3}"/></span><span>4分≥<input id="heatT4" style="width:44px" type="number" value="${startupHeatThresholds.s4}"/></span><span>5分≥<input id="heatT5" style="width:44px" type="number" value="${startupHeatThresholds.s5}"/></span></div></div>
+</div>
+<div class="weight-grid">
+<div class="weight-box"><label>AI 优势</label><input id="wAI" max="100" min="0" onchange="updatePriorityWeights()" type="number" value="30"/></div>
+<div class="weight-box"><label>AI Revenue TAM</label><input id="wTam" max="100" min="0" onchange="updatePriorityWeights()" type="number" value="30"/></div>
+<div class="weight-box"><label>需求频次</label><input id="wFreq" max="100" min="0" onchange="updatePriorityWeights()" type="number" value="15"/></div>
+<div class="weight-box"><label>创业热度</label><input id="wHeat" max="100" min="0" onchange="updatePriorityWeights()" type="number" value="15"/></div>
+<div class="weight-box"><label>场景完整链路潜力</label><input id="wTask" max="100" min="0" onchange="updatePriorityWeights()" type="number" value="10"/></div>
+</div>
+<div class="threshold-grid">
+<div class="weight-box"><label>S级：Top（%）</label><input id="tierS" max="90" min="1" onchange="updateTierThresholds()" type="number" value="20"/></div>
+<div class="weight-box"><label>A级：累计 Top（%）</label><input id="tierA" max="99" min="2" onchange="updateTierThresholds()" type="number" value="50"/></div>
+</div>
+<div class="subtitle" style="margin-top:10px">例如 S=20、A=50 表示：S 为 Top 20%，A 为 20%–50%，B 为其余。可随时调整。</div>
+</div>
+</section>
+<section class="card section">
+<div class="section-head">
+<div><div class="section-title">优先级排名</div><div class="subtitle">AI优势、需求频次可直接编辑；创业热度默认自动计算，关闭“自动计算”后该列立即变为可编辑。支持⭐人工关注和团队评价。</div></div>
+<div class="actions">
+<button class="secondary" onclick="setAllDomainGroups('pr',true)">全部展开</button>
+<button class="secondary" onclick="setAllDomainGroups('pr',false)">全部收起</button>
+</div>
+</div>
+<div class="table-wrap">
+<table style="min-width:1250px">
+<thead><tr>
+<th>一级需求域<br/><select id="priorityDomainFilter" onchange="renderPriority()"><option value="">全部</option></select></th>
+<th class="sortable" onclick="setPrioritySort('scene')">二级场景 <span class="sort-indicator" id="ps_scene">↕</span></th>
+<th>优先级<br/><select id="priorityTierFilter" onchange="renderPriority()"><option value="">全部</option><option>S</option><option>A</option><option>B</option></select></th>
+<th class="sortable" onclick="setPrioritySort('score')">综合得分 <span class="sort-indicator" id="ps_score">↓</span></th>
+<th class="sortable" onclick="setPrioritySort('ai')">AI 优势 <span class="sort-indicator" id="ps_ai">↕</span></th>
+<th class="sortable" onclick="setPrioritySort('tam')">AI Revenue TAM <span class="sort-indicator" id="ps_tam">↕</span></th>
+<th class="sortable" onclick="setPrioritySort('freq')">需求频次 <span class="sort-indicator" id="ps_freq">↕</span></th>
+<th class="sortable" onclick="setPrioritySort('heat')">创业热度 <span class="sort-indicator" id="ps_heat">↕</span></th>
+<th>TAM可信度</th>
+<th>AI任务覆盖</th>
+<th>为什么值得扫</th>
+<th>人工关注</th>
+<th>团队评价</th>
+</tr></thead>
+<tbody id="priorityTable"></tbody>
+</table>
+</div>
+</section>
+</div>
+<div id="productsTab" style="display:none">
+<div class="topbar">
+<div><h1>Product Hunt 扫描覆盖矩阵</h1><div class="subtitle">首次底库已进入多渠道阶段：Product Hunt Monthly持续逐月补齐；YC / GitHub Trending / a16z 已完成第一轮扫描，并将高价值产品统一并入产品池。当前收录 <span id="scanCount">0</span> 个值得进一步研究的产品。</div></div>
+</div>
+<div class="kpis" style="margin:24px 0 0">
+<div class="card kpi"><div class="label">当前产品池</div><div class="value" id="scanKpiProducts">0</div><div class="meta">去重后正式入库</div></div>
+<div class="card kpi"><div class="label">月榜扫描</div><div class="value">全显式排名</div><div class="meta">4–8月逐月滚到底核对，不预设Top20</div></div>
+<div class="card kpi"><div class="label">新增高优类目</div><div class="value">10</div><div class="meta">含Productivity 5个二级类目</div></div>
+<div class="card kpi"><div class="label">LLM Memory</div><div class="value">Top 30</div><div class="meta">小类目重点深扫</div></div>
+</div>
+<section class="card section">
+<div class="collapsible-head" onclick="toggleSection('channelScanBody','channelScanBtn')">
+<div>
+<div class="section-title">渠道首次扫描进度</div>
+<div class="subtitle">Product Hunt负责新品发现；YC / GitHub负责早期新形态；a16z / CB Insights更偏使用规模、资本与商业化验证。</div>
+</div>
+<button class="collapse-toggle" id="channelScanBtn" onclick="event.stopPropagation();toggleSection('channelScanBody','channelScanBtn')">展开</button>
+</div>
+<div class="collapsed" id="channelScanBody" style="margin-top:16px">
+<div class="product-grid" style="margin-bottom:16px">
+<div class="info-block"><div class="info-title">发现型渠道</div><div class="info-text"><b>Product Hunt / YC / GitHub</b><br/>目标是尽早发现新产品、新交互和新Pattern。</div></div>
+<div class="info-block"><div class="info-title">验证型渠道</div><div class="info-text"><b>a16z / CB Insights</b><br/>目标是验证用户规模、资本投入、商业化和市场动量，不机械追新品。</div></div>
+<div class="info-block full"><div class="info-title">入库原则</div><div class="info-text">渠道里发现 ≠ 自动进入产品池。只有满足 <b>2C相关 / AI-native / 新Pattern / 有验证信号 / 对通用AI有启发</b> 中至少两项，才进入正式研究池。</div></div>
+</div>
+<div class="table-wrap">
+<table style="min-width:1200px">
+<thead><tr><th>渠道</th><th>抓取入口</th><th>扫描范围</th><th>扫描方法</th><th>状态</th><th>本轮结果</th><th>后续动作</th></tr></thead>
+<tbody id="channelScanTable"></tbody>
+</table>
+</div>
+</div>
+</section>
+<section class="card section">
+<div class="collapsible-head" onclick="toggleSection('rankingRuleBody','rankingRuleBtn')">
+<div>
+<div class="section-title">榜单自身入围机制 &amp; 我们的入库规则</div>
+<div class="subtitle">区分“平台怎么排榜”和“我们什么情况下收入研究池”，避免把二者混为一谈。</div>
+</div>
+<button class="collapse-toggle" id="rankingRuleBtn" onclick="event.stopPropagation();toggleSection('rankingRuleBody','rankingRuleBtn')">展开</button>
+</div>
+<div class="collapsed" id="rankingRuleBody" style="margin-top:16px">
+<div class="product-grid">
+<div class="info-block">
+<div class="info-title">Product Hunt · Week / Month</div>
+<div class="info-text">
+<b>平台机制：</b>Day/Week/Month本质按“points”排名；points不等同于裸upvotes，而综合真实upvote与有意义互动（如评论/分享），并做真实性与反作弊处理。官方不公开完整算法。Week比较周一至周日launch，Month比较自然月launch。<br/>
+<b>我们的入库：</b>Monthly完整浏览显式排名；Weekly做增量。优先收入 Rank靠前、Reviews/讨论真实、出现新Pattern、且对2C/通用AI有启发的产品。
+          </div>
+</div>
+<div class="info-block">
+<div class="info-title">GitHub Trending · Today / Week / Month</div>
+<div class="info-text">
+<b>平台机制：</b>GitHub官方只表述为“社区当前最兴奋的项目”，支持Today / This week / This month，并展示对应周期新增stars；官方没有公开精确Trending算法。<br/>
+<b>我们的入库：</b>重点看周期新增stars、增长速度、持续上榜、最近commit与产品化程度；过滤模型权重、教程、纯infra。只有出现消费级Agent / Memory / Skills / 新交互Pattern，或异常增长，才进正式产品池。
+          </div>
+</div>
+</div>
+</div>
+</section>
+<section class="card section">
+<div class="collapsible-head" onclick="toggleSection('coverageBody','coverageBtn')">
+<div>
+<div class="section-title">Product Hunt 扫描覆盖矩阵 · Monthly + 垂类 Top Reviewed</div>
+<div class="subtitle">“已扫”=按既定规则系统扫过；“部分”=只发现/补充过代表产品；“未扫”=尚未系统覆盖。</div>
+</div>
+<button class="collapse-toggle" id="coverageBtn" onclick="event.stopPropagation();toggleSection('coverageBody','coverageBtn')">展开</button>
+</div>
+<div class="collapsed" id="coverageBody" style="margin-top:16px">
+<div class="section-head" style="margin-bottom:12px">
+<div></div>
+<div class="filters">
+<select id="coverageStatus" onchange="renderCoverage()"><option value="">全部状态</option><option>已扫描</option><option>部分扫描</option><option>未扫描</option></select>
+<select id="coverageGroup" onchange="renderCoverage()"><option value="">全部需求域</option></select>
+</div>
+</div>
+<div class="kpis" style="margin:0 0 16px">
+<div class="card kpi"><div class="label">已扫描</div><div class="value" id="covDone">0</div><div class="meta">系统完成</div></div>
+<div class="card kpi"><div class="label">部分扫描</div><div class="value" id="covPartial">0</div><div class="meta">点状/代表产品</div></div>
+<div class="card kpi"><div class="label">未扫描</div><div class="value" id="covTodo">0</div><div class="meta">待补</div></div>
+<div class="card kpi"><div class="label">覆盖率</div><div class="value" id="covRate">0%</div><div class="meta">已扫 / 总类目</div></div>
+</div>
+<div class="table-wrap">
+<table style="min-width:1350px">
+<thead><tr>
+<th>一级需求域</th><th>二级需求场景</th><th>Product Hunt 类目 / Topic</th><th>首次扫描方式</th><th>扫描深度</th><th>状态</th><th>最后扫描</th><th>已入库/代表产品</th><th>备注</th>
+</tr></thead>
+<tbody id="coverageTable"></tbody>
+</table>
+</div>
+</div>
+</section>
+<section class="card section">
+<div class="collapsible-head" onclick="toggleSection('trendRadarBody','trendRadarBtn')">
+<div>
+<div class="section-title">趋势雷达</div>
+<div class="subtitle">趋势和描述可编辑；产品默认仅展示Chip，需要调整时点“编辑产品”。</div>
+</div>
+<div class="actions"><label style="font-size:12px;color:var(--muted);cursor:pointer"><input id="showHiddenTrends" onchange="renderProductScan()" type="checkbox"/> 显示隐藏趋势</label><button class="collapse-toggle" id="trendRadarBtn" onclick="event.stopPropagation();toggleSection('trendRadarBody','trendRadarBtn')">收起</button></div></div>
+<div id="trendRadarBody"><div class="product-list" id="trendRadar" style="grid-template-columns:repeat(2,1fr)"></div></div>
+</section>
+<section class="card section">
+<div class="section-head">
+<div><div class="section-title">产品池</div><div class="subtitle">优先保留对通用AI可迁移的“产品模式”，而非机械搬运榜单。</div><div id="filteredProductCount" style="margin-top:6px;font-size:13px;color:var(--muted);font-weight:800"></div></div>
+<div class="filters">
+<select id="scanDomain" onchange="renderProductScan()"><option value="">全部需求域</option></select>
+<select id="scanScene" onchange="renderProductScan()"><option value="">全部场景</option></select>
+<select id="scanSource" onchange="renderProductScan()"><option value="">全部来源类型</option></select><select id="scanCaptureSource" onchange="renderProductScan()"><option value="">全部捕捉来源</option></select><select id="scanPriority" onchange="renderProductScan()"><option value="">全部研究优先级</option><option value="5">★★★★★ 重点深挖</option><option value="4">★★★★ 值得研究</option><option value="3">★★★ 观察</option></select><select id="productStarFilter" onchange="renderProductScan()"><option value="">全部产品</option><option value="star">仅看星标</option></select>
+<input id="scanSearch" oninput="renderProductScan()" placeholder="搜索产品 / Pattern / 启发..."/>
+</div>
+</div>
+<div class="table-wrap">
+<table style="min-width:1500px">
+<thead><tr>
+<th>一级需求域</th><th>场景</th><th>产品</th><th>研究优先级</th><th>捕捉来源</th><th>捕捉时间</th><th>成立时间</th><th>入围信号</th><th>产品核心</th><th>产品 Pattern</th><th>商业模式</th><th>用户反馈/验证</th><th>对通用AI的启发</th><th>人工关注</th><th>团队评价</th><th>链接</th>
+</tr></thead>
+<tbody id="productScanTable"></tbody>
+</table>
+</div>
+</section>
+</div>
+<div id="marketTab" style="display:none">
+<div class="topbar">
+<div><h1>市场规模测算</h1><div class="subtitle">统一母公式：目标人群 × 年需求发生率 × AI 渗透率 × AI 单用户年变现 = AI Revenue TAM</div></div>
+<div class="actions"><button class="secondary" onclick="resetMarketAssumptions()">恢复粗估</button></div>
+</div>
+<section class="card section" style="margin-top:24px">
+<div class="collapsible-head" onclick="toggleSection('marketMethodBody','marketMethodBtn')">
+<div>
+<div class="section-title">市场规模模型</div>
+<div class="subtitle">目标人群、需求发生率、AI单用户年变现均附二手来源或代理口径；无法获得直接统计时会标注可信度与推导说明。AI渗透率仍为场景假设，并以全国生成式AI普及率作基准。所有参数可编辑并自动联动首页。</div>
+</div>
+<div class="actions">
+<button class="secondary" onclick="setAllDomainGroups('mk',true)">全部展开</button>
+<button class="secondary" onclick="setAllDomainGroups('mk',false)">全部收起</button>
+<button class="collapse-toggle" id="marketMethodBtn" onclick="event.stopPropagation();toggleSection('marketMethodBody','marketMethodBtn')">收起</button>
+<button class="secondary" id="evidenceToggleBtn" onclick="event.stopPropagation();toggleEvidenceColumn()">显示目标人群依据</button>
+</div>
+</div>
+<div id="marketMethodBody">
+<div class="kpis" style="margin:16px 0 18px">
+<div class="card kpi"><div class="label">总 AI Revenue TAM</div><div class="value" id="marketTotalTam">0</div><div class="meta">亿元 / 年，场景简单求和，仅作机会池参考</div></div>
+<div class="card kpi"><div class="label">TAM 最大场景</div><div class="value" id="marketTopScene" style="font-size:18px">-</div><div class="meta" id="marketTopTam">-</div></div>
+<div class="card kpi"><div class="label">场景数</div><div class="value" id="marketSceneCount">0</div><div class="meta">已配置测算模型</div></div>
+<div class="card kpi"><div class="label">A/B 级 TAM</div><div class="value" id="marketConfCount">0</div><div class="meta">证据链相对扎实的场景数</div></div>
+</div>
+<div class="table-wrap">
+<table style="min-width:1550px">
+<thead><tr>
+<th>一级需求域<br/><select id="marketDomainFilter" onchange="renderMarket()"><option value="">全部</option></select></th>
+<th class="sortable" onclick="setMarketSort('scene')">二级场景 <span class="sort-indicator" id="sort_scene">↕</span></th>
+<th class="sortable" onclick="setMarketSort('populationM')">目标人群<br/><span class="muted">百万人</span><span class="sort-indicator" id="sort_populationM">↕</span></th>
+<th class="evidence-col" style="display:none">目标人群依据</th>
+<th class="sortable" onclick="setMarketSort('incidence')">年需求发生率<br/><span class="muted">%</span><span class="sort-indicator" id="sort_incidence">↕</span></th>
+<th class="sortable" onclick="setMarketSort('aiPenetration')">AI 渗透率<br/><span class="muted">% · 场景假设</span><span class="sort-indicator" id="sort_aiPenetration">↕</span></th>
+<th>变现模型<br/><select id="marketModelFilter" onchange="renderMarket()"><option value="">全部</option><option>用户付费</option><option>交易佣金</option><option>专业服务替代</option><option>混合模式</option></select></th>
+<th class="sortable" onclick="setMarketSort('monetization')">AI 单用户年变现<br/><span class="muted">元/年 · 点击数字看拆解</span><span class="sort-indicator" id="sort_monetization">↕</span></th>
+<th class="sortable" onclick="setMarketSort('tam')">AI Revenue TAM<br/><span class="muted">亿元/年</span><span class="sort-indicator" id="sort_tam">↕</span></th>
+<th class="sortable" onclick="setMarketSort('confidence')">TAM 可信度 <span class="sort-indicator" id="sort_confidence">↕</span></th>
+<th class="sortable" onclick="setMarketSort('notes')">备注 <span class="sort-indicator" id="sort_notes">↕</span></th>
+</tr></thead>
+<tbody id="marketTable"></tbody>
+</table>
+</div>
+</div>
+</section>
+</div>
+</main>
+</div>
+<div class="modal" id="sceneModal" onclick="if(event.target===this)closeSceneEditor()">
+<div class="modal-box">
+<div class="section-head"><div><div class="section-title" id="sceneModalTitle">新增场景</div><div class="subtitle">所有字段均可编辑</div></div><button class="secondary" onclick="closeSceneEditor()">关闭</button></div>
+<div class="form-grid">
+<div class="field"><label>一级需求域</label><input id="fDomain"/></div>
+<div class="field"><label>二级场景</label><input id="fScene"/></div>
+<div class="field full"><label>典型用户需求</label><textarea id="fNeed"></textarea></div>
+<div class="field full"><label>AI 任务（逗号分隔）</label><input id="fTask"/></div>
+<div class="field"><label>AI 优势（1-5）</label><input id="fAI" max="5" min="1" type="number"/></div>
+<div class="field"><label>需求频次（1-5）</label><input id="fFreq" max="5" min="1" type="number"/></div>
+<div class="field"><label>AI Revenue TAM（联动市场规模测算）</label><input disabled="" id="fMarketTamDisplay"/></div>
+<div class="field"><label>创业热度（1-5）</label><input id="fHeat" max="5" min="1" type="number"/></div>
+<div class="field"><label>商业模式</label><input id="fBiz"/></div>
+<div class="field full"><label>机会判断</label><textarea id="fOpp"></textarea></div>
+</div>
+<div class="modal-actions">
+<button class="danger" id="sceneDeleteBtn" onclick="deleteScene()" style="visibility:hidden">删除场景</button>
+<div class="right-actions"><button class="secondary" onclick="closeSceneEditor()">取消</button><button class="primary" onclick="saveScene()">保存</button></div>
+</div>
+</div>
+</div>
+<div class="modal" id="productModal" onclick="if(event.target===this)closeProductModal()">
+<div class="modal-box wide">
+<div id="productView"></div>
+</div>
+</div>
+<div class="modal" id="productEditModal" onclick="if(event.target===this)closeProductEditor()">
+<div class="modal-box">
+<div class="section-head"><div><div class="section-title" id="productEditTitle">编辑产品</div><div class="subtitle">产品信息也可独立维护</div></div><button class="secondary" onclick="closeProductEditor()">关闭</button></div>
+<div class="form-grid">
+<div class="field"><label>产品名称</label><input id="pName"/></div>
+<div class="field"><label>所属场景</label><select id="pScene"></select></div>
+<div class="field full"><label>基本介绍</label><textarea id="pIntro"></textarea></div>
+<div class="field"><label>商业模式</label><input id="pBiz"/></div>
+<div class="field"><label>官网链接</label><input id="pWebsite"/></div>
+<div class="field"><label>Demo 链接</label><input id="pDemo"/></div>
+<div class="field"><label>来源 / 榜单</label><input id="pSource" placeholder="Product Hunt / YC / GitHub / a16z"/></div>
+<div class="field full"><label>用户反馈</label><textarea id="pFeedback"></textarea></div>
+<div class="field full"><label>入围原因</label><textarea id="pReason" placeholder="例如：Product Hunt 周榜第1；GitHub Trending 连续3日Top3"></textarea></div>
+</div>
+<div class="modal-actions">
+<button class="danger" id="productDeleteBtn" onclick="deleteProduct()" style="visibility:hidden">删除产品</button>
+<div class="right-actions"><button class="secondary" onclick="closeProductEditor()">取消</button><button class="primary" onclick="saveProduct()">保存</button></div>
+</div>
+</div>
+</div>
+<script>
+const TASKS=["搜索", "理解", "发现", "比较", "决策", "生成", "执行", "持续管理"];
+
+const defaultScenes=[];
+
+const defaultMarketSizing=[];
+
+const defaultProducts=[];
+
+let scenes=JSON.parse(localStorage.getItem("aiRadarScenesV8")||"null")||defaultScenes;
+(function migrateAIScoreCalibrationV2(){
+  try{
+    const key="aiRadarAIScoreCalibration";
+    if(localStorage.getItem(key)==="v2") return;
+    const aiById=new Map(defaultScenes.map(s=>[s.id,s.ai]));
+    scenes.forEach(s=>{if(aiById.has(s.id))s.ai=aiById.get(s.id);});
+    localStorage.setItem("aiRadarScenesV8",JSON.stringify(scenes));
+    localStorage.setItem(key,"v2");
+  }catch(e){console.warn("AI score calibration migration failed",e);}
+})();
+let products=JSON.parse(localStorage.getItem("aiRadarProductsV23")||"null")||defaultProducts;
+
+(function migrateLegacyProductAnnotations(){
+  try{
+    const legacyKeys=["aiRadarProductsV18","aiRadarProductsV17","aiRadarProductsV14","aiRadarProductsV12"];
+    const legacyByName=new Map();
+    for(const k of legacyKeys){
+      const raw=localStorage.getItem(k);
+      if(!raw) continue;
+      try{
+        const arr=JSON.parse(raw);
+        if(!Array.isArray(arr)) continue;
+        arr.forEach(p=>{
+          if(!legacyByName.has(p.name)) legacyByName.set(p.name,p);
+        });
+      }catch(e){}
+    }
+    products.forEach(p=>{
+      const old=legacyByName.get(p.name);
+      if(!old) return;
+      if((p.teamNote===undefined || p.teamNote==="") && old.teamNote) p.teamNote=old.teamNote;
+      if((p.starred===undefined || p.starred===false) && old.starred===true) p.starred=true;
+      if(p.researchPriority===undefined && old.researchPriority!==undefined) p.researchPriority=old.researchPriority;
+      if((p.researchWhy===undefined || p.researchWhy==="") && old.researchWhy) p.researchWhy=old.researchWhy;
+    });
+    localStorage.setItem("aiRadarProductsV23",JSON.stringify(products));
+  }catch(e){console.warn("legacy product annotation migration failed",e);}
+})();
+let marketSizing=JSON.parse(localStorage.getItem("aiRadarMarketV8")||"null")||defaultMarketSizing;
+let currentSceneId=null,currentProductId=null;
+
+function saveAll(){localStorage.setItem("aiRadarScenesV8",JSON.stringify(scenes));localStorage.setItem("aiRadarProductsV23",JSON.stringify(products));localStorage.setItem("aiRadarMarketV8",JSON.stringify(marketSizing))}
+
+function ensureAnnotations(){
+  scenes.forEach(s=>{if(s.starred===undefined)s.starred=false;if(s.teamNote===undefined)s.teamNote=""});
+  products.forEach(p=>{if(p.starred===undefined)p.starred=false;if(p.teamNote===undefined)p.teamNote=""});
+}
+function toggleSceneStar(id){
+  const s=scenes.find(x=>x.id===id);if(!s)return;s.starred=!s.starred;saveAll();renderTable();renderPriority();
+}
+function updateSceneNote(id,val){
+  const s=scenes.find(x=>x.id===id);if(!s)return;s.teamNote=val;saveAll();
+}
+
+function updateProductPriority(id,val){
+  const p=products.find(x=>x.id===id);if(!p)return;
+  p.researchPriority=Number(val)||3;saveAll();renderProductScan();
+}
+
+function toggleProductStar(id){
+  const p=products.find(x=>x.id===id);if(!p)return;p.starred=!p.starred;saveAll();renderProductScan();
+}
+function updateProductNote(id,val){
+  const p=products.find(x=>x.id===id);if(!p)return;p.teamNote=val;saveAll();
+}
+
+function filteredScenes(){
+ const d=domainFilter.value,t=taskFilter.value;
+ return scenes.filter(s=>(!d||s.domain===d)&&(!t||s.task.includes(t)))
+}
+function scoreClass(v){return v>=4?"high":v===3?"mid":"low"}
+function renderFilters(){
+ const cur=domainFilter.value,ds=[...new Set(scenes.map(s=>s.domain))].sort();
+ domainFilter.innerHTML='<option value="">全部需求域</option>'+ds.map(x=>`<option ${x===cur?'selected':''}>${x}</option>`).join('');
+ const tc=taskFilter.value; taskFilter.innerHTML='<option value="">全部 AI 任务</option>'+TASKS.map(x=>`<option ${x===tc?'selected':''}>${x}</option>`).join('');
+ if(document.getElementById("thDomain")){
+   const v=thDomain.value; thDomain.innerHTML='<option value="">全部</option>'+ds.map(x=>`<option ${x===v?'selected':''}>${x}</option>`).join('');
+ }
+ if(document.getElementById("thTask")){
+   const v=thTask.value; thTask.innerHTML='<option value="">全部</option>'+TASKS.map(x=>`<option ${x===v?'selected':''}>${x}</option>`).join('');
+ }
+}
+function renderKPIs(){
+ kpiScenes.textContent=scenes.length;kpiProducts.textContent=products.length;
+ kpiHighAI.textContent=scenes.filter(s=>s.ai===5&&(s.task||[]).length>=4).length;
+  kpiOpp.textContent=priorityRanking().filter(x=>x.tier==="S"&&["A","B"].includes(getTamConfidence(getMarketRow(x.s.id)).grade)).length;
+}
+function renderMap(){
+  map.querySelectorAll(".bubble,.map-grid-v,.map-grid-h,.map-tick,.map-threshold").forEach(x=>x.remove());
+  const level=document.getElementById("mapLevel")?.value||"domain";
+
+  // Important: dedupe by scene id before any aggregation.
+  // When configs have been migrated across versions, old/new copies must not be averaged together.
+  const raw=filteredScenes();
+  const byId=new Map();
+  raw.forEach(s=>byId.set(s.id,s)); // latest copy wins
+  const source=[...byId.values()];
+
+  let items=[];
+  if(level==="domain"){
+    const domains=[...new Set(source.map(s=>s.domain))];
+    items=domains.map(domain=>{
+      const rs=source.filter(s=>s.domain===domain);
+      const tam=rs.reduce((a,s)=>a+getTam(s.id),0);
+
+      let ai,freq;
+      if(rs.length===1){
+        // A domain with one scene must exactly equal that scene's current score.
+        ai=Number(rs[0].ai);
+        freq=Number(rs[0].freq);
+      }else{
+        // Multi-scene domain: TAM-weighted aggregation.
+        const weights=rs.map(s=>Math.max(getTam(s.id),1));
+        const sw=weights.reduce((a,b)=>a+b,0)||1;
+        ai=rs.reduce((a,s,i)=>a+Number(s.ai)*weights[i],0)/sw;
+        freq=rs.reduce((a,s,i)=>a+Number(s.freq)*weights[i],0)/sw;
+      }
+      return {label:domain,domain,freq,ai,tam,sceneCount:rs.length,cls:"domain-bubble"};
+    });
+  }else{
+    items=source.map(s=>({
+      label:s.scene,domain:s.domain,freq:Number(s.freq),ai:Number(s.ai),tam:getTam(s.id),
+      sceneId:s.id,sceneCount:1,cls:"scene-bubble"
+    }));
+  }
+
+  const W=Math.max(map.clientWidth,760),H=Math.max(map.clientHeight,520);
+  const L=82,R=42,T=64,B=62;
+  const plotW=W-L-R, plotH=H-T-B;
+
+  for(let k=1;k<=5;k++){
+    const x=L+(k-1)*plotW/4;
+    const y=T+(5-k)*plotH/4;
+    const gv=document.createElement("div");gv.className="map-grid-v";gv.style.left=x+"px";map.appendChild(gv);
+    const gh=document.createElement("div");gh.className="map-grid-h";gh.style.top=y+"px";map.appendChild(gh);
+    const tx=document.createElement("div");tx.className="map-tick";tx.style.left=(x-3)+"px";tx.style.bottom="34px";tx.textContent=k;map.appendChild(tx);
+    const ty=document.createElement("div");ty.className="map-tick";ty.style.left="52px";ty.style.top=(y-7)+"px";ty.textContent=k;map.appendChild(ty);
+  }
+
+  const thresholdX=L+(3.5-1)*plotW/4;
+  const thresholdY=T+(5-3.5)*plotH/4;
+  const vx=document.createElement("div");
+  vx.className="map-threshold";
+  vx.style.cssText=`position:absolute;left:${thresholdX}px;top:${T}px;bottom:${B}px;border-left:2px dashed #9aa7b8;pointer-events:none;z-index:1`;
+  map.appendChild(vx);
+  const hy=document.createElement("div");
+  hy.className="map-threshold";
+  hy.style.cssText=`position:absolute;left:${L}px;right:${R}px;top:${thresholdY}px;border-top:2px dashed #9aa7b8;pointer-events:none;z-index:1`;
+  map.appendChild(hy);
+
+  items.forEach(d=>{
+    const base=level==="domain"?30:20;
+    const size=Math.max(base,Math.min(level==="domain"?58:38,base+Math.sqrt(Math.max(d.tam,0))*(level==="domain"?1.15:.75)));
+    const x=L+(d.freq-1)*plotW/4;
+    const y=T+(5-d.ai)*plotH/4;
+    const r=size/2;
+
+    const b=document.createElement("div");
+    b.className="bubble "+d.cls;
+    b.style.left=(x-r)+"px";
+    b.style.top=(y-r)+"px";
+    b.style.width=size+"px";
+    b.style.height=size+"px";
+    b.style.zIndex=String(10+Math.round(d.tam||0));
+    const aggregation=level==="domain" && d.sceneCount>1 ? `（${d.sceneCount}个二级场景TAM加权）` : "（单场景精确值）";
+    b.title=`${d.label} | AI优势 ${d.ai.toFixed(1)} ${aggregation} | 需求频次 ${d.freq.toFixed(1)} | TAM ${d.tam.toFixed(1)}亿`;
+    b.innerHTML=`<strong>${d.label}</strong><span style="display:block;font-size:8px;font-weight:700;opacity:.72">AI ${d.ai.toFixed(1)}</span>`;
+    b.onclick=()=>{
+      if(level==="domain"){
+        domainFilter.value=d.domain;
+        renderAll();
+        if(document.getElementById("mapLevel"))mapLevel.value="scene";
+        renderMap();
+      }else if(d.sceneId){
+        openSceneEditor(d.sceneId);
+      }
+    };
+    map.appendChild(b);
+  });
+}
+function renderHeat(){
+ taskHeat.innerHTML=TASKS.map(t=>`<div class="heat-cell"><div class="n">${scenes.filter(s=>s.task.includes(t)).length}</div><div class="l">${t}</div></div>`).join('')
+}
+function productButtons(sceneId){
+  const all=products.filter(p=>p.sceneId===sceneId);
+  const high=all.filter(p=>Number(p.researchPriority||3)>=4);
+  let shown=high;
+  if(high.length>3){
+    const five=high.filter(p=>Number(p.researchPriority||3)>=5);
+    shown=five.length?five:high.slice(0,3);
+  }
+  if(!shown.length)return '<span class="muted">—</span>';
+  return shown.map(p=>`<button class="product-link" onclick="event.stopPropagation();openProduct(${p.id})">${p.name}</button><span class="jump-link" title="跳到产品扫描" onclick="event.stopPropagation();jumpToProduct(${p.id})">↗</span>`).join("");
+}
+function renderTable(){
+ ensureAnnotations();
+ const q=(searchInput.value||"").toLowerCase();
+ const gd=id=>document.getElementById(id);
+ const fd=gd("thDomain")?.value||"", fs=(gd("thScene")?.value||"").toLowerCase(),
+ fn=(gd("thNeed")?.value||"").toLowerCase(), ft=gd("thTask")?.value||"",
+ fai=gd("thAI")?.value||"", ff=gd("thFreq")?.value||"", fmt=gd("thMarketTam")?.value||"",
+ fb=(gd("thBiz")?.value||"").toLowerCase(), fh=gd("thHeat")?.value||"",
+ fp=(gd("thProduct")?.value||"").toLowerCase(), fo=(gd("thOpp")?.value||"").toLowerCase(),
+ star=gd("sceneStarFilter")?.value||"";
+
+ const rows=filteredScenes().filter(s=>{
+   const ps=products.filter(p=>p.sceneId===s.id);
+   const ptxt=ps.map(p=>p.name+" "+p.intro+" "+p.reason).join(" ").toLowerCase();
+   const global=(JSON.stringify(s)+" "+ptxt+" "+(s.teamNote||"")).toLowerCase().includes(q);
+   return global &&
+     (!fd||s.domain===fd) &&
+     (!fs||s.scene.toLowerCase().includes(fs)) &&
+     (!fn||s.need.toLowerCase().includes(fn)) &&
+     (!ft||s.task.includes(ft)) &&
+     (!fai||String(s.ai)===fai) &&
+     (!ff||String(s.freq)===ff) &&
+     (!fmt||getTam(s.id)>=Number(fmt)) &&
+     (!fb||s.biz.toLowerCase().includes(fb)) &&
+     (!fh||String(Math.round(effectiveHeat(s)))===fh) &&
+     (!fp||ptxt.includes(fp)) &&
+     (!fo||s.opp.toLowerCase().includes(fo)) &&
+     (!star||s.starred);
+ });
+ const groups=[...new Set(rows.map(s=>s.domain))];
+ sceneTable.innerHTML=groups.map((domain,gi)=>{
+   const rs=rows.filter(s=>s.domain===domain);
+   const groupId="ovDomain_"+gi;
+   const groupRow=`<tr class="domain-group-row" data-prefix="ov" data-group-id="${groupId}" onclick="toggleDomainRows('${groupId}',this)"><td colspan="15">▸ ${domain}<span class="small-count">${rs.length} 个二级场景</span></td></tr>`;
+   const childRows=rs.map(s=>`<tr data-domain-group="${groupId}" style="display:none">
+ <td>${s.domain}</td>
+ <td contenteditable="true" onblur="inlineEdit(${s.id},'scene',this.innerText)"><b>${s.scene}</b></td>
+ <td contenteditable="true" onblur="inlineEdit(${s.id},'need',this.innerText)">${s.need}</td>
+ <td>${s.task.map(t=>`<span class="tag">${t}</span>`).join("")}</td>
+ <td><span class="score ${scoreClass(s.ai)}">${s.ai}/5</span></td>
+ <td>${s.freq}/5</td>
+ <td><span class="jump-link" onclick="event.stopPropagation();jumpToMarket(${s.id})">${getTam(s.id).toFixed(1)}亿 ↗</span></td>
+ <td contenteditable="true" onblur="inlineEdit(${s.id},'biz',this.innerText)">${s.biz}</td>
+ <td><span class="score ${scoreClass(Math.round(effectiveHeat(s)))}" title="自动热度 ${effectiveHeat(s).toFixed(1)}">${effectiveHeat(s).toFixed(1)}/5</span></td>
+ <td>${productButtons(s.id)}</td>
+ <td contenteditable="true" onblur="inlineEdit(${s.id},'opp',this.innerText)">${s.opp}</td>
+ <td><span class="tier tier-${(priorityRanking().find(x=>x.s.id===s.id)||{}).tier||'B'} jump-link" onclick="event.stopPropagation();jumpToPriority(${s.id})">${(priorityRanking().find(x=>x.s.id===s.id)||{}).tier||'B'} ↗</span></td>
+ <td><button class="star-btn" onclick="event.stopPropagation();toggleSceneStar(${s.id})">${s.starred?"★":"☆"}</button></td>
+ <td><input class="note-input" value="${(s.teamNote||"").replace(/"/g,'&quot;')}" placeholder="添加评价..." onchange="updateSceneNote(${s.id},this.value)"></td>
+ <td><button class="secondary" onclick="openSceneEditor(${s.id})">编辑</button></td>
+ </tr>`).join("");
+   return groupRow+childRows;
+ }).join("");
+}
+
+function setAllDomainGroups(prefix, expand){
+  const groupRows=[...document.querySelectorAll(`tr.domain-group-row[data-prefix="${prefix}"]`)];
+  groupRows.forEach(row=>{
+    const groupId=row.getAttribute("data-group-id");
+    const children=[...document.querySelectorAll(`[data-domain-group="${groupId}"]`)];
+    children.forEach(r=>r.style.display=expand?"":"none");
+    const td=row.querySelector("td");
+    if(td){
+      td.innerHTML=td.innerHTML.replace(expand?"▸":"▾",expand?"▾":"▸");
+    }
+  });
+}
+
+function toggleDomainRows(groupId,row){
+  const rows=[...document.querySelectorAll(`[data-domain-group="${groupId}"]`)];
+  const open=rows.some(r=>r.style.display==="none");
+  rows.forEach(r=>r.style.display=open?"":"none");
+  const td=row.querySelector("td");
+  if(td)td.innerHTML=td.innerHTML.replace(open?"▸":"▾",open?"▾":"▸");
+}
+function inlineEdit(id,key,val){const s=scenes.find(x=>x.id===id);if(s){s[key]=val.trim();saveAll();renderAll()}}
+
+function openSceneEditor(id=null){
+ currentSceneId=id;const s=id?scenes.find(x=>x.id===id):{domain:"",scene:"",need:"",task:[],ai:3,freq:3,market:3,biz:"",heat:3,opp:""};
+ sceneModalTitle.textContent=id?"编辑场景":"新增场景";sceneDeleteBtn.style.visibility=id?"visible":"hidden";
+ fDomain.value=s.domain;fScene.value=s.scene;fNeed.value=s.need;fTask.value=s.task.join(", ");fAI.value=s.ai;fFreq.value=s.freq;fMarketTamDisplay.value=(id?getTam(id).toFixed(1):"新建后测算")+" 亿元";fBiz.value=s.biz;fHeat.value=s.heat;fOpp.value=s.opp;
+ sceneModal.classList.add("show")
+}
+function closeSceneEditor(){sceneModal.classList.remove("show")}
+function saveScene(){
+ const obj={domain:fDomain.value.trim(),scene:fScene.value.trim(),need:fNeed.value.trim(),task:fTask.value.split(",").map(x=>x.trim()).filter(Boolean),ai:+fAI.value||1,freq:+fFreq.value||1,market:3,biz:fBiz.value.trim(),heat:+fHeat.value||1,opp:fOpp.value.trim()};
+ if(currentSceneId)Object.assign(scenes.find(x=>x.id===currentSceneId),obj);else{obj.id=Date.now();scenes.push(obj)}
+ saveAll();closeSceneEditor();renderAll()
+}
+function deleteScene(){if(currentSceneId&&confirm("删除场景会同时删除其产品案例，确认？")){scenes=scenes.filter(x=>x.id!==currentSceneId);products=products.filter(p=>p.sceneId!==currentSceneId);marketSizing=marketSizing.filter(m=>m.sceneId!==currentSceneId);saveAll();closeSceneEditor();renderAll()}}
+
+function openProduct(id){
+ const p=products.find(x=>x.id===id),s=scenes.find(x=>x.id===p.sceneId); if(!p)return;
+ currentProductId=id;
+ const website=p.website?`<a class="link-btn" target="_blank" href="${p.website}">官网 ↗</a>`:"";
+ const demo=p.demo?`<a class="link-btn secondary-link" target="_blank" href="${p.demo}">Demo ↗</a>`:"";
+ const siblings=products.filter(x=>x.sceneId===p.sceneId&&x.id!==p.id);
+ productView.innerHTML=`
+ <div class="product-hero">
+  <div><div class="product-name">${p.name}</div><div class="subtitle">${s?s.domain+" · "+s.scene:""}</div>
+  <div class="product-meta"><span class="pill">${p.source||"未标注来源"}</span><span class="pill">${p.biz||"商业模式待补充"}</span><span class="pill">研究优先级 ${"★".repeat(p.researchPriority||3)}</span></div></div>
+  <div><button class="secondary" onclick="closeProductModal();jumpToProduct(${p.id})">跳到产品扫描 ↗</button> <button class="secondary" onclick="openProductEditor(${p.id})">编辑产品</button> <button class="secondary" onclick="closeProductModal()">关闭</button></div>
+ </div>
+ <div class="product-grid">
+  <div class="info-block full"><div class="info-title">基本介绍</div><div class="info-text">${p.intro||"待补充"}</div></div>
+  <div class="info-block"><div class="info-title">商业模式</div><div class="info-text">${p.biz||"待补充"}</div></div>
+  <div class="info-block"><div class="info-title">入围原因</div><div class="info-text">${p.reason||"待补充"}</div></div>
+  <div class="info-block full"><div class="info-title">用户反馈</div><div class="info-text">${p.feedback||"待补充"}</div></div><div class="info-block"><div class="info-title">产品 Pattern</div><div class="info-text">${p.pattern||"待补充"}</div></div><div class="info-block"><div class="info-title">对通用AI的启发</div><div class="info-text">${p.inspiration||"待补充"}</div></div>
+  <div class="info-block full"><div class="info-title">链接</div><div>${website}${demo}</div></div>
+ </div>
+ ${siblings.length?`<div style="margin-top:20px"><div class="section-title">同场景其他产品</div><div class="product-list">${siblings.map(x=>`<div class="product-card" onclick="openProduct(${x.id})"><div class="name">${x.name}</div><div class="reason">${x.reason||""}</div></div>`).join("")}</div></div>`:""}
+ `;
+ productModal.classList.add("show")
+}
+function closeProductModal(){productModal.classList.remove("show")}
+
+function populateSceneSelect(selected){
+ pScene.innerHTML=scenes.map(s=>`<option value="${s.id}" ${s.id===selected?'selected':''}>${s.domain} · ${s.scene}</option>`).join("")
+}
+function openProductEditor(id=null,sceneId=null){
+ currentProductId=id;const p=id?products.find(x=>x.id===id):{sceneId:sceneId||scenes[0]?.id,name:"",intro:"",biz:"",website:"",demo:"",feedback:"",source:"",reason:""};
+ productEditTitle.textContent=id?"编辑产品":"新增产品";productDeleteBtn.style.visibility=id?"visible":"hidden";populateSceneSelect(p.sceneId);
+ pName.value=p.name;pIntro.value=p.intro;pBiz.value=p.biz;pWebsite.value=p.website;pDemo.value=p.demo;pFeedback.value=p.feedback;pSource.value=p.source;pReason.value=p.reason;
+ productEditModal.classList.add("show")
+}
+function closeProductEditor(){productEditModal.classList.remove("show")}
+function saveProduct(){
+ const obj={sceneId:+pScene.value,name:pName.value.trim(),intro:pIntro.value.trim(),biz:pBiz.value.trim(),website:pWebsite.value.trim(),demo:pDemo.value.trim(),feedback:pFeedback.value.trim(),source:pSource.value.trim(),reason:pReason.value.trim()};
+ if(currentProductId)Object.assign(products.find(x=>x.id===currentProductId),obj);else{obj.id=Date.now();products.push(obj)}
+ saveAll();closeProductEditor();closeProductModal();renderAll()
+}
+function deleteProduct(){if(currentProductId&&confirm("确认删除这个产品？")){products=products.filter(x=>x.id!==currentProductId);saveAll();closeProductEditor();closeProductModal();renderAll()}}
+
+function exportData(){
+ const payload={scenes,products,marketSizing};const blob=new Blob([JSON.stringify(payload,null,2)],{type:"application/json"});
+ const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="2c-ai-opportunity-radar-data.json";a.click();URL.revokeObjectURL(a.href)
+}
+function importData(e){
+ const file=e.target.files[0];if(!file)return;const r=new FileReader();
+ r.onload=()=>{try{const data=JSON.parse(r.result);scenes=data.scenes||[];products=data.products||[];marketSizing=data.marketSizing||defaultMarketSizing;saveAll();renderAll()}catch{alert("JSON 格式错误")}};r.readAsText(file)
+}
+
+
+let marketSort={key:"tam",dir:"desc"};
+
+function ensureMonetizationDetail(r){
+  if(!r.detail){
+    if(r.model==="用户付费"){
+      r.detail={paidRate:20,arppu:Math.round((r.monetization||300)/0.20)};
+    }else if(r.model==="交易佣金"){
+      r.detail={gmv:Math.max(1000,Math.round((r.monetization||300)/0.05)),aiTxnShare:25,takeRate:20};
+    }else if(r.model==="专业服务替代"){
+      r.detail={existingSpend:Math.max(1000,Math.round((r.monetization||500)/0.20)),replaceRate:50,captureRate:40};
+    }else{
+      r.detail={directPaidRate:10,directArppu:Math.max(300,Math.round((r.monetization||500)*0.5/0.10)),gmv:Math.max(1000,Math.round((r.monetization||500)*10)),aiTxnShare:10,takeRate:5};
+    }
+  }
+  return r.detail;
+}
+
+function calcMonetization(r){
+  const d=ensureMonetizationDetail(r);
+  if(r.model==="用户付费"){
+    return (Number(d.paidRate)||0)/100*(Number(d.arppu)||0);
+  }
+  if(r.model==="交易佣金"){
+    return (Number(d.gmv)||0)*(Number(d.aiTxnShare)||0)/100*(Number(d.takeRate)||0)/100;
+  }
+  if(r.model==="专业服务替代"){
+    return (Number(d.existingSpend)||0)*(Number(d.replaceRate)||0)/100*(Number(d.captureRate)||0)/100;
+  }
+  return ((Number(d.directPaidRate)||0)/100*(Number(d.directArppu)||0))+
+         ((Number(d.gmv)||0)*(Number(d.aiTxnShare)||0)/100*(Number(d.takeRate)||0)/100);
+}
+
+function getMarketRow(sceneId){return marketSizing.find(x=>x.sceneId===sceneId)}
+function calcTam(row){
+  if(!row)return 0;
+  row.monetization=calcMonetization(row);
+  return (Number(row.populationM)||0)*1e6*((Number(row.incidence)||0)/100)*((Number(row.aiPenetration)||0)/100)*(Number(row.monetization)||0)/1e8;
+}
+function getTam(sceneId){return calcTam(getMarketRow(sceneId))}
+function ensureMarketRows(){
+  scenes.forEach(s=>{
+    if(!marketSizing.some(x=>x.sceneId===s.id)){
+      marketSizing.push({sceneId:s.id,populationM:100,incidence:20,aiPenetration:20,model:"用户付费",monetization:300,tamYi:1.2,notes:"新增场景默认值",detail:{paidRate:20,arppu:1500}});
+    }
+  });
+  marketSizing=marketSizing.filter(x=>scenes.some(s=>s.id===x.sceneId));
+}
+function updateMarketValue(sceneId,key,val){
+  const r=getMarketRow(sceneId); if(!r)return;
+  if(["populationM","incidence","aiPenetration"].includes(key)) r[key]=Number(val)||0;
+  else r[key]=val;
+  if(key==="model"){delete r.detail;ensureMonetizationDetail(r);}
+  r.monetization=calcMonetization(r);
+  r.tamYi=Number(calcTam(r).toFixed(1));
+  saveAll();renderMarket();renderKPIs();renderMap();renderTable();
+}
+
+function setMarketSort(key){
+  if(marketSort.key===key) marketSort.dir=marketSort.dir==="asc"?"desc":"asc";
+  else marketSort={key,dir:"desc"};
+  renderMarket();
+}
+function updateSortIndicators(){
+  ["scene","populationM","incidence","aiPenetration","monetization","tam","confidence","notes"].forEach(k=>{
+    const el=document.getElementById("sort_"+k);
+    if(el) el.textContent=marketSort.key===k?(marketSort.dir==="asc"?"↑":"↓"):"↕";
+  });
+}
+function populateMarketDomainFilter(){
+  const el=document.getElementById("marketDomainFilter"); if(!el)return;
+  const cur=el.value;
+  const ds=[...new Set(scenes.map(s=>s.domain))].sort();
+  el.innerHTML='<option value="">全部</option>'+ds.map(d=>`<option ${d===cur?'selected':''}>${d}</option>`).join("");
+}
+function openTraceModal(sceneId){
+  const s=scenes.find(x=>x.id===sceneId),r=getMarketRow(sceneId); if(!s||!r)return;
+  const d=ensureMonetizationDetail(r);
+  traceTitle.textContent="AI 单用户年变现拆解";
+  traceSubtitle.textContent=s.domain+" · "+s.scene+" · "+r.model;
+  let formula="", fields="";
+  if(r.model==="用户付费"){
+    formula="AI 单用户年变现 = AI 付费率 × AI 年 ARPPU";
+    fields=`
+      <div class="trace-grid">
+        <div class="field"><label>AI 付费率（%）</label><input type="number" value="${d.paidRate}" onchange="updateTraceDetail(${sceneId},'paidRate',this.value)"></div>
+        <div class="field"><label>AI 年 ARPPU（元/付费用户）</label><input type="number" value="${d.arppu}" onchange="updateTraceDetail(${sceneId},'arppu',this.value)"></div>
+      </div>`;
+  }else if(r.model==="交易佣金"){
+    formula="AI 单用户年变现 = 人均相关 GMV × AI 影响交易比例 × Take Rate";
+    fields=`
+      <div class="trace-grid">
+        <div class="field"><label>人均相关 GMV（元/年）</label><input type="number" value="${d.gmv}" onchange="updateTraceDetail(${sceneId},'gmv',this.value)"></div>
+        <div class="field"><label>AI 影响交易比例（%）</label><input type="number" value="${d.aiTxnShare}" onchange="updateTraceDetail(${sceneId},'aiTxnShare',this.value)"></div>
+        <div class="field"><label>Take Rate（%）</label><input type="number" value="${d.takeRate}" onchange="updateTraceDetail(${sceneId},'takeRate',this.value)"></div>
+      </div>`;
+  }else if(r.model==="专业服务替代"){
+    formula="AI 单用户年变现 = 原有专业服务年支出 × AI 可替代比例 × AI 价值捕获率";
+    fields=`
+      <div class="trace-grid">
+        <div class="field"><label>原有专业服务年支出（元）</label><input type="number" value="${d.existingSpend}" onchange="updateTraceDetail(${sceneId},'existingSpend',this.value)"></div>
+        <div class="field"><label>AI 可替代比例（%）</label><input type="number" value="${d.replaceRate}" onchange="updateTraceDetail(${sceneId},'replaceRate',this.value)"></div>
+        <div class="field"><label>AI 价值捕获率（%）</label><input type="number" value="${d.captureRate}" onchange="updateTraceDetail(${sceneId},'captureRate',this.value)"></div>
+      </div>`;
+  }else{
+    formula="AI 单用户年变现 = 直接付费收入 + 交易佣金收入";
+    fields=`
+      <div class="trace-grid">
+        <div class="field"><label>直接付费率（%）</label><input type="number" value="${d.directPaidRate}" onchange="updateTraceDetail(${sceneId},'directPaidRate',this.value)"></div>
+        <div class="field"><label>直接付费 ARPPU（元/年）</label><input type="number" value="${d.directArppu}" onchange="updateTraceDetail(${sceneId},'directArppu',this.value)"></div>
+        <div class="field"><label>人均相关 GMV（元/年）</label><input type="number" value="${d.gmv}" onchange="updateTraceDetail(${sceneId},'gmv',this.value)"></div>
+        <div class="field"><label>AI 影响交易比例（%）</label><input type="number" value="${d.aiTxnShare}" onchange="updateTraceDetail(${sceneId},'aiTxnShare',this.value)"></div>
+        <div class="field"><label>Take Rate（%）</label><input type="number" value="${d.takeRate}" onchange="updateTraceDetail(${sceneId},'takeRate',this.value)"></div>
+      </div>`;
+  }
+  const evidence = r.monetizationSourceUrl ? `<div class="info-block" style="margin-top:14px">
+      <div class="info-title">二手参考依据 · ${r.monetizationConfidence||""}可信度</div>
+      <div class="info-text">${r.monetizationSourceNote||""}</div>
+      <div style="margin-top:8px"><a class="source-link" href="${r.monetizationSourceUrl}" target="_blank">${r.monetizationSourceName||"查看来源"} ↗</a></div>
+    </div>` : "";
+  traceContent.innerHTML=`<div class="formula-box"><b>公式</b><br>${formula}</div>${fields}
+    <div class="info-block" style="margin-top:14px"><div class="info-title">计算结果</div><div class="trace-value">${calcMonetization(r).toFixed(1)} 元 / AI 使用用户 / 年</div></div>${evidence}`;
+  traceModal.classList.add("show");
+}
+function closeTraceModal(){traceModal.classList.remove("show")}
+function updateTraceDetail(sceneId,key,val){
+  const r=getMarketRow(sceneId); if(!r)return;
+  const d=ensureMonetizationDetail(r); d[key]=Number(val)||0;
+  r.monetization=calcMonetization(r); r.tamYi=Number(calcTam(r).toFixed(1));
+  saveAll(); openTraceModal(sceneId); renderMarket(); renderMap(); renderTable();
+}
+
+function toggleEvidenceColumn(){
+  const cols=document.querySelectorAll(".evidence-col");
+  const showing=[...cols].some(el=>el.style.display!=="none");
+  cols.forEach(el=>el.style.display=showing?"none":"");
+  evidenceToggleBtn.textContent=showing?"显示目标人群依据":"隐藏目标人群依据";
+}
+
+
+function confScore(v){
+  if(v==="高")return 3;
+  if(v==="中")return 2;
+  return 1;
+}
+function getTamConfidence(r){
+  const scores=[
+    confScore(r.populationConfidence||"低"),
+    confScore(r.incidenceConfidence||"低"),
+    confScore(r.monetizationConfidence||"低")
+  ];
+  const min=Math.min(...scores);
+  const avg=scores.reduce((a,b)=>a+b,0)/scores.length;
+  let grade="C";
+  if(min>=2 && avg>=2.67) grade="A";
+  else if(min>=2 && avg>=2.0) grade="B";
+  else grade="C";
+  return {grade,scores,avg};
+}
+function openConfidenceModal(sceneId){
+  const s=scenes.find(x=>x.id===sceneId),r=getMarketRow(sceneId); if(!s||!r)return;
+  const c=getTamConfidence(r);
+  traceTitle.textContent="TAM 可信度说明";
+  traceSubtitle.textContent=s.domain+" · "+s.scene;
+  const label=x=>x==="高"?"高":x==="中"?"中":"低";
+  traceContent.innerHTML=`
+    <div class="formula-box"><b>评级逻辑</b><br>
+    A：三项均至少中可信度，且整体接近高可信度；<br>
+    B：三项均至少中可信度；<br>
+    C：任一关键参数仅有低可信度/代理口径。<br>
+    当前采用偏保守的“短板原则”，避免一个高质量参数掩盖另一个薄弱假设。</div>
+    <div class="trace-grid">
+      <div class="info-block"><div class="info-title">目标人群</div><div class="trace-value">${label(r.populationConfidence||"低")}</div><div class="source-note">${r.populationSourceNote||""}</div></div>
+      <div class="info-block"><div class="info-title">需求发生率</div><div class="trace-value">${label(r.incidenceConfidence||"低")}</div><div class="source-note">${r.incidenceSourceNote||""}</div></div>
+      <div class="info-block"><div class="info-title">单用户年变现</div><div class="trace-value">${label(r.monetizationConfidence||"低")}</div><div class="source-note">${r.monetizationSourceNote||""}</div></div>
+      <div class="info-block"><div class="info-title">最终 TAM 可信度</div><div class="trace-value">${c.grade}</div><div class="source-note">不是“数字一定正确”的概率，而是当前测算证据链的扎实程度。</div></div>
+    </div>`;
+  traceModal.classList.add("show");
+}
+
+function renderMarket(){
+  ensureMarketRows(); populateMarketDomainFilter();
+  const df=document.getElementById("marketDomainFilter")?.value||"";
+  const mf=document.getElementById("marketModelFilter")?.value||"";
+  let rows=scenes.map(s=>({s,r:getMarketRow(s.id)})).filter(x=>(!df||x.s.domain===df)&&(!mf||x.r.model===mf));
+  rows.sort((a,b)=>{
+    const k=marketSort.key,dir=marketSort.dir==="asc"?1:-1;
+    let av,bv;
+    if(k==="scene"){av=a.s.scene;bv=b.s.scene}
+    else if(k==="tam"){av=calcTam(a.r);bv=calcTam(b.r)}
+    else if(k==="confidence"){av={A:3,B:2,C:1}[getTamConfidence(a.r).grade];bv={A:3,B:2,C:1}[getTamConfidence(b.r).grade]}
+    else {av=a.r[k];bv=b.r[k]}
+    if(typeof av==="string") return av.localeCompare(bv,"zh-CN")*dir;
+    return ((Number(av)||0)-(Number(bv)||0))*dir;
+  });
+  const marketGroups=[...new Set(rows.map(x=>x.s.domain))];
+  marketTable.innerHTML=marketGroups.map((domain,gi)=>{
+    const rs=rows.filter(x=>x.s.domain===domain),groupId="mkDomain_"+gi;
+    const head=`<tr class="domain-group-row" data-prefix="mk" data-group-id="${groupId}" onclick="toggleDomainRows('${groupId}',this)"><td colspan="10">▸ ${domain}<span class="small-count">${rs.length} 个二级场景</span></td></tr>`;
+    const kids=rs.map(({s,r})=>`<tr data-market-scene="${s.id}" data-domain-group="${groupId}" style="display:none">
+      <td>${s.domain}</td><td><b>${s.scene}</b></td>
+      <td><input type="number" step="1" value="${r.populationM}" onchange="updateMarketValue(${s.id},'populationM',this.value)"></td>
+      <td class="evidence-col" style="display:none">
+        ${r.populationSourceUrl?`<a class="source-link" href="${r.populationSourceUrl}" target="_blank" title="${(r.populationSourceNote||'').replace(/"/g,'&quot;')}">${r.populationSourceYear||''} ${r.populationConfidence||''}可信度 ↗</a>`:"<span class='muted'>待补来源</span>"}
+        <div class="source-note">${r.populationSourceNote||""}</div>
+        ${r.secondarySourceUrl?`<a class="source-link secondary-source" href="${r.secondarySourceUrl}" target="_blank" title="${(r.secondarySourceNote||'').replace(/"/g,'&quot;')}">补充校验 ↗</a>`:""}
+      </td>
+      <td><input type="number" step="0.1" value="${r.incidence}" onchange="updateMarketValue(${s.id},'incidence',this.value)">
+        ${r.incidenceSourceUrl?`<a class="source-link" href="${r.incidenceSourceUrl}" target="_blank" title="${(r.incidenceSourceNote||'').replace(/"/g,'&quot;')}">${r.incidenceConfidence||''}可信度·口径依据 ↗</a>`:""}
+      </td>
+      <td><input type="number" step="0.1" value="${r.aiPenetration}" onchange="updateMarketValue(${s.id},'aiPenetration',this.value)">
+        ${r.aiPenSourceUrl?`<a class="source-link" href="${r.aiPenSourceUrl}" target="_blank" title="${(r.aiPenSourceNote||'').replace(/"/g,'&quot;')}">全国AI基准 ↗</a>`:""}
+      </td>
+      <td><select onchange="updateMarketValue(${s.id},'model',this.value)">
+        ${["用户付费","交易佣金","专业服务替代","混合模式"].map(x=>`<option ${x===r.model?'selected':''}>${x}</option>`).join("")}
+      </select></td>
+      <td><span class="trace-link" onclick="openTraceModal(${s.id})">${calcMonetization(r).toFixed(1)} 元</span></td>
+      <td><b>${calcTam(r).toFixed(1)}</b></td>
+      <td><span class="conf-badge conf-${getTamConfidence(r).grade}" onclick="openConfidenceModal(${s.id})">${getTamConfidence(r).grade}</span></td>
+      <td><input value="${r.notes||''}" onchange="updateMarketValue(${s.id},'notes',this.value)"></td>
+    </tr>`).join("");
+    return head+kids;
+  }).join("");
+  if(document.getElementById("evidenceToggleBtn")?.textContent==="显示目标人群依据"){
+    document.querySelectorAll(".evidence-col").forEach(el=>el.style.display="none");
+  }
+  updateSortIndicators();
+  const tams=scenes.map(s=>({scene:s.scene,tam:getTam(s.id)})).sort((a,b)=>b.tam-a.tam);
+  marketTotalTam.textContent=tams.reduce((a,b)=>a+b.tam,0).toFixed(1)+"亿";
+  marketTopScene.textContent=tams[0]?.scene||"-";
+  marketTopTam.textContent=tams[0]?tams[0].tam.toFixed(1)+" 亿元 / 年":"-";
+  marketSceneCount.textContent=scenes.length; marketConfCount.textContent=scenes.filter(s=>["A","B"].includes(getTamConfidence(getMarketRow(s.id)).grade)).length;
+}
+function resetMarketAssumptions(){
+  if(confirm("恢复市场规模粗估参数？当前修改会被覆盖。")){
+    marketSizing=JSON.parse(JSON.stringify(defaultMarketSizing));saveAll();renderAll();
+  }
+}
+
+
+let startupHeatWeights=JSON.parse(localStorage.getItem("aiRadarStartupHeatWeightsV1")||"null")||{ph:20,yc:20,github:20,breadth:20,validation:20};
+let startupHeatThresholds=JSON.parse(localStorage.getItem("aiRadarStartupHeatThresholdsV1")||"null")||{s2:1,s3:2,s4:3,s5:4};
+let useAutoStartupHeat=JSON.parse(localStorage.getItem("aiRadarUseAutoHeatV1")||"true");
+function countToHeatScore(n){
+  if(n>=startupHeatThresholds.s5)return 5;
+  if(n>=startupHeatThresholds.s4)return 4;
+  if(n>=startupHeatThresholds.s3)return 3;
+  if(n>=startupHeatThresholds.s2)return 2;
+  return 1;
+}
+function heatSignals(s){
+  const ps=products.filter(p=>p.sceneId===s.id);
+  const ph=ps.filter(p=>(p.captureSource||"")==="Product Hunt").length;
+  const yc=ps.filter(p=>(p.captureSource||"")==="YC").length;
+  const github=ps.filter(p=>(p.captureSource||"")==="GitHub").length;
+  const validation=ps.filter(p=>/a16z|CB Insights/i.test((p.source||"")+" "+(p.signal||""))).length;
+  const channels=new Set(ps.map(p=>p.captureSource).filter(Boolean)).size;
+  return {ph,yc,github,validation,breadth:channels};
+}
+function autoStartupHeat(s){
+  const z=heatSignals(s),w=startupHeatWeights,total=(w.ph+w.yc+w.github+w.breadth+w.validation)||1;
+  const valScore=z.validation>=2?5:(z.validation===1?3:1);
+  return (
+    countToHeatScore(z.ph)*w.ph+
+    countToHeatScore(z.yc)*w.yc+
+    countToHeatScore(z.github)*w.github+
+    countToHeatScore(z.breadth)*w.breadth+
+    valScore*w.validation
+  )/total;
+}
+function effectiveHeat(s){return useAutoStartupHeat?autoStartupHeat(s):Number(s.heat||1);}
+
+let priorityWeights=JSON.parse(localStorage.getItem("aiRadarPriorityWeightsV1")||"null")||{ai:20,tam:20,freq:20,heat:20,task:20};
+let tierThresholds=JSON.parse(localStorage.getItem("aiRadarTierThresholdsV1")||"null")||{s:20,a:50};
+let prioritySort={key:"score",dir:"desc"};
+
+function confidenceMultiplier(r){
+  const g=getTamConfidence(r).grade;
+  return g==="A"?1.0:(g==="B"?0.9:0.75);
+}
+function normalizedTam(tam){
+  const maxTam=Math.max(...scenes.map(s=>getTam(s.id)),1);
+  return Math.sqrt(Math.max(tam,0))/Math.sqrt(maxTam)*5;
+}
+function taskCoverageScore(s){
+  const n=(s.task||[]).length;
+  if(n>=6)return 5;
+  if(n>=4)return 4;
+  if(n===3)return 3;
+  if(n===2)return 2;
+  return 1;
+}
+function priorityScore(s){
+  const w=priorityWeights, total=(w.ai+w.tam+w.freq+w.heat+w.task)||1;
+  const raw=(
+    s.ai*w.ai +
+    normalizedTam(getTam(s.id))*w.tam +
+    s.freq*w.freq +
+    effectiveHeat(s)*w.heat +
+    taskCoverageScore(s)*w.task
+  )/total;
+  return raw*confidenceMultiplier(getMarketRow(s.id))*20;
+}
+function priorityRanking(){
+  const arr=scenes.map(s=>({s,score:priorityScore(s)})).sort((a,b)=>b.score-a.score);
+  arr.forEach((x,i)=>{
+    const pct=(i+1)/arr.length*100;
+    x.tier=pct<=tierThresholds.s?"S":(pct<=tierThresholds.a?"A":"B");
+  });
+  return arr;
+}
+function priorityWhy(s){
+  const bits=[];
+  if(s.ai>=5) bits.push("AI优势强");
+  else if(s.ai>=4) bits.push("AI优势较强");
+  if(getTam(s.id)>=50) bits.push("TAM大");
+  else if(getTam(s.id)>=20) bits.push("TAM中高");
+  if(s.freq>=4) bits.push("需求高频");
+  if(effectiveHeat(s)<=2.5) bits.push("创业热度尚低");
+  else if(effectiveHeat(s)>=4) bits.push("已有多渠道创业验证");
+  if((s.task||[]).length>=5) bits.push("可覆盖完整用户链路");
+  return bits.slice(0,3).join(" · ")||"作为长尾场景持续跟踪";
+}
+function populatePriorityFilters(){
+  const el=document.getElementById("priorityDomainFilter"); if(!el)return;
+  const cur=el.value,ds=[...new Set(scenes.map(s=>s.domain))].sort();
+  el.innerHTML='<option value="">全部</option>'+ds.map(d=>`<option ${d===cur?'selected':''}>${d}</option>`).join("");
+}
+function setPrioritySort(key){
+  if(prioritySort.key===key) prioritySort.dir=prioritySort.dir==="asc"?"desc":"asc";
+  else prioritySort={key,dir:"desc"};
+  renderPriority();
+}
+function updatePriorityIndicators(){
+  ["scene","score","ai","tam","freq","heat"].forEach(k=>{
+    const el=document.getElementById("ps_"+k);
+    if(el) el.textContent=prioritySort.key===k?(prioritySort.dir==="asc"?"↑":"↓"):"↕";
+  });
+}
+function updatePriorityWeights(){
+  priorityWeights={ai:+wAI.value||0,tam:+wTam.value||0,freq:+wFreq.value||0,heat:+wHeat.value||0,task:+wTask.value||0};
+  localStorage.setItem("aiRadarPriorityWeightsV1",JSON.stringify(priorityWeights));
+  renderPriority();
+}
+function resetPriorityWeights(){
+  priorityWeights={ai:30,tam:30,freq:15,heat:15,task:10};
+  tierThresholds={s:20,a:50};
+  localStorage.setItem("aiRadarPriorityWeightsV1",JSON.stringify(priorityWeights));
+  localStorage.setItem("aiRadarTierThresholdsV1",JSON.stringify(tierThresholds));
+  syncPriorityWeightInputs();renderPriority();renderTable();
+}
+function syncPriorityWeightInputs(){
+  if(!document.getElementById("wAI"))return;
+  wAI.value=priorityWeights.ai;wTam.value=priorityWeights.tam;wFreq.value=priorityWeights.freq;wHeat.value=priorityWeights.heat;wTask.value=priorityWeights.task;
+  if(document.getElementById("tierS")) tierS.value=tierThresholds.s;
+  if(document.getElementById("tierA")) tierA.value=tierThresholds.a;
+}
+
+
+function updateHeatConfig(){
+  useAutoStartupHeat=!!document.getElementById("autoHeatToggle")?.checked;
+  startupHeatWeights={
+    ph:+document.getElementById("heatWPH")?.value||0,
+    yc:+document.getElementById("heatWYC")?.value||0,
+    github:+document.getElementById("heatWGH")?.value||0,
+    breadth:+document.getElementById("heatWBreadth")?.value||0,
+    validation:+document.getElementById("heatWVal")?.value||0
+  };
+  startupHeatThresholds={
+    s2:+document.getElementById("heatT2")?.value||1,
+    s3:+document.getElementById("heatT3")?.value||2,
+    s4:+document.getElementById("heatT4")?.value||3,
+    s5:+document.getElementById("heatT5")?.value||4
+  };
+  localStorage.setItem("aiRadarUseAutoHeatV1",JSON.stringify(useAutoStartupHeat));
+  localStorage.setItem("aiRadarStartupHeatWeightsV1",JSON.stringify(startupHeatWeights));
+  localStorage.setItem("aiRadarStartupHeatThresholdsV1",JSON.stringify(startupHeatThresholds));
+  renderAll();renderPriority();
+}
+
+function updateTierThresholds(){
+  let s=+tierS.value||20,a=+tierA.value||50;
+  if(a<=s){a=Math.min(99,s+10);tierA.value=a;}
+  tierThresholds={s,a};
+  localStorage.setItem("aiRadarTierThresholdsV1",JSON.stringify(tierThresholds));
+  renderPriority();renderTable();
+}
+function updateScenePriorityValue(id,key,val){
+  const s=scenes.find(x=>x.id===id); if(!s)return;
+  const v=Math.max(1,Math.min(5,Number(val)||1));
+  s[key]=v;saveAll();renderPriority();renderTable();renderMap();renderKPIs();
+}
+
+function renderPriority(){
+  populatePriorityFilters();syncPriorityWeightInputs();
+  const df=document.getElementById("priorityDomainFilter")?.value||"";
+  const tf=document.getElementById("priorityTierFilter")?.value||"";
+  let arr=priorityRanking().filter(x=>(!df||x.s.domain===df)&&(!tf||x.tier===tf));
+  arr.sort((a,b)=>{
+    const dir=prioritySort.dir==="asc"?1:-1,k=prioritySort.key;
+    let av,bv;
+    if(k==="scene"){av=a.s.scene;bv=b.s.scene}
+    else if(k==="score"){av=a.score;bv=b.score}
+    else if(k==="tam"){av=getTam(a.s.id);bv=getTam(b.s.id)}
+    else {av=a.s[k];bv=b.s[k]}
+    if(typeof av==="string")return av.localeCompare(bv,"zh-CN")*dir;
+    return (av-bv)*dir;
+  });
+  const groups=[...new Set(arr.map(x=>x.s.domain))];
+  priorityTable.innerHTML=groups.map((domain,gi)=>{
+    const rs=arr.filter(x=>x.s.domain===domain),groupId="prDomain_"+gi;
+    const head=`<tr class="domain-group-row" data-prefix="pr" data-group-id="${groupId}" onclick="toggleDomainRows('${groupId}',this)"><td colspan="13">▸ ${domain}<span class="small-count">${rs.length} 个二级场景</span></td></tr>`;
+    const kids=rs.map(x=>{
+      const s=x.s,c=getTamConfidence(getMarketRow(s.id)).grade;
+      return `<tr data-priority-scene="${s.id}" data-domain-group="${groupId}" style="display:none">
+      <td>${s.domain}</td><td><b>${s.scene}</b></td>
+      <td><span class="tier tier-${x.tier}">${x.tier}</span></td>
+      <td><b>${x.score.toFixed(1)}</b></td>
+      <td><input type="number" min="1" max="5" step="1" value="${s.ai}" style="width:64px" onchange="updateScenePriorityValue(${s.id},'ai',this.value)"></td>
+      <td>${getTam(s.id).toFixed(1)}亿</td>
+      <td><input type="number" min="1" max="5" step="1" value="${s.freq}" style="width:64px" onchange="updateScenePriorityValue(${s.id},'freq',this.value)"></td>
+      <td>${useAutoStartupHeat?`<b title="PH ${heatSignals(s).ph} / YC ${heatSignals(s).yc} / GitHub ${heatSignals(s).github} / 渠道数 ${heatSignals(s).breadth} / 外部验证 ${heatSignals(s).validation}">${effectiveHeat(s).toFixed(1)}</b>`:`<input type="number" min="1" max="5" step="0.1" value="${s.heat}" style="width:64px" onchange="updateScenePriorityValue(${s.id},'heat',this.value)">`}</td>
+      <td><span class="conf-badge conf-${c}" onclick="openConfidenceModal(${s.id})">${c}</span></td>
+      <td>${(s.task||[]).map(t=>`<span class="tag">${t}</span>`).join("")}</td>
+      <td>${priorityWhy(s)}</td>
+      <td><button class="star-btn" onclick="toggleSceneStar(${s.id})">${s.starred?"★":"☆"}</button></td>
+      <td><input class="note-input" value="${(s.teamNote||"").replace(/"/g,'&quot;')}" placeholder="添加评价..." onchange="updateSceneNote(${s.id},this.value)"></td>
+    </tr>`;}).join("");
+    return head+kids;
+  }).join("");
+  updatePriorityIndicators();
+}
+
+
+const phCoverage=[];
+
+
+function renderCoverage(){
+  const status=document.getElementById("coverageStatus")?.value||"";
+  const group=document.getElementById("coverageGroup")?.value||"";
+  if(document.getElementById("coverageGroup")){
+    const cur=coverageGroup.value;
+    const groups=[...new Set(phCoverage.map(x=>x.group))];
+    coverageGroup.innerHTML='<option value="">全部需求域</option>'+groups.map(g=>`<option ${g===cur?'selected':''}>${g}</option>`).join("");
+  }
+  const rows=phCoverage.filter(x=>(!status||x.status===status)&&(!group||x.group===group));
+  const cls=s=>s==="已扫描"?"coverage-done":(s==="部分扫描"?"coverage-partial":"coverage-todo");
+  coverageTable.innerHTML=rows.map(x=>`<tr class="${cls(x.status)}">
+    <td><b>${x.group}</b></td>
+    <td>${x.scene||"—"}</td>
+    <td><b>${x.phCategory}</b></td>
+    <td>${x.mode}</td>
+    <td>${x.depth}</td>
+    <td><span class="tag">${x.status}</span></td>
+    <td>${x.lastScan}</td>
+    <td>${x.products}</td>
+    <td>${x.note}</td>
+  </tr>`).join("");
+  const done=phCoverage.filter(x=>x.status==="已扫描").length;
+  const partial=phCoverage.filter(x=>x.status==="部分扫描").length;
+  const todo=phCoverage.filter(x=>x.status==="未扫描").length;
+  covDone.textContent=done;covPartial.textContent=partial;covTodo.textContent=todo;
+  covRate.textContent=Math.round(done/phCoverage.length*100)+"%";
+}
+
+
+function sourceGroup(p){
+  const s=(p.source||"")+" "+(p.signal||"");
+  if(/跨渠道/i.test(s))return "跨渠道补充";
+  if(/Historical/i.test(s))return "Historical";
+  if(/Monthly/i.test(s))return "月榜";
+  if(/Weekly/i.test(s))return "周榜";
+  if(/Top Reviewed/i.test(s))return "Top Reviewed";
+  if(/Recent/i.test(s))return "Recent Launches";
+  if(/Daily/i.test(s))return "日榜/其他榜单";
+  return "其他";
+}
+
+const channelScan=[];
+
+const defaultTrendRadarItems=[];
+let trendRadarItems=JSON.parse(localStorage.getItem("aiRadarTrendRadarV1")||"null")||defaultTrendRadarItems;
+
+
+function saveTrendRadar(){localStorage.setItem("aiRadarTrendRadarV1",JSON.stringify(trendRadarItems));}
+function moveTrend(idx,dir){
+  const j=idx+dir;if(j<0||j>=trendRadarItems.length)return;
+  [trendRadarItems[idx],trendRadarItems[j]]=[trendRadarItems[j],trendRadarItems[idx]];
+  saveTrendRadar();renderProductScan();
+}
+function updateTrendField(idx,key,val){
+  if(!trendRadarItems[idx])return;trendRadarItems[idx][key]=val;saveTrendRadar();renderProductScan();
+}
+function toggleTrendHidden(idx){
+  if(!trendRadarItems[idx])return;trendRadarItems[idx].hidden=!trendRadarItems[idx].hidden;saveTrendRadar();renderProductScan();
+}
+
+function toggleTrendProductEditor(idx){
+  const el=document.getElementById(`trendProductEditor_${idx}`);
+  if(!el)return;
+  el.classList.toggle("show");
+}
+
+function updateTrendProducts(idx,val){
+  if(!trendRadarItems[idx])return;
+  trendRadarItems[idx].products=val.split(/[,，]/).map(x=>x.trim()).filter(Boolean);
+  trendRadarItems[idx].manualProductOrder=true;
+  saveTrendRadar();renderProductScan();
+}
+function moveTrendProduct(tidx,pname,dir){
+  const t=trendRadarItems[tidx];if(!t)return;
+  const i=t.products.indexOf(pname),j=i+dir;if(i<0||j<0||j>=t.products.length)return;
+  [t.products[i],t.products[j]]=[t.products[j],t.products[i]];
+  t.manualProductOrder=true;saveTrendRadar();renderProductScan();
+}
+function eligibleTrendProducts(t){
+  let ps=t.products.map(name=>products.find(p=>p.name===name)).filter(Boolean).filter(p=>Number(p.researchPriority||0)>=4);
+  if(ps.length>4){
+    const five=ps.filter(p=>Number(p.researchPriority||0)>=5);
+    if(five.length)ps=five;
+  }
+  if(!t.manualProductOrder){
+    ps.sort((a,b)=>(Number(b.researchPriority||0)-Number(a.researchPriority||0)) || String(b.captureDate||"").localeCompare(String(a.captureDate||"")));
+  }
+  return ps;
+}
+function trendRadarData(){
+  const showHidden=!!document.getElementById("showHiddenTrends")?.checked;
+  return trendRadarItems.map((t,idx)=>({t,idx})).filter(x=>showHidden||!x.t.hidden).map(({t,idx})=>{
+    const ps=eligibleTrendProducts(t);
+    const chips=ps.map(p=>`<span class="trend-product-unit"><button class="product-link" onclick="openProduct(${p.id})">${p.name}</button><button class="trend-mini-btn" title="前移" onclick="moveTrendProduct(${idx},'${p.name.replace(/'/g,"\'")}',-1)">←</button><button class="trend-mini-btn" title="后移" onclick="moveTrendProduct(${idx},'${p.name.replace(/'/g,"\'")}',1)">→</button></span>`).join("");
+    return `<div class="product-card ${t.hidden?'trend-hidden':''}" style="cursor:default">
+      <div class="trend-card-head">
+        <div class="name" contenteditable="true" onblur="updateTrendField(${idx},'name',this.innerText)">${t.name}</div>
+        <div class="trend-actions">
+          <button class="trend-mini-btn" onclick="moveTrend(${idx},-1)">↑</button>
+          <button class="trend-mini-btn" onclick="moveTrend(${idx},1)">↓</button>
+          <button class="trend-mini-btn" onclick="toggleTrendProductEditor(${idx})">编辑产品</button>
+          <button class="trend-mini-btn" onclick="toggleTrendHidden(${idx})">${t.hidden?'取消隐藏':'隐藏'}</button>
+        </div>
+      </div>
+      <div class="reason" style="margin-top:8px" contenteditable="true" onblur="updateTrendField(${idx},'desc',this.innerText)">${t.desc}</div>
+      <div class="trend-product-row">${chips||'<span class="muted">暂无符合条件的重点产品</span>'}</div>
+      <input id="trendProductEditor_${idx}" class="trend-edit-input" value="${t.products.join('、').replace(/"/g,'&quot;')}" placeholder="编辑该趋势关注产品，用逗号分隔" onchange="updateTrendProducts(${idx},this.value)">
+    </div>`;
+  }).join("");
+}
+
+function renderProductScan(){
+  ensureAnnotations();
+  if(document.getElementById("channelScanTable")){
+    channelScanTable.innerHTML=channelScan.map(x=>`<tr><td><b>${x.channel}</b></td><td>${x.url?`<a class="source-link" href="${x.url}" target="_blank">打开 ↗</a>`:'<span class="muted">待补</span>'}</td><td>${x.scope}</td><td>${x.method}</td><td><span class="tag">${x.status}</span></td><td>${x.result}</td><td>${x.action}</td></tr>`).join("");
+  }
+  renderCoverage();
+  const ds=[...new Set(scenes.map(s=>s.domain))].sort();
+  if(document.getElementById("scanDomain")){
+    const cur=scanDomain.value;
+    scanDomain.innerHTML='<option value="">全部需求域</option>'+ds.map(d=>`<option ${d===cur?'selected':''}>${d}</option>`).join("");
+  }
+  const domainVal=document.getElementById("scanDomain")?.value||"";
+  if(document.getElementById("scanScene")){
+    const cur=scanScene.value;
+    const ss=scenes.filter(s=>!domainVal||s.domain===domainVal).map(s=>s.scene).sort();
+    scanScene.innerHTML='<option value="">全部场景</option>'+ss.map(s=>`<option ${s===cur?'selected':''}>${s}</option>`).join("");
+  }
+  if(document.getElementById("scanSource")){
+    const cur=scanSource.value;
+    const sources=["月榜","周榜","Top Reviewed","Recent Launches","跨渠道补充","日榜/其他榜单","Historical","其他"];
+    scanSource.innerHTML='<option value="">全部来源类型</option>'+sources.map(s=>`<option ${s===cur?'selected':''}>${s}</option>`).join("");
+  }
+  if(document.getElementById("scanCaptureSource")){
+    const cur=scanCaptureSource.value;
+    const sources=[...new Set(products.map(p=>p.captureSource||"其他"))].sort();
+    scanCaptureSource.innerHTML='<option value="">全部捕捉来源</option>'+sources.map(s=>`<option ${s===cur?'selected':''}>${s}</option>`).join("");
+  }
+  const df=domainVal, scf=document.getElementById("scanScene")?.value||"", sf=document.getElementById("scanSource")?.value||"", csf=document.getElementById("scanCaptureSource")?.value||"", pf=document.getElementById("scanPriority")?.value||"", star=document.getElementById("productStarFilter")?.value||"", q=(document.getElementById("scanSearch")?.value||"").toLowerCase();
+  const rows=products.filter(p=>{
+    const s=scenes.find(x=>x.id===p.sceneId); if(!s)return false;
+    const text=(JSON.stringify(p)+" "+s.domain+" "+s.scene).toLowerCase();
+    return (!df||s.domain===df)&&(!scf||s.scene===scf)&&(!sf||sourceGroup(p)===sf)&&(!csf||(p.captureSource||"其他")===csf)&&(!pf||String(p.researchPriority||3)===pf)&&(!star||p.starred)&&(!q||text.includes(q));
+  });
+  rows.sort((a,b)=>(Number(b.researchPriority||3)-Number(a.researchPriority||3)) || (String(b.captureDate||"").localeCompare(String(a.captureDate||""))));
+  scanCount.textContent=products.length; if(document.getElementById("scanKpiProducts")) scanKpiProducts.textContent=products.length;
+  if(document.getElementById("filteredProductCount")) filteredProductCount.textContent=`当前显示 ${rows.length} 个产品 / 总计 ${products.length} 个`;
+  productScanTable.innerHTML=rows.map(p=>{
+    const s=scenes.find(x=>x.id===p.sceneId);
+    return `<tr data-product-id="${p.id}">
+      <td>${s?.domain||""}</td><td>${s?.scene||""}</td>
+      <td><button class="product-link" onclick="openProduct(${p.id})">${p.name} ↗</button><div class="source-note">发布：${p.launchDate||""}</div></td>
+      <td><select onchange="updateProductPriority(${p.id},this.value)" style="min-width:108px"><option value="5" ${(p.researchPriority||3)==5?'selected':''}>★★★★★</option><option value="4" ${(p.researchPriority||3)==4?'selected':''}>★★★★</option><option value="3" ${(p.researchPriority||3)==3?'selected':''}>★★★</option><option value="2" ${(p.researchPriority||3)==2?'selected':''}>★★</option><option value="1" ${(p.researchPriority||3)==1?'selected':''}>★</option></select><div class="source-note">${p.researchWhy||""}</div></td>
+      <td><span class="tag">${p.captureSource||"其他"}</span></td>
+      <td>${p.captureDate||"待补"}</td>
+      <td>${p.foundedDate||"待核实"}</td>
+      <td><b>${p.signal||""}</b><div class="source-note">${p.source||""}</div></td>
+      <td>${p.intro||""}</td>
+      <td><span class="tag">${p.pattern||"待归纳"}</span></td>
+      <td>${p.biz||""}</td>
+      <td>${p.feedback||""}</td>
+      <td><b>${p.inspiration||""}</b></td>
+      <td><button class="star-btn" onclick="toggleProductStar(${p.id})">${p.starred?"★":"☆"}</button></td>
+      <td><input class="note-input" value="${(p.teamNote||"").replace(/"/g,'&quot;')}" placeholder="添加评价..." onchange="updateProductNote(${p.id},this.value)"></td>
+      <td><a class="source-link" href="${p.website||p.demo||'#'}" target="_blank">Product Hunt / 官网 ↗</a></td>
+    </tr>`;
+  }).join("");
+  if(document.getElementById("trendRadar")){
+    trendRadar.innerHTML=trendRadarData();
+  }
+}
+
+
+function toggleSection(bodyId,btnId){
+  const body=document.getElementById(bodyId),btn=document.getElementById(btnId);
+  if(!body)return;
+  const willCollapse=!body.classList.contains("collapsed");
+  body.classList.toggle("collapsed",willCollapse);
+  if(btn)btn.textContent=willCollapse?"展开":"收起";
+}
+function scrollHighlight(el){
+  if(!el)return;
+  el.scrollIntoView({behavior:"smooth",block:"center"});
+  el.classList.remove("row-highlight"); void el.offsetWidth; el.classList.add("row-highlight");
+}
+function jumpToMarket(sceneId){
+  showTab("market");
+  setTimeout(()=>{
+    const row=document.querySelector(`[data-market-scene="${sceneId}"]`);
+    scrollHighlight(row);
+  },60);
+}
+function jumpToPriority(sceneId){
+  showTab("priority");
+  setTimeout(()=>{
+    const row=document.querySelector(`[data-priority-scene="${sceneId}"]`);
+    scrollHighlight(row);
+  },60);
+}
+function jumpToProduct(productId){
+  showTab("products");
+  setTimeout(()=>{
+    const row=document.querySelector(`[data-product-id="${productId}"]`);
+    if(row){scrollHighlight(row);}
+  },60);
+}
+
+
+
+function openMigrationModal(){
+  const m=document.getElementById("migrationModal");
+  if(m)m.classList.add("show");
+  generateMigrationJSON();
+}
+function closeMigrationModal(){
+  const m=document.getElementById("migrationModal");
+  if(m)m.classList.remove("show");
+}
+function generateMigrationJSON(){
+  try{
+    const cfg=collectDashboardConfig();
+    cfg.migrationType="2C_AI_Dashboard_Manual_Data";
+    cfg.schemaVersion=2;
+    const ta=document.getElementById("migrationTextarea");
+    if(ta)ta.value=JSON.stringify(cfg,null,2);
+    return cfg;
+  }catch(e){
+    alert("生成JSON失败："+e.message);
+  }
+}
+async function copyMigrationJSON(){
+  try{
+    const ta=document.getElementById("migrationTextarea");
+    if(!ta?.value)generateMigrationJSON();
+    const text=document.getElementById("migrationTextarea")?.value||"";
+    if(navigator.clipboard && window.isSecureContext){
+      await navigator.clipboard.writeText(text);
+    }else{
+      const t=document.getElementById("migrationTextarea");
+      t.focus();t.select();document.execCommand("copy");
+    }
+    alert("JSON 已复制。可到另一浏览器粘贴导入。");
+  }catch(e){
+    alert("复制失败。请直接选中下方JSON手动复制。");
+  }
+}
+function downloadMigrationJSON(){
+  try{
+    const ta=document.getElementById("migrationTextarea");
+    if(!ta?.value)generateMigrationJSON();
+    const text=document.getElementById("migrationTextarea")?.value||"";
+    const d=new Date(),pad=n=>String(n).padStart(2,"0");
+    const name=`2c_ai_manual_data_${d.getFullYear()}${pad(d.getMonth()+1)}${pad(d.getDate())}_${pad(d.getHours())}${pad(d.getMinutes())}.json`;
+    downloadTextFile(name,text,"application/json;charset=utf-8");
+    alert("已触发JSON下载。如果浏览器没有下载文件，请直接使用“复制JSON”。");
+  }catch(e){
+    alert("下载失败："+e.message);
+  }
+}
+function applyMigrationTextarea(){
+  try{
+    const text=document.getElementById("migrationTextarea")?.value?.trim();
+    if(!text)throw new Error("请先粘贴JSON");
+    const cfg=JSON.parse(text);
+    applyImportedConfig(cfg);
+    alert("导入成功。当前浏览器已恢复人工数据。");
+    closeMigrationModal();
+  }catch(e){
+    alert("导入失败："+e.message);
+  }
+}
+function importMigrationFile(event){
+  const file=event?.target?.files?.[0];
+  if(!file)return;
+  const reader=new FileReader();
+  reader.onload=()=>{
+    try{
+      const text=reader.result;
+      document.getElementById("migrationTextarea").value=text;
+      const cfg=JSON.parse(text);
+      applyImportedConfig(cfg);
+      alert("JSON文件导入成功。");
+      closeMigrationModal();
+    }catch(e){
+      alert("导入失败："+e.message);
+    }finally{
+      event.target.value="";
+    }
+  };
+  reader.onerror=()=>alert("读取JSON文件失败");
+  reader.readAsText(file,"utf-8");
+}
+
+function collectDashboardConfig(){
+  return {
+    version:"v27-config-1",
+    exportedAt:new Date().toISOString(),
+    scenes:scenes,
+    products:products,
+    marketSizing:marketSizing,
+    priorityWeights:priorityWeights,
+    tierThresholds:tierThresholds,
+    startupHeatWeights:startupHeatWeights,
+    startupHeatThresholds:startupHeatThresholds,
+    useAutoStartupHeat:useAutoStartupHeat,
+    trendRadarItems:trendRadarItems,
+    ui:{
+      evidenceColumnVisible:document.getElementById("evidenceToggleBtn")?.textContent==="隐藏目标人群依据"
+    }
+  };
+}
+function downloadTextFile(filename,text,mime){
+  const blob=new Blob([text],{type:mime||"text/plain;charset=utf-8"});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement("a");
+  a.href=url;a.download=filename;
+  document.body.appendChild(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
+function exportDashboardConfig(){
+  try{
+    const cfg=collectDashboardConfig();
+    const d=new Date();
+    const pad=n=>String(n).padStart(2,"0");
+    const name=`2c_ai_dashboard_config_${d.getFullYear()}${pad(d.getMonth()+1)}${pad(d.getDate())}_${pad(d.getHours())}${pad(d.getMinutes())}.json`;
+    downloadTextFile(name,JSON.stringify(cfg,null,2),"application/json;charset=utf-8");
+  }catch(e){
+    alert("导出失败："+e.message);
+  }
+}
+function applyImportedConfig(cfg){
+  if(!cfg||typeof cfg!=="object")throw new Error("配置文件格式不正确");
+  if(Array.isArray(cfg.scenes)) scenes=cfg.scenes;
+  if(Array.isArray(cfg.products)) products=cfg.products;
+  if(Array.isArray(cfg.marketSizing)) marketSizing=cfg.marketSizing;
+  if(cfg.priorityWeights) priorityWeights=cfg.priorityWeights;
+  if(cfg.tierThresholds) tierThresholds=cfg.tierThresholds;
+  if(cfg.startupHeatWeights) startupHeatWeights=cfg.startupHeatWeights;
+  if(cfg.startupHeatThresholds) startupHeatThresholds=cfg.startupHeatThresholds;
+  if(typeof cfg.useAutoStartupHeat==="boolean") useAutoStartupHeat=cfg.useAutoStartupHeat;
+  if(Array.isArray(cfg.trendRadarItems)) trendRadarItems=cfg.trendRadarItems;
+
+  // Persist into current localStorage keys
+  try{
+    localStorage.setItem("aiRadarManualMigrationBackup",JSON.stringify(cfg));
+    localStorage.setItem("aiRadarScenesV8",JSON.stringify(scenes));
+    localStorage.setItem("aiRadarProductsV20",JSON.stringify(products));
+    localStorage.setItem("aiRadarMarketV11",JSON.stringify(marketSizing));
+    localStorage.setItem("aiRadarPriorityWeightsV1",JSON.stringify(priorityWeights));
+    localStorage.setItem("aiRadarTierThresholdsV1",JSON.stringify(tierThresholds));
+    localStorage.setItem("aiRadarStartupHeatWeightsV1",JSON.stringify(startupHeatWeights));
+    localStorage.setItem("aiRadarStartupHeatThresholdsV1",JSON.stringify(startupHeatThresholds));
+    localStorage.setItem("aiRadarUseAutoHeatV1",JSON.stringify(useAutoStartupHeat));
+    localStorage.setItem("aiRadarTrendRadarV1",JSON.stringify(trendRadarItems));
+  }catch(e){console.warn("persist imported config failed",e);}
+
+  // Sync visible controls and redraw
+  if(typeof syncPriorityWeightInputs==="function")syncPriorityWeightInputs();
+  if(typeof renderAll==="function")renderAll();
+  if(typeof renderPriority==="function")renderPriority();
+  if(typeof renderProductScan==="function")renderProductScan();
+  if(typeof renderMarketSizing==="function")renderMarketSizing();
+}
+function importDashboardConfig(event){
+  const file=event?.target?.files?.[0];
+  if(!file)return;
+  const reader=new FileReader();
+  reader.onload=()=>{
+    try{
+      const cfg=JSON.parse(reader.result);
+      applyImportedConfig(cfg);
+      alert("配置导入成功。当前页面已恢复导出时的评分、星标、评价、权重与趋势配置。");
+    }catch(e){
+      alert("导入失败："+e.message);
+    }finally{
+      if(event?.target)event.target.value="";
+    }
+  };
+  reader.onerror=()=>alert("读取配置文件失败");
+  reader.readAsText(file,"utf-8");
+}
+
+function showTab(tab){
+  overviewTab.style.display=tab==="overview"?"block":"none";
+  priorityTab.style.display=tab==="priority"?"block":"none";
+  productsTab.style.display=tab==="products"?"block":"none";
+  marketTab.style.display=tab==="market"?"block":"none";
+  navOverview.classList.toggle("active",tab==="overview");
+  navPriority.classList.toggle("active",tab==="priority");
+  navProducts.classList.toggle("active",tab==="products");
+  navMarket.classList.toggle("active",tab==="market");
+  if(tab==="priority")renderPriority();
+  if(tab==="products")renderProductScan();
+  if(tab==="market")renderMarket();
+}
+
+// ===== PRODUCT HUNT AUTO DATA SYNC · v31 =====
+// Works when dashboard is served over HTTP(S), e.g. GitHub Pages. Local file:// mode falls back to v31 snapshot/localStorage.
+const AUTO_DATA_URL = window.AUTO_DATA_URL || "../data/products_auto.json";
+const AUTO_STATUS_URL = window.AUTO_STATUS_URL || "../data/scan_status.json";
+
+function _normName(v){return String(v||"").toLowerCase().replace(/\b(ai|app)\b/g,"").replace(/[^a-z0-9\u4e00-\u9fff]+/g,"").trim()}
+function _phSlugFromUrl(v){
+  try{const u=new URL(v); const m=u.pathname.match(/\/products\/([^/?#]+)/); return m?m[1].toLowerCase():""}catch(e){return ""}
+}
+function _existingPHSlug(p){return _phSlugFromUrl(p.website)||_phSlugFromUrl(p.demo)||_phSlugFromUrl(p.producthuntUrl)}
+
+function mergeAutoProducts(remote){
+  if(!Array.isArray(remote)) return {added:0,updated:0,skipped:0};
+  // For an existing v31 product, v31's human-curated content and scene mapping win.
+  // Auto sync only refreshes machine/source metadata and PH metrics. New PH products are inserted with auto fields.
+  const bySource=new Map(products.filter(p=>p.sourceProductId).map(p=>[String(p.sourceProductId),p]));
+  const bySlug=new Map(products.map(p=>[_existingPHSlug(p),p]).filter(([k])=>k));
+  const byName=new Map(products.map(p=>[_normName(p.name),p]).filter(([k])=>k));
+  let added=0,updated=0,skipped=0;
+  for(const rp of remote){
+    if(rp.isAI===false){skipped++;continue}
+    const sourceId=String(rp.sourceProductId||"");
+    const slug=_existingPHSlug(rp);
+    const keyName=_normName(rp.name);
+    const old=(sourceId&&bySource.get(sourceId))||(slug&&bySlug.get(slug))||(keyName&&byName.get(keyName));
+    if(old){
+      // Only source-controlled fields are refreshed on curated records.
+      const refresh=["sourceProductId","phVotes","phComments","phRating","thumbnailUrl","autoResearchPriority","autoClassified","isAI","sceneConfidence","newSceneCandidate","suggestedNewScene","newSceneReason"];
+      refresh.forEach(k=>{if(rp[k]!==undefined) old[k]=rp[k]});
+      if(rp.captureDate) old.autoLastCaptureDate=rp.captureDate;
+      if(rp.launchDate && !old.launchDate) old.launchDate=rp.launchDate;
+      old.autoSynced=true;
+      updated++;
+      if(sourceId) bySource.set(sourceId,old);
+    }else{
+      // New records start from auto classification, but remain fully editable in v31 afterwards.
+      const np={...rp,autoSynced:true};
+      products.push(np); added++;
+      if(sourceId) bySource.set(sourceId,np);
+      if(slug) bySlug.set(slug,np);
+      if(keyName) byName.set(keyName,np);
+    }
+  }
+  saveAll();
+  return {added,updated,skipped};
+}
+
+function _setAutoBadge(text,ok){
+  const el=document.getElementById("autoSyncBadge"); if(!el)return;
+  el.textContent=text;
+  el.style.borderColor=ok?"#b7dfcc":"#e1c5c5";
+  el.style.background=ok?"#f1fbf6":"#fff7f7";
+}
+
+async function syncAutoData(){
+  try{
+    const resp=await fetch(AUTO_DATA_URL,{cache:"no-store"});
+    if(!resp.ok) throw new Error(`HTTP ${resp.status}`);
+    const result=mergeAutoProducts(await resp.json());
+    window.__autoSync={ok:true,...result};
+    _setAutoBadge(`PH自动同步：+${result.added} 新增 / ${result.updated} 更新`,true);
+  }catch(e){
+    window.__autoSync={ok:false,error:String(e)};
+    _setAutoBadge("PH自动同步：未连接（当前用本地数据）",false);
+    console.info("Auto product data unavailable; using v31 embedded/local snapshot.",e);
+  }
+  try{
+    const s=await fetch(AUTO_STATUS_URL,{cache:"no-store"});
+    if(s.ok) window.__scanStatus=await s.json();
+  }catch(e){}
+}
+// ===== END PRODUCT HUNT AUTO DATA SYNC =====
+
+function renderAll(){ensureMarketRows();renderFilters();renderKPIs();renderMap();renderHeat();renderTable();renderMarket();renderPriority();renderProductScan()}
+syncAutoData().finally(renderAll);
+</script>
+<div class="modal" id="traceModal" onclick="if(event.target===this)closeTraceModal()">
+<div class="modal-box">
+<div class="section-head">
+<div><div class="section-title" id="traceTitle">AI 单用户年变现拆解</div><div class="subtitle" id="traceSubtitle"></div></div>
+<button class="secondary" onclick="closeTraceModal()">关闭</button>
+</div>
+<div id="traceContent"></div>
+</div>
+</div>
+
+<div id="migrationModal" class="migration-modal" onclick="if(event.target===this)closeMigrationModal()">
+  <div class="migration-card">
+    <div class="migration-head">
+      <div>
+        <div class="migration-title">迁移人工数据</div>
+        <div class="migration-note">用于把当前浏览器里的评分、星标、评价、权重、市场参数、趋势雷达等人工数据迁移到其他浏览器。</div>
+      </div>
+      <button class="secondary" onclick="closeMigrationModal()">关闭</button>
+    </div>
+    <div class="migration-actions">
+      <button class="secondary" onclick="generateMigrationJSON()">生成当前 JSON</button>
+      <button class="secondary" onclick="copyMigrationJSON()">复制 JSON</button>
+      <button class="secondary" onclick="downloadMigrationJSON()">下载 JSON</button>
+      <button class="secondary" onclick="document.getElementById('migrationFileInput').click()">选择 JSON 文件导入</button>
+      <input id="migrationFileInput" type="file" accept=".json,application/json" style="display:none" onchange="importMigrationFile(event)">
+      <button class="secondary" onclick="applyMigrationTextarea()">导入下方 JSON</button>
+    </div>
+    <textarea id="migrationTextarea" class="migration-textarea" placeholder="点“生成当前 JSON”导出；或在另一浏览器把 JSON 粘贴到这里，再点“导入下方 JSON”。"></textarea>
+    <div class="migration-note" style="margin-top:10px">
+      推荐操作：<b>旧浏览器</b> → 生成当前 JSON → 复制 JSON；<b>新浏览器</b> → 打开同一 HTML → 迁移人工数据 → 粘贴 → 导入。<br>
+      如果浏览器允许下载，也可以使用“下载 JSON / 选择 JSON 文件导入”。
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
