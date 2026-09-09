@@ -1,8 +1,8 @@
 {
   "source": "Product Hunt",
-  "last_scan_at": "2026-09-09T11:10:58.296479+00:00",
-  "window_start": "2026-09-09T07:54:24.733539+00:00",
-  "window_end": "2026-09-09T11:15:58.296479+00:00",
+  "last_scan_at": "2026-09-09T16:14:49.608475+00:00",
+  "window_start": "2026-09-09T09:10:58.296479+00:00",
+  "window_end": "2026-09-09T16:19:49.608475+00:00",
   "page_size": 10,
   "pages_fetched": 1,
   "max_pages": 20,
@@ -10,12 +10,12 @@
   "total_products_raw": 174,
   "truncated_by_safety_cap": false,
   "status": "success",
-  "classifiedAt": "2026-09-09T11:10:58.828704+00:00",
+  "classifiedAt": "2026-09-09T16:14:50.064438+00:00",
   "classifier": "rules",
   "totalAutoProducts": 174,
   "aiProducts": 68,
   "classificationErrors": [],
-  "builtAt": "2026-09-09T11:10:58.871816+00:00",
+  "builtAt": "2026-09-09T16:14:50.120237+00:00",
   "newSceneCandidates": 0,
   "metricSnapshots": 174
 }
