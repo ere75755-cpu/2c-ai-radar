@@ -3,10 +3,14 @@ name: Product Hunt Daily Sync
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 10 * * *"
+    - cron: "0 */6 * * *"
 
 permissions:
   contents: write
+
+concurrency:
+  group: product-hunt-sync
+  cancel-in-progress: false
 
 jobs:
   producthunt-sync:
@@ -19,21 +23,24 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: "3.12"
 
       - name: Install dependencies
-        run: |
-          pip install -r requirements.txt
+        run: pip install -r requirements.txt
 
       - name: Fetch Product Hunt
         env:
           PRODUCTHUNT_TOKEN: ${{ secrets.PRODUCTHUNT_TOKEN }}
-        run: |
-          python scripts/fetch_producthunt.py
+        run: python scripts/fetch_producthunt.py
+
+      - name: Classify and map scenes
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: gpt-5.6-luna
+        run: python scripts/classify_products.py
 
       - name: Build dashboard data
-        run: |
-          python scripts/build_dashboard_data.py
+        run: python scripts/build_dashboard_data.py
 
       - name: Commit updated data
         run: |
