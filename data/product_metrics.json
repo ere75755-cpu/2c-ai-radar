@@ -1,1 +1,1394 @@
-[]
+[
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1234441",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1233924",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1233317",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 2,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1233622",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1232267",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1231897",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1231616",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1231235",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1231400",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1230043",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1229915",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1241976",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 0,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1229518",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1230075",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1227103",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1242356",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1242271",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1245238",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244700",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 0,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1245063",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1219777",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1245278",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244847",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1245258",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1245135",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1245237",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244786",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1245234",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244798",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1238928",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1245232",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1242266",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1238060",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1245002",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244838",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 0,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244654",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244830",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1245285",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244593",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1245019",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1242891",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244877",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1245035",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 0,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1245228",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1245227",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1241671",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 0,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1245219",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1245213",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1245193",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244802",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244879",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244793",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1241417",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1222981",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1245217",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1228997",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244646",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 0,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244810",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244725",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244726",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244476",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244723",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244932",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244789",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1245001",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 5.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244647",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1245387",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1241112",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244566",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 0,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1245133",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244518",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244523",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244517",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 2,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244465",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 0,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1243230",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1245301",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1241911",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 0,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244604",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244467",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1245408",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244535",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244783",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 0,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244557",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1236029",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1245101",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244688",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1245203",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244724",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244928",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1243799",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1245162",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244952",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 0,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1245449",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 0,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244788",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 0,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244573",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1243456",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244526",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1242351",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244764",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 0,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244785",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244787",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1245206",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244658",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 0,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244978",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1245025",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1245309",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244438",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 0,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1245191",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244796",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 0,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244780",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1245179",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244781",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1245188",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244790",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244778",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244765",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244729",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1245224",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1245181",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 0,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1245444",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244773",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 0,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1239098",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1218898",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 0,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1245235",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244568",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244522",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244057",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244572",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244571",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244570",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 0,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244771",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 0,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244767",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 0,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244051",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 0,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1245231",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1245233",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 0,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1245451",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 0,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1241258",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244753",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244499",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244480",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1245441",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244954",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244501",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244206",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244551",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 3,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244540",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244601",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1245148",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244532",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1243758",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244766",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1179169",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 5,
+    "reviews_rating": 5.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1234506",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1245161",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 0,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1233177",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1245266",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1243100",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1245256",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 6,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1245048",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244625",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1238967",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1237660",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1242507",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 2,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244990",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 6,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1245087",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1239702",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244489",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244671",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1245337",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244977",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1243433",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244727",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1245402",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1244033",
+    "date": "2026-09-09",
+    "votes_count": 0,
+    "comments_count": 0,
+    "reviews_rating": 0.0
+  }
+]

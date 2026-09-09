@@ -1,8 +1,18 @@
 {
-  "lastRunAt": null,
-  "status": "not_run",
   "source": "Product Hunt",
-  "newProducts": 0,
+  "last_scan_at": "2026-09-09T09:54:24.733539+00:00",
+  "window_start": "2026-09-08T09:54:24.733539+00:00",
+  "window_end": "2026-09-09T09:59:24.733539+00:00",
+  "page_size": 10,
+  "pages_fetched": 20,
+  "max_pages": 20,
+  "fetched_this_run": 200,
+  "total_products_raw": 174,
+  "truncated_by_safety_cap": true,
+  "status": "success",
+  "builtAt": "2026-09-09T09:54:46.616650+00:00",
   "totalAutoProducts": 0,
-  "errors": []
+  "aiProducts": 0,
+  "newSceneCandidates": 0,
+  "metricSnapshots": 174
 }
