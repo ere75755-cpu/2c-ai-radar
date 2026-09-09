@@ -1,117 +1,280 @@
 #!/usr/bin/env python3
-"""Fetch recent Product Hunt launches via official GraphQL API and keep history.
-
-Required env: PRODUCTHUNT_TOKEN
-Optional env: PH_LOOKBACK_DAYS (default 3), PH_MAX_PAGES (default 10)
 """
-from __future__ import annotations
-import json, os, sys, urllib.request, urllib.error
+Product Hunt incremental fetcher with low-complexity pagination.
+
+Reads:
+  PRODUCTHUNT_TOKEN from environment
+
+Writes:
+  data/products_raw.json
+  data/product_metrics.json
+  data/scan_status.json
+"""
+
+import json
+import os
+import time
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-DATA = ROOT / "data"
-API = "https://api.producthunt.com/v2/api/graphql"
-TOKEN = os.environ.get("PRODUCTHUNT_TOKEN", "").strip()
-LOOKBACK = int(os.environ.get("PH_LOOKBACK_DAYS", "3"))
-MAX_PAGES = int(os.environ.get("PH_MAX_PAGES", "10"))
-PAGE_SIZE = 50
+import requests
 
-QUERY = r"""
-query RecentPosts($after: String, $postedAfter: DateTime!, $postedBefore: DateTime!, $first: Int!) {
-  posts(first: $first, after: $after, postedAfter: $postedAfter, postedBefore: $postedBefore, order: NEWEST) {
-    pageInfo { hasNextPage endCursor }
+API_URL = "https://api.producthunt.com/v2/api/graphql"
+ROOT = Path(__file__).resolve().parents[1]
+DATA_DIR = ROOT / "data"
+PRODUCTS_RAW = DATA_DIR / "products_raw.json"
+PRODUCT_METRICS = DATA_DIR / "product_metrics.json"
+SCAN_STATUS = DATA_DIR / "scan_status.json"
+
+PAGE_SIZE = 15
+LOOKBACK_DAYS = 3
+REQUEST_SLEEP_SECONDS = 0.4
+
+
+def load_json(path, default):
+    if not path.exists():
+        return default
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except Exception:
+        return default
+
+
+def save_json(path, data):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(
+        json.dumps(data, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+
+
+def gql(query, variables, token):
+    headers = {
+        "Authorization": f"Bearer {token}",
+        "Content-Type": "application/json",
+        "User-Agent": "2c-ai-radar/1.0",
+    }
+    resp = requests.post(
+        API_URL,
+        headers=headers,
+        json={"query": query, "variables": variables},
+        timeout=30,
+    )
+
+    if resp.status_code >= 400:
+        raise RuntimeError(
+            f"Product Hunt HTTP {resp.status_code}: {resp.text[:1000]}"
+        )
+
+    payload = resp.json()
+    if payload.get("errors"):
+        raise RuntimeError(
+            "Product Hunt GraphQL error: "
+            + json.dumps(payload["errors"], ensure_ascii=False)
+        )
+
+    return payload["data"]
+
+
+QUERY = """
+query FetchPosts(
+  $after: String
+  $postedAfter: DateTime!
+  $postedBefore: DateTime!
+  $first: Int!
+) {
+  posts(
+    first: $first
+    after: $after
+    postedAfter: $postedAfter
+    postedBefore: $postedBefore
+    order: NEWEST
+  ) {
     edges {
+      cursor
       node {
-        id name slug tagline description url website createdAt featuredAt votesCount commentsCount reviewsRating
-        thumbnail { url }
-        topics(first: 20) { edges { node { id name slug } } }
-        makers { id name username }
+        id
+        name
+        tagline
+        description
+        url
+        website
+        createdAt
+        featuredAt
+        votesCount
+        commentsCount
+        reviewsRating
+        thumbnail {
+          url
+        }
+        topics(first: 8) {
+          edges {
+            node {
+              id
+              name
+              slug
+            }
+          }
+        }
       }
+    }
+    pageInfo {
+      hasNextPage
+      endCursor
     }
   }
 }
 """
 
-def load(path, default):
-    try: return json.loads(path.read_text(encoding="utf-8"))
-    except Exception: return default
 
-def dump(path, obj):
-    path.write_text(json.dumps(obj, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+def normalize_post(node, captured_at):
+    topics = []
+    for edge in ((node.get("topics") or {}).get("edges") or []):
+        topic = edge.get("node") or {}
+        topics.append(
+            {
+                "id": topic.get("id"),
+                "name": topic.get("name"),
+                "slug": topic.get("slug"),
+            }
+        )
 
-def gql(variables):
-    body = json.dumps({"query": QUERY, "variables": variables}).encode()
-    req = urllib.request.Request(API, data=body, method="POST", headers={
-        "Authorization": f"Bearer {TOKEN}", "Content-Type": "application/json", "Accept": "application/json",
-        "User-Agent": "2C-AI-Product-Radar/1.0"
-    })
-    try:
-        with urllib.request.urlopen(req, timeout=30) as resp:
-            payload = json.loads(resp.read().decode())
-    except urllib.error.HTTPError as e:
-        detail = e.read().decode(errors="replace")
-        raise RuntimeError(f"Product Hunt HTTP {e.code}: {detail[:1000]}") from e
-    if payload.get("errors"):
-        raise RuntimeError("Product Hunt GraphQL error: " + json.dumps(payload["errors"], ensure_ascii=False))
-    return payload["data"]["posts"]
+    thumb = node.get("thumbnail") or {}
 
-def normalize(n):
-    topics = [e["node"] for e in (n.get("topics") or {}).get("edges", [])]
-    thumb = n.get("thumbnail") or {}
     return {
-        "source": "Product Hunt", "sourceProductId": str(n["id"]), "name": n.get("name") or "",
-        "slug": n.get("slug") or "", "tagline": n.get("tagline") or "", "description": n.get("description") or "",
-        "producthuntUrl": n.get("url") or "", "websiteUrl": n.get("website") or "",
-        "thumbnailUrl": thumb.get("url") or "", "createdAt": n.get("createdAt"), "featuredAt": n.get("featuredAt"),
-        "votesCount": n.get("votesCount") or 0, "commentsCount": n.get("commentsCount") or 0,
-        "reviewsRating": n.get("reviewsRating") or 0, "topics": topics, "makers": n.get("makers") or []
+        "source": "Product Hunt",
+        "source_product_id": str(node.get("id") or ""),
+        "name": node.get("name") or "",
+        "tagline": node.get("tagline") or "",
+        "description": node.get("description") or "",
+        "source_url": node.get("url") or "",
+        "website_url": node.get("website") or "",
+        "thumbnail_url": thumb.get("url") or "",
+        "launch_date": node.get("featuredAt") or node.get("createdAt"),
+        "created_at": node.get("createdAt"),
+        "featured_at": node.get("featuredAt"),
+        "votes_count": node.get("votesCount"),
+        "comments_count": node.get("commentsCount"),
+        "reviews_rating": node.get("reviewsRating"),
+        "topics": topics,
+        "captured_at": captured_at,
+        "last_updated_at": captured_at,
     }
 
+
 def main():
-    if not TOKEN:
-        print("ERROR: PRODUCTHUNT_TOKEN is not configured.", file=sys.stderr); return 2
+    token = os.environ.get("PRODUCTHUNT_TOKEN", "").strip()
+    if not token:
+        raise SystemExit("Missing PRODUCTHUNT_TOKEN environment variable")
+
     now = datetime.now(timezone.utc)
-    after_dt = now - timedelta(days=LOOKBACK)
-    variables = {"after": None, "postedAfter": after_dt.isoformat().replace("+00:00","Z"),
-                 "postedBefore": now.isoformat().replace("+00:00","Z"), "first": PAGE_SIZE}
-    fetched=[]
-    for _ in range(MAX_PAGES):
-        page = gql(variables)
-        fetched += [normalize(e["node"]) for e in page.get("edges", [])]
-        pi = page.get("pageInfo") or {}
-        if not pi.get("hasNextPage"): break
-        variables["after"] = pi.get("endCursor")
-    raw_path = DATA / "products_raw.json"
-    existing = load(raw_path, [])
-    by_id = {str(x.get("sourceProductId")): x for x in existing if x.get("sourceProductId") is not None}
-    new_count=0
-    for p in fetched:
-        key=p["sourceProductId"]
-        if key not in by_id:
-            p["firstCapturedAt"] = now.isoformat(); new_count += 1
-        else:
-            p["firstCapturedAt"] = by_id[key].get("firstCapturedAt", now.isoformat())
-        p["lastCapturedAt"] = now.isoformat()
-        by_id[key] = {**by_id.get(key,{}), **p}
-    merged = sorted(by_id.values(), key=lambda x: x.get("createdAt") or "", reverse=True)
-    dump(raw_path, merged)
+    posted_after = now - timedelta(days=LOOKBACK_DAYS)
+    posted_before = now + timedelta(minutes=5)
+    captured_at = now.isoformat()
 
-    metrics_path = DATA / "product_metrics.json"
-    metrics = load(metrics_path, [])
-    today = now.date().isoformat()
-    metric_by_key={(str(m.get("sourceProductId")), m.get("date")):m for m in metrics}
-    for p in fetched:
-        metric_by_key[(p["sourceProductId"],today)]={
-            "source":"Product Hunt","sourceProductId":p["sourceProductId"],"name":p["name"],"date":today,
-            "capturedAt":now.isoformat(),"votesCount":p["votesCount"],"commentsCount":p["commentsCount"],
-            "reviewsRating":p["reviewsRating"]
+    existing = load_json(PRODUCTS_RAW, [])
+    existing_by_id = {
+        str(x.get("source_product_id")): x
+        for x in existing
+        if x.get("source_product_id")
+    }
+
+    metrics = load_json(PRODUCT_METRICS, [])
+    seen_metric_keys = {
+        (str(x.get("source_product_id")), x.get("date"))
+        for x in metrics
+    }
+
+    cursor = None
+    fetched_count = 0
+    page_no = 0
+
+    while True:
+        page_no += 1
+        variables = {
+            "after": cursor,
+            "postedAfter": posted_after.isoformat(),
+            "postedBefore": posted_before.isoformat(),
+            "first": PAGE_SIZE,
         }
-    dump(metrics_path, sorted(metric_by_key.values(), key=lambda x:(x.get("date",""),x.get("name","")), reverse=True))
-    status=load(DATA/"scan_status.json",{})
-    status.update({"lastRunAt":now.isoformat(),"status":"fetched","source":"Product Hunt","fetchedThisRun":len(fetched),"newProducts":new_count,"errors":[]})
-    dump(DATA/"scan_status.json",status)
-    print(f"Fetched {len(fetched)} Product Hunt posts; {new_count} new; raw total {len(merged)}")
-    return 0
 
-if __name__ == "__main__": raise SystemExit(main())
+        data = gql(QUERY, variables, token)
+        conn = data["posts"]
+        edges = conn.get("edges") or []
+
+        print(f"Fetched page {page_no}: {len(edges)} posts")
+
+        for edge in edges:
+            node = edge.get("node") or {}
+            pid = str(node.get("id") or "")
+            if not pid:
+                continue
+
+            fresh = normalize_post(node, captured_at)
+
+            old = existing_by_id.get(pid)
+            if old:
+                merged = dict(old)
+                merged.update(fresh)
+                if old.get("captured_at"):
+                    merged["captured_at"] = old["captured_at"]
+                existing_by_id[pid] = merged
+            else:
+                existing_by_id[pid] = fresh
+
+            metric_date = now.date().isoformat()
+            metric_key = (pid, metric_date)
+            if metric_key not in seen_metric_keys:
+                metrics.append(
+                    {
+                        "source": "Product Hunt",
+                        "source_product_id": pid,
+                        "date": metric_date,
+                        "votes_count": node.get("votesCount"),
+                        "comments_count": node.get("commentsCount"),
+                        "reviews_rating": node.get("reviewsRating"),
+                    }
+                )
+                seen_metric_keys.add(metric_key)
+
+            fetched_count += 1
+
+        page_info = conn.get("pageInfo") or {}
+        if not page_info.get("hasNextPage"):
+            break
+
+        cursor = page_info.get("endCursor")
+        if not cursor:
+            break
+
+        time.sleep(REQUEST_SLEEP_SECONDS)
+
+    products_out = sorted(
+        existing_by_id.values(),
+        key=lambda x: (x.get("launch_date") or "", x.get("name") or ""),
+        reverse=True,
+    )
+
+    save_json(PRODUCTS_RAW, products_out)
+    save_json(PRODUCT_METRICS, metrics)
+    save_json(
+        SCAN_STATUS,
+        {
+            "source": "Product Hunt",
+            "last_scan_at": captured_at,
+            "lookback_days": LOOKBACK_DAYS,
+            "page_size": PAGE_SIZE,
+            "fetched_this_run": fetched_count,
+            "total_products_raw": len(products_out),
+            "status": "success",
+        },
+    )
+
+    print(
+        f"Done. fetched_this_run={fetched_count}, "
+        f"total_products_raw={len(products_out)}"
+    )
+
+
+if __name__ == "__main__":
+    main()
