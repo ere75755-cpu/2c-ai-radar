@@ -1684,8 +1684,8 @@ function showTab(tab){
 
 // ===== PRODUCT HUNT AUTO DATA SYNC · v31 =====
 // Works when dashboard is served over HTTP(S), e.g. GitHub Pages. Local file:// mode falls back to v31 snapshot/localStorage.
-const AUTO_DATA_URL = window.AUTO_DATA_URL || "../data/products_auto.json";
-const AUTO_STATUS_URL = window.AUTO_STATUS_URL || "../data/scan_status.json";
+const AUTO_DATA_URL = window.AUTO_DATA_URL || "./data/products_auto.json";
+const AUTO_STATUS_URL = window.AUTO_STATUS_URL || "./data/scan_status.json";
 
 function _normName(v){return String(v||"").toLowerCase().replace(/\b(ai|app)\b/g,"").replace(/[^a-z0-9\u4e00-\u9fff]+/g,"").trim()}
 function _phSlugFromUrl(v){
