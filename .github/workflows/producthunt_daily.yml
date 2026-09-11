@@ -33,33 +33,14 @@ jobs:
           PRODUCTHUNT_TOKEN: ${{ secrets.PRODUCTHUNT_TOKEN }}
         run: python scripts/fetch_producthunt.py
 
-      - name: Classify and research AI products
-        env:
-          # 公司 LiteLLM 网关
-          LITELLM_BASE_URL: ${{ vars.LITELLM_BASE_URL }}
-
-          # 公司 API Key
-          LITELLM_API_KEY: ${{ secrets.LITELLM_API_KEY }}
-
-          # 实际调用的模型
-          LITELLM_MODEL: gpt-5.6-luna
-
-          # 单次最多调用 50 个尚未研究的 AI 产品
-          MAX_LLM_CALLS: "50"
-
-          # 仅用于 GitHub Actions 日志中的成本估算
-          INPUT_PRICE_RMB_PER_M: "1.35"
-          OUTPUT_PRICE_RMB_PER_M: "8.11"
-
-        run: python scripts/classify_products.py
-
-      - name: Build dashboard data
-        run: python scripts/build_dashboard_data.py
-
-      - name: Commit updated data
+      - name: Commit Product Hunt raw data
         run: |
           git config user.name "product-radar-bot"
           git config user.email "product-radar-bot@users.noreply.github.com"
-          git add data/
-          git diff --cached --quiet || git commit -m "Auto-update Product Hunt data"
+
+          git add data/products_raw.json
+          git add data/product_metrics.json
+          git add data/scan_status.json
+
+          git diff --cached --quiet || git commit -m "Auto-update Product Hunt raw data"
           git push
