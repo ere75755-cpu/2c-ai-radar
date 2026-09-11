@@ -33,10 +33,24 @@ jobs:
           PRODUCTHUNT_TOKEN: ${{ secrets.PRODUCTHUNT_TOKEN }}
         run: python scripts/fetch_producthunt.py
 
-      - name: Classify and map scenes
+      - name: Classify and research AI products
         env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          OPENAI_MODEL: gpt-5.6-luna
+          # 公司 LiteLLM 网关
+          LITELLM_BASE_URL: ${{ vars.LITELLM_BASE_URL }}
+
+          # 公司 API Key
+          LITELLM_API_KEY: ${{ secrets.LITELLM_API_KEY }}
+
+          # 实际调用的模型
+          LITELLM_MODEL: gpt-5.6-luna
+
+          # 单次最多调用 50 个尚未研究的 AI 产品
+          MAX_LLM_CALLS: "50"
+
+          # 仅用于 GitHub Actions 日志中的成本估算
+          INPUT_PRICE_RMB_PER_M: "1.35"
+          OUTPUT_PRICE_RMB_PER_M: "8.11"
+
         run: python scripts/classify_products.py
 
       - name: Build dashboard data
