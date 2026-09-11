@@ -35,22 +35,18 @@ jobs:
 
       - name: Classify and research AI products
         env:
-          # 你实际创建的 GitHub Secret
-          # Python 内部仍统一把它当 OPENAI_API_KEY 使用
-          OPENAI_API_KEY: ${{ secrets.LITELLM_API_KEY }}
-
-          # 如果公司提供 LiteLLM / OpenAI-compatible 网关地址，
-          # 再创建一个 Secret：LITELLM_BASE_URL
-          # 如果目前没有，这里留着也没关系，会得到空值
-          OPENAI_BASE_URL: ${{ secrets.LITELLM_BASE_URL }}
+          # 公司 LiteLLM 网关配置
+          LITELLM_BASE_URL: ${{ vars.LITELLM_BASE_URL }}
+          LITELLM_API_KEY: ${{ secrets.LITELLM_API_KEY }}
 
           # 实际调用模型
-          OPENAI_MODEL: gpt-5.6-luna
+          LITELLM_MODEL: gpt-5.6-luna
 
-          # 每次最多新调用 50 个产品，防止异常刷量
+          # 单次 GitHub Actions 最多新增 50 次模型调用
+          # 防止代码异常导致大量消耗
           MAX_LLM_CALLS: "50"
 
-          # 仅用于日志中的成本估算
+          # 仅用于日志成本估算
           INPUT_PRICE_RMB_PER_M: "1.35"
           OUTPUT_PRICE_RMB_PER_M: "8.11"
 
