@@ -3,8 +3,7 @@ name: Product Hunt Daily Sync
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 18 * * *"
-      timezone: "Asia/Shanghai"
+    - cron: "0 */6 * * *"
 
 permissions:
   contents: write
@@ -14,32 +13,56 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  sync:
+  producthunt-sync:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-          cache: "pip"
-      - name: Install optional AI classifier dependency
+
+      - name: Install dependencies
         run: pip install -r requirements.txt
+
       - name: Fetch Product Hunt
         env:
           PRODUCTHUNT_TOKEN: ${{ secrets.PRODUCTHUNT_TOKEN }}
         run: python scripts/fetch_producthunt.py
-      - name: Classify and map scenes
+
+      - name: Classify and research AI products
         env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          # 你实际创建的 GitHub Secret
+          # Python 内部仍统一把它当 OPENAI_API_KEY 使用
+          OPENAI_API_KEY: ${{ secrets.LITELLM_API_KEY }}
+
+          # 如果公司提供 LiteLLM / OpenAI-compatible 网关地址，
+          # 再创建一个 Secret：LITELLM_BASE_URL
+          # 如果目前没有，这里留着也没关系，会得到空值
+          OPENAI_BASE_URL: ${{ secrets.LITELLM_BASE_URL }}
+
+          # 实际调用模型
           OPENAI_MODEL: gpt-5.6-luna
+
+          # 每次最多新调用 50 个产品，防止异常刷量
+          MAX_LLM_CALLS: "50"
+
+          # 仅用于日志中的成本估算
+          INPUT_PRICE_RMB_PER_M: "1.35"
+          OUTPUT_PRICE_RMB_PER_M: "8.11"
+
         run: python scripts/classify_products.py
+
       - name: Build dashboard data
         run: python scripts/build_dashboard_data.py
-      - name: Commit data updates
+
+      - name: Commit updated data
         run: |
           git config user.name "product-radar-bot"
-          git config user.email "actions@users.noreply.github.com"
+          git config user.email "product-radar-bot@users.noreply.github.com"
           git add data/
-          git diff --cached --quiet && exit 0
-          git commit -m "chore: sync Product Hunt data"
+          git diff --cached --quiet || git commit -m "Auto-update Product Hunt data"
           git push
