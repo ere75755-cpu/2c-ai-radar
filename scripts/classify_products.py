@@ -1,16 +1,26 @@
 #!/usr/bin/env python3
 
 """
-Product Hunt -> AI classification + lightweight product research.
+Local AI research pipeline for 2C AI Radar.
 
-V1 goals:
-1. Use rules as a free first-pass AI filter.
-2. Only send likely AI products to GPT-5.6 Luna.
-3. Complete classification + lightweight research in one model call.
-4. Products already researched by LLM will NOT be charged again.
-5. Preserve manual dashboard annotations.
-6. Fall back to rule-based results if LiteLLM/API fails.
-7. Record token usage and estimated RMB cost in scan_status.json.
+Run this script on a machine that can access the company LiteLLM gateway.
+
+Pipeline:
+Product Hunt raw products
+    ->
+cheap AI candidate filter
+    ->
+GPT-5.6 Luna
+    ->
+scene classification + lightweight product research
+    ->
+products_auto.json
+
+Important:
+- API key is read ONLY from local environment variables.
+- Already researched products are reused and are NOT charged again.
+- Manual fields are preserved.
+- Non-AI candidates do not consume LLM tokens.
 """
 
 from __future__ import annotations
@@ -34,7 +44,7 @@ CONFIG = ROOT / "config"
 
 
 # ============================================================
-# LiteLLM / model config
+# LiteLLM configuration
 # ============================================================
 
 MODEL = os.environ.get(
@@ -53,10 +63,7 @@ BASE_URL = os.environ.get(
 ).strip()
 
 
-# ============================================================
-# Safety / cost config
-# ============================================================
-
+# Maximum NEW products researched each local run.
 MAX_LLM_CALLS = int(
     os.environ.get(
         "MAX_LLM_CALLS",
@@ -64,6 +71,8 @@ MAX_LLM_CALLS = int(
     )
 )
 
+
+# RMB pricing used only for cost estimation.
 INPUT_PRICE_RMB_PER_M = float(
     os.environ.get(
         "INPUT_PRICE_RMB_PER_M",
@@ -80,7 +89,7 @@ OUTPUT_PRICE_RMB_PER_M = float(
 
 
 # ============================================================
-# Generic helpers
+# Helpers
 # ============================================================
 
 def load(path: Path, default):
@@ -100,16 +109,19 @@ def dump(path: Path, obj):
             obj,
             ensure_ascii=False,
             indent=2,
-        )
-        + "\n",
+        ) + "\n",
         encoding="utf-8",
     )
 
 
-def getv(p, *names, default=None):
+def getv(obj, *names, default=None):
     for name in names:
-        if name in p and p[name] is not None:
-            return p[name]
+        if (
+            name in obj
+            and obj[name] is not None
+        ):
+            return obj[name]
+
     return default
 
 
@@ -125,9 +137,9 @@ def stable_id(source_id):
     )
 
 
-def normalized_topics(p):
+def normalized_topics(product):
     topics = getv(
-        p,
+        product,
         "topics",
         default=[],
     ) or []
@@ -150,12 +162,12 @@ def normalized_topics(p):
     return result
 
 
-def text_of(p):
+def text_of(product):
     return " ".join(
         [
             str(
                 getv(
-                    p,
+                    product,
                     "name",
                     default="",
                 )
@@ -163,7 +175,7 @@ def text_of(p):
             ),
             str(
                 getv(
-                    p,
+                    product,
                     "tagline",
                     default="",
                 )
@@ -171,21 +183,23 @@ def text_of(p):
             ),
             str(
                 getv(
-                    p,
+                    product,
                     "description",
                     default="",
                 )
                 or ""
             ),
             " ".join(
-                normalized_topics(p)
+                normalized_topics(
+                    product
+                )
             ),
         ]
     ).lower()
 
 
 # ============================================================
-# Cheap first-pass AI filtering
+# Cheap AI pre-filter
 # ============================================================
 
 AI_WORDS = re.compile(
@@ -202,7 +216,6 @@ AI_WORDS = re.compile(
     r"generative|"
     r"genai|"
     r"machine learning|"
-    r"ml model|"
     r"neural|"
     r"voice ai|"
     r"speech ai|"
@@ -231,110 +244,11 @@ AI_TOPIC_HINTS = (
 )
 
 
-SCENE_HINTS = {
-    "health": [
-        "health",
-        "medical",
-        "doctor",
-        "skin",
-        "fitness",
-        "nutrition",
-        "sleep",
-        "pregnancy",
-        "period",
-        "pet health",
-    ],
-    "education": [
-        "learn",
-        "study",
-        "education",
-        "tutor",
-        "language",
-        "exam",
-        "course",
-    ],
-    "work": [
-        "productivity",
-        "meeting",
-        "notes",
-        "research",
-        "spreadsheet",
-        "presentation",
-        "workflow",
-        "email",
-        "calendar",
-    ],
-    "career": [
-        "job",
-        "resume",
-        "interview",
-        "career",
-        "recruit",
-    ],
-    "finance": [
-        "finance",
-        "invest",
-        "stock",
-        "budget",
-        "tax",
-        "insurance",
-    ],
-    "travel": [
-        "travel",
-        "trip",
-        "hotel",
-        "flight",
-        "itinerary",
-    ],
-    "shopping": [
-        "shopping",
-        "commerce",
-        "product discovery",
-        "fashion",
-        "beauty",
-        "checkout",
-    ],
-    "content": [
-        "creator",
-        "video",
-        "image",
-        "music",
-        "writing",
-        "content",
-        "social media",
-        "design",
-    ],
-    "relationship": [
-        "dating",
-        "relationship",
-        "friend",
-        "social",
-    ],
-    "home": [
-        "home",
-        "interior",
-        "house",
-        "family",
-        "parenting",
-    ],
-}
-
-
-def is_ai_candidate(p):
-    """
-    Free pre-filter.
-
-    False:
-    Do not spend LLM cost on this product.
-
-    True:
-    Product is worth sending to Luna for a proper judgement.
-    """
-
-    text = text_of(p)
+def is_ai_candidate(product):
+    text = text_of(product)
 
     topics = " ".join(
-        normalized_topics(p)
+        normalized_topics(product)
     ).lower()
 
     if AI_WORDS.search(text):
@@ -350,182 +264,26 @@ def is_ai_candidate(p):
 
 
 # ============================================================
-# Free rule-based fallback
+# Rule fallback
 # ============================================================
 
-def rule_classify(p, scenes):
+def rule_classify(product, scenes):
     if not scenes:
         raise RuntimeError(
             "config/scenes.json contains no scenes"
         )
 
-    text = text_of(p)
-    is_ai = is_ai_candidate(p)
-
-    best = None
-    best_score = -1
-
-    english_words = set(
-        re.findall(
-            r"[a-zA-Z]{3,}",
-            text,
-        )
+    is_ai = is_ai_candidate(
+        product
     )
 
-    for scene_item in scenes:
-        domain = str(
-            scene_item.get(
-                "domain",
-                "",
-            )
-        )
-
-        scene_name = str(
-            scene_item.get(
-                "scene",
-                "",
-            )
-        )
-
-        need = str(
-            scene_item.get(
-                "need",
-                "",
-            )
-        )
-
-        scene_text = (
-            f"{domain} "
-            f"{scene_name} "
-            f"{need}"
-        ).lower()
-
-        scene_words = set(
-            re.findall(
-                r"[a-zA-Z]{3,}",
-                scene_text,
-            )
-        )
-
-        score = len(
-            english_words
-            & scene_words
-        )
-
-        if any(
-            k in text
-            for k in SCENE_HINTS["health"]
-        ) and (
-            "健康" in domain
-            or "医疗" in domain
-            or "养宠" in domain
-        ):
-            score += 3
-
-        if any(
-            k in text
-            for k in SCENE_HINTS["education"]
-        ) and (
-            "学习" in domain
-            or "教育" in domain
-        ):
-            score += 3
-
-        if any(
-            k in text
-            for k in SCENE_HINTS["work"]
-        ) and (
-            "工作" in domain
-            or "生产力" in domain
-            or "办公" in domain
-        ):
-            score += 3
-
-        if any(
-            k in text
-            for k in SCENE_HINTS["career"]
-        ) and (
-            "求职" in domain
-            or "职业" in domain
-        ):
-            score += 3
-
-        if any(
-            k in text
-            for k in SCENE_HINTS["finance"]
-        ) and (
-            "金融" in domain
-            or "财富" in domain
-        ):
-            score += 3
-
-        if any(
-            k in text
-            for k in SCENE_HINTS["travel"]
-        ) and (
-            "旅行" in domain
-            or "旅游" in domain
-        ):
-            score += 3
-
-        if any(
-            k in text
-            for k in SCENE_HINTS["shopping"]
-        ) and (
-            "商品" in domain
-            or "消费" in domain
-            or "购物" in domain
-        ):
-            score += 3
-
-        if any(
-            k in text
-            for k in SCENE_HINTS["content"]
-        ) and (
-            "创作" in domain
-            or "内容" in domain
-        ):
-            score += 3
-
-        if any(
-            k in text
-            for k in SCENE_HINTS["relationship"]
-        ) and (
-            "情感" in domain
-            or "社交" in domain
-        ):
-            score += 3
-
-        if any(
-            k in text
-            for k in SCENE_HINTS["home"]
-        ) and (
-            "家庭" in domain
-            or "家居" in domain
-            or "养娃" in domain
-        ):
-            score += 2
-
-        if score > best_score:
-            best = scene_item
-            best_score = score
-
-    if best is None:
-        best = scenes[0]
-
-    confidence = min(
-        0.82,
-        0.30
-        + 0.08
-        * max(
-            best_score,
-            0,
-        ),
-    )
+    # Fallback only.
+    # Luna normally handles actual scene mapping.
+    best_scene = scenes[0]
 
     votes = int(
         getv(
-            p,
+            product,
             "votesCount",
             "votes_count",
             default=0,
@@ -545,34 +303,37 @@ def rule_classify(p, scenes):
 
     return {
         "isAI": is_ai,
-        "sceneId": best["sceneId"],
-        "sceneConfidence": round(
-            confidence,
-            2,
-        ),
+        "sceneId": best_scene["sceneId"],
+        "sceneConfidence": 0.2,
+
         "productCore": (
             getv(
-                p,
+                product,
                 "tagline",
                 default="",
             )
             or ""
         ),
+
         "whyInteresting": (
-            "规则初筛判断为AI候选，"
-            "尚未完成LLM研究。"
+            "AI候选产品，尚未完成LLM研究。"
             if is_ai
             else
             "规则判断为非AI产品。"
         ),
+
         "pattern": "",
         "inspiration": "",
+
         "autoResearchPriority": priority,
         "priorityReason": "",
+
         "businessModel": "待核实",
+
         "newSceneCandidate": False,
         "suggestedNewScene": "",
         "newSceneReason": "",
+
         "researchModel": "",
         "researchStatus": "rules",
     }
@@ -587,97 +348,110 @@ def build_client():
 
     if not API_KEY:
         raise RuntimeError(
-            "LITELLM_API_KEY is empty"
+            "LITELLM_API_KEY is not configured"
         )
 
     if not BASE_URL:
         raise RuntimeError(
-            "LITELLM_BASE_URL is empty"
+            "LITELLM_BASE_URL is not configured"
         )
 
     return OpenAI(
         api_key=API_KEY,
-        base_url=BASE_URL,
+        base_url=BASE_URL.rstrip("/") + "/",
+        timeout=60.0,
+        max_retries=1,
     )
 
 
 # ============================================================
-# Product / scene data sent to LLM
+# Data sent to LLM
 # ============================================================
 
-def product_payload(p):
+def product_payload(product):
     """
-    Only public Product Hunt information is sent to LiteLLM.
+    Only public Product Hunt information is sent.
 
-    Browser LocalStorage, TAM, teamNote, starred,
-    manual research fields etc. are NOT sent.
+    Browser LocalStorage data such as:
+    TAM / teamNote / starred / manual score
+    is NOT sent to the model.
     """
 
     return {
         "name": (
             getv(
-                p,
+                product,
                 "name",
                 default="",
             )
             or ""
         ),
+
         "tagline": (
             getv(
-                p,
+                product,
                 "tagline",
                 default="",
             )
             or ""
         ),
+
         "description": (
             getv(
-                p,
+                product,
                 "description",
                 default="",
             )
             or ""
         ),
-        "topics": normalized_topics(p),
+
+        "topics": normalized_topics(
+            product
+        ),
+
         "votes": int(
             getv(
-                p,
+                product,
                 "votesCount",
                 "votes_count",
                 default=0,
             )
             or 0
         ),
+
         "comments": int(
             getv(
-                p,
+                product,
                 "commentsCount",
                 "comments_count",
                 default=0,
             )
             or 0
         ),
+
         "website": (
             getv(
-                p,
+                product,
                 "websiteUrl",
                 "website_url",
                 default="",
             )
             or ""
         ),
+
         "productHuntUrl": (
             getv(
-                p,
+                product,
                 "producthuntUrl",
                 "source_url",
                 default="",
             )
             or ""
         ),
+
         "launchDate": (
             getv(
-                p,
+                product,
                 "createdAt",
                 "created_at",
                 "launch_date",
@@ -688,22 +462,22 @@ def product_payload(p):
     }
 
 
-def build_scene_payload(scenes):
+def scene_payload(scenes):
     result = []
 
-    for scene_item in scenes:
+    for scene in scenes:
         result.append(
             {
-                "sceneId": scene_item["sceneId"],
-                "domain": scene_item.get(
+                "sceneId": scene["sceneId"],
+                "domain": scene.get(
                     "domain",
                     "",
                 ),
-                "scene": scene_item.get(
+                "scene": scene.get(
                     "scene",
                     "",
                 ),
-                "need": scene_item.get(
+                "need": scene.get(
                     "need",
                     "",
                 ),
@@ -714,77 +488,66 @@ def build_scene_payload(scenes):
 
 
 # ============================================================
-# LLM prompt
+# Product strategy prompt
 # ============================================================
 
 SYSTEM_PROMPT = """
 你是一名负责2C通用AI助手 / AI Chatbot的资深产品策略研究员。
 
-你的目标不是给Product Hunt产品写宣传文案，而是帮助产品团队发现：
+目标不是给Product Hunt产品写宣传文案，而是帮助产品团队发现：
 
 1. 新出现或正在增强的消费者需求
-2. AI原生交互范式
+2. AI原生产品交互范式
 3. Agent、Memory、多模态、长期任务等新能力
 4. 可以迁移到通用AI Assistant的产品机制
 5. 有明显用户验证、热度或商业化潜力的产品
 
-【isAI判断】
 
-只有当AI、机器学习或生成式模型是产品核心能力、
-核心体验或关键价值来源时，isAI才为true。
+【isAI】
 
-如果只是普通软件附带一个AI按钮、AI功能很边缘，
-不要因为产品写了AI就判断为重要AI产品。
+只有AI、机器学习或生成式模型是产品核心能力、
+核心体验或关键价值来源时，才判断为true。
 
-【sceneId判断】
+普通软件只是加一个AI按钮，不应因此成为高价值AI产品。
 
-根据“用户真正想完成什么任务”选择最匹配的场景。
 
-不要只按技术标签分类。
-例如一个AI图片产品如果核心任务是帮助用户购物选衣，
-应该优先匹配购物消费，而不只是内容创作。
+【sceneId】
+
+按照“用户真正想完成什么任务”分类。
+
+不是按照底层技术标签分类。
+
 
 【autoResearchPriority】
 
-只能为1到5。
+只能为1到5：
 
 1：
-基本无需研究。
-普通套壳、同质化严重、需求较弱，
-或和2C通用AI助手关系很远。
+基本无需研究。普通套壳、同质化严重、需求较弱。
 
 2：
-一般。
-产品成立，但缺乏明显的新产品机制或新需求。
+一般。产品合理，但新意有限。
 
 3：
-值得关注。
-用户需求明确，产品具有一定差异化或增长信号。
+值得关注。需求明确，有一定产品差异化。
 
 4：
-建议研究。
-存在明显AI-native机制、新交互方式、新需求趋势，
-或者对通用AI助手具有较强迁移价值。
+建议研究。有明显AI-native机制、新交互、
+新需求趋势或较强迁移价值。
 
 5：
-强烈建议研究。
-代表新的产品范式、新的重要消费者需求、
-强烈用户验证，或对通用AI Assistant有明显战略启发。
+强烈建议研究。代表新范式、新需求，
+或对通用AI Assistant具有明显战略启发。
 
-不要因为Product Hunt votes高就直接打4或5分。
+不要因为Product Hunt votes高就直接打高分。
 
-优先级综合考虑：
-- 用户需求是否真实
-- AI是否带来明显体验跃迁
-- 产品机制是否有新意
-- 是否适合迁移到通用AI助手
-- 是否存在用户或产品验证信号
 
 【pattern】
 
 抽象产品机制，而不是重复产品功能。
 
-好的例子：
+例如：
+
 Camera as Input + Longitudinal Memory
 Ambient Agent
 Voice-first Companion
@@ -793,98 +556,107 @@ Personal Context + Proactive Action
 Agentic Commerce
 Continuous Monitoring + Proactive Alert
 
+
 【inspiration】
 
-回答这个问题：
+回答：
 
-“如果我们是一个2C通用AI Chatbot / Assistant团队，
-这个产品最值得借鉴什么？”
+如果我们是一个2C通用AI Chatbot / Assistant团队，
+这个产品最值得借鉴什么？
 
-【newSceneCandidate】
-
-只有当现有场景确实难以覆盖，
-并且产品代表一个值得长期追踪的新消费者需求时，
-才设置为true。
 
 【输出原则】
 
-- 中文简洁
-- 不夸大
-- 不编造资料中不存在的信息
-- 不确定的商业模式写“待核实”
-- 每个文字字段尽量控制在60个中文字以内
-- 只输出JSON对象
+中文简洁。
+不要夸大。
+不要编造。
+无法确认的信息写“待核实”。
+只输出JSON。
 """
 
 
 # ============================================================
-# LLM call
+# LLM classification + lightweight research
 # ============================================================
 
-def llm_classify(p, scenes):
-    client = build_client()
+def llm_classify(
+    client,
+    product,
+    scenes,
+):
+    public_product = product_payload(
+        product
+    )
 
-    payload = product_payload(p)
-
-    compact_scenes = build_scene_payload(
+    public_scenes = scene_payload(
         scenes
     )
 
     user_prompt = f"""
-请研究下面这个Product Hunt产品。
+请分析以下Product Hunt产品。
 
-【产品公开信息】
+【产品】
 
 {json.dumps(
-    payload,
+    public_product,
     ensure_ascii=False
 )}
 
-【可选场景库】
+【场景库】
 
 {json.dumps(
-    compact_scenes,
+    public_scenes,
     ensure_ascii=False
 )}
 
-请只返回下面结构的JSON：
+只返回JSON：
 
 {{
   "isAI": true,
   "sceneId": 123,
   "sceneConfidence": 0.90,
-  "productCore": "一句中文，清楚说明产品是什么、为谁解决什么问题",
-  "whyInteresting": "一句中文，说明为什么值得或不值得关注",
-  "pattern": "一个简洁的AI-native产品机制",
-  "inspiration": "一句中文，说明对2C通用AI助手的启发",
+
+  "productCore": "一句话说明产品是什么以及解决什么需求",
+
+  "whyInteresting": "一句话说明为什么值得或不值得关注",
+
+  "pattern": "抽象的AI-native产品机制",
+
+  "inspiration": "一句话说明对2C通用AI助手的启发",
+
   "autoResearchPriority": 1,
-  "priorityReason": "一句中文，解释为什么是这个优先级",
-  "businessModel": "已知则简述，否则写待核实",
+
+  "priorityReason": "一句话解释优先级",
+
+  "businessModel": "已知则简述，否则待核实",
+
   "newSceneCandidate": false,
+
   "suggestedNewScene": "",
+
   "newSceneReason": ""
 }}
 
-强约束：
+要求：
 
-1. sceneId必须来自可选场景库
-2. autoResearchPriority只能为1、2、3、4、5
-3. sceneConfidence必须为0到1
-4. 不要输出Markdown
-5. 不要输出JSON之外的任何内容
+sceneId必须来自场景库。
+
+autoResearchPriority只能为1-5整数。
+
+sceneConfidence必须为0-1。
+
+每个文字字段尽量控制在60个中文字以内。
+
+不要输出Markdown。
 """
 
-    input_tokens = 0
-    output_tokens = 0
-
-    # --------------------------------------------------------
-    # First try Responses API
-    # --------------------------------------------------------
-
-    try:
-        response = client.responses.create(
+    # Company LiteLLM gateway:
+    # use OpenAI-compatible Chat Completions directly.
+    response = (
+        client.chat.completions.create(
             model=MODEL,
-            input=[
+
+            messages=[
                 {
                     "role": "system",
                     "content": SYSTEM_PROMPT,
@@ -894,101 +666,21 @@ def llm_classify(p, scenes):
                     "content": user_prompt,
                 },
             ],
+
+            response_format={
+                "type": "json_object"
+            },
         )
+    )
 
-        text = response.output_text.strip()
+    text = (
+        response
+        .choices[0]
+        .message
+        .content
+        .strip()
+    )
 
-        usage = getattr(
-            response,
-            "usage",
-            None,
-        )
-
-        if usage:
-            input_tokens = int(
-                getattr(
-                    usage,
-                    "input_tokens",
-                    0,
-                )
-                or 0
-            )
-
-            output_tokens = int(
-                getattr(
-                    usage,
-                    "output_tokens",
-                    0,
-                )
-                or 0
-            )
-
-    # --------------------------------------------------------
-    # LiteLLM gateways often expose Chat Completions
-    # even when Responses API is unavailable.
-    # --------------------------------------------------------
-
-    except Exception as responses_error:
-        print(
-            "Responses API unavailable, "
-            "trying Chat Completions: "
-            f"{type(responses_error).__name__}: "
-            f"{responses_error}"
-        )
-
-        response = (
-            client.chat.completions.create(
-                model=MODEL,
-                messages=[
-                    {
-                        "role": "system",
-                        "content": SYSTEM_PROMPT,
-                    },
-                    {
-                        "role": "user",
-                        "content": user_prompt,
-                    },
-                ],
-                response_format={
-                    "type": "json_object"
-                },
-            )
-        )
-
-        text = (
-            response
-            .choices[0]
-            .message
-            .content
-            .strip()
-        )
-
-        usage = getattr(
-            response,
-            "usage",
-            None,
-        )
-
-        if usage:
-            input_tokens = int(
-                getattr(
-                    usage,
-                    "prompt_tokens",
-                    0,
-                )
-                or 0
-            )
-
-            output_tokens = int(
-                getattr(
-                    usage,
-                    "completion_tokens",
-                    0,
-                )
-                or 0
-            )
-
-    # Remove accidental markdown fences
     text = re.sub(
         r"^```(?:json)?\s*|\s*```$",
         "",
@@ -996,211 +688,265 @@ def llm_classify(p, scenes):
         flags=re.S,
     )
 
-    result_raw = json.loads(text)
+    raw = json.loads(text)
 
     allowed_scene_ids = {
-        scene_item["sceneId"]
-        for scene_item in scenes
+        scene["sceneId"]
+        for scene in scenes
     }
 
-    returned_scene_id = (
-        result_raw.get("sceneId")
+    scene_id = raw.get(
+        "sceneId"
     )
 
-    if returned_scene_id not in allowed_scene_ids:
+    if scene_id not in allowed_scene_ids:
         raise ValueError(
-            "LLM returned unknown sceneId: "
-            f"{returned_scene_id}"
+            f"Unknown sceneId: {scene_id}"
         )
 
     priority = int(
-        result_raw.get(
+        raw.get(
             "autoResearchPriority",
             2,
         )
     )
 
-    if priority < 1 or priority > 5:
-        raise ValueError(
-            "Invalid autoResearchPriority: "
-            f"{priority}"
-        )
+    priority = max(
+        1,
+        min(
+            5,
+            priority,
+        ),
+    )
 
     confidence = float(
-        result_raw.get(
+        raw.get(
             "sceneConfidence",
             0,
         )
     )
 
-    confidence = min(
-        1.0,
-        max(
-            0.0,
+    confidence = max(
+        0,
+        min(
+            1,
             confidence,
         ),
     )
 
+    usage = getattr(
+        response,
+        "usage",
+        None,
+    )
+
+    input_tokens = 0
+    output_tokens = 0
+
+    if usage:
+        input_tokens = int(
+            getattr(
+                usage,
+                "prompt_tokens",
+                0,
+            )
+            or 0
+        )
+
+        output_tokens = int(
+            getattr(
+                usage,
+                "completion_tokens",
+                0,
+            )
+            or 0
+        )
+
     return {
         "isAI": bool(
-            result_raw.get(
+            raw.get(
                 "isAI",
                 True,
             )
         ),
-        "sceneId": returned_scene_id,
+
+        "sceneId": scene_id,
+
         "sceneConfidence": round(
             confidence,
             2,
         ),
+
         "productCore": str(
-            result_raw.get(
+            raw.get(
                 "productCore",
                 "",
             )
         ).strip(),
+
         "whyInteresting": str(
-            result_raw.get(
+            raw.get(
                 "whyInteresting",
                 "",
             )
         ).strip(),
+
         "pattern": str(
-            result_raw.get(
+            raw.get(
                 "pattern",
                 "",
             )
         ).strip(),
+
         "inspiration": str(
-            result_raw.get(
+            raw.get(
                 "inspiration",
                 "",
             )
         ).strip(),
+
         "autoResearchPriority": priority,
+
         "priorityReason": str(
-            result_raw.get(
+            raw.get(
                 "priorityReason",
                 "",
             )
         ).strip(),
+
         "businessModel": (
             str(
-                result_raw.get(
+                raw.get(
                     "businessModel",
                     "待核实",
                 )
             ).strip()
             or "待核实"
         ),
+
         "newSceneCandidate": bool(
-            result_raw.get(
+            raw.get(
                 "newSceneCandidate",
                 False,
             )
         ),
+
         "suggestedNewScene": str(
-            result_raw.get(
+            raw.get(
                 "suggestedNewScene",
                 "",
             )
         ).strip(),
+
         "newSceneReason": str(
-            result_raw.get(
+            raw.get(
                 "newSceneReason",
                 "",
             )
         ).strip(),
+
         "researchModel": MODEL,
         "researchStatus": "llm",
+
         "_inputTokens": input_tokens,
         "_outputTokens": output_tokens,
     }
 
 
 # ============================================================
-# Reuse previous LLM research
+# Reuse previous LLM result
 # ============================================================
 
-def classification_from_previous(prev):
-    """
-    Already researched by LLM.
-
-    Reconstruct the classification from products_auto.json
-    without making another paid API call.
-    """
-
+def classification_from_previous(
+    previous,
+):
     return {
-        "isAI": prev.get(
+        "isAI": previous.get(
             "isAI",
             False,
         ),
-        "sceneId": prev.get(
+
+        "sceneId": previous.get(
             "sceneId"
         ),
-        "sceneConfidence": prev.get(
+
+        "sceneConfidence": previous.get(
             "sceneConfidence",
             0,
         ),
-        "productCore": prev.get(
+
+        "productCore": previous.get(
             "intro",
             "",
         ),
-        "whyInteresting": prev.get(
+
+        "whyInteresting": previous.get(
             "reason",
             "",
         ),
-        "pattern": prev.get(
+
+        "pattern": previous.get(
             "pattern",
             "",
         ),
-        "inspiration": prev.get(
+
+        "inspiration": previous.get(
             "inspiration",
             "",
         ),
-        "autoResearchPriority": prev.get(
-            "autoResearchPriority",
-            prev.get(
-                "researchPriority",
+
+        "autoResearchPriority": (
+            previous.get(
+                "autoResearchPriority",
                 2,
-            ),
+            )
         ),
-        "priorityReason": prev.get(
+
+        "priorityReason": previous.get(
             "priorityReason",
             "",
         ),
-        "businessModel": prev.get(
+
+        "businessModel": previous.get(
             "biz",
             "待核实",
         ),
-        "newSceneCandidate": prev.get(
+
+        "newSceneCandidate": previous.get(
             "newSceneCandidate",
             False,
         ),
-        "suggestedNewScene": prev.get(
+
+        "suggestedNewScene": previous.get(
             "suggestedNewScene",
             "",
         ),
-        "newSceneReason": prev.get(
+
+        "newSceneReason": previous.get(
             "newSceneReason",
             "",
         ),
-        "researchModel": prev.get(
+
+        "researchModel": previous.get(
             "researchModel",
             MODEL,
         ),
+
         "researchStatus": "llm",
     }
 
 
 # ============================================================
-# Convert to dashboard product schema
+# Dashboard product format
 # ============================================================
 
-def to_dashboard(p, classification):
+def to_dashboard(
+    product,
+    classification,
+):
     source_id = str(
         getv(
-            p,
+            product,
             "sourceProductId",
             "source_product_id",
             default="",
@@ -1210,54 +956,12 @@ def to_dashboard(p, classification):
 
     if not source_id:
         raise ValueError(
-            "missing source product id"
+            "missing sourceProductId"
         )
-
-    source_url = (
-        getv(
-            p,
-            "producthuntUrl",
-            "source_url",
-            default="",
-        )
-        or ""
-    )
-
-    website_url = (
-        getv(
-            p,
-            "websiteUrl",
-            "website_url",
-            default="",
-        )
-        or ""
-    )
-
-    created_at = (
-        getv(
-            p,
-            "createdAt",
-            "created_at",
-            "launch_date",
-            default="",
-        )
-        or ""
-    )
-
-    captured_at = (
-        getv(
-            p,
-            "lastCapturedAt",
-            "last_updated_at",
-            "captured_at",
-            default="",
-        )
-        or ""
-    )
 
     votes = int(
         getv(
-            p,
+            product,
             "votesCount",
             "votes_count",
             default=0,
@@ -1267,7 +971,7 @@ def to_dashboard(p, classification):
 
     comments = int(
         getv(
-            p,
+            product,
             "commentsCount",
             "comments_count",
             default=0,
@@ -1277,7 +981,7 @@ def to_dashboard(p, classification):
 
     rating = (
         getv(
-            p,
+            product,
             "reviewsRating",
             "reviews_rating",
             default=0,
@@ -1285,9 +989,51 @@ def to_dashboard(p, classification):
         or 0
     )
 
+    source_url = (
+        getv(
+            product,
+            "producthuntUrl",
+            "source_url",
+            default="",
+        )
+        or ""
+    )
+
+    website_url = (
+        getv(
+            product,
+            "websiteUrl",
+            "website_url",
+            default="",
+        )
+        or ""
+    )
+
+    launch_date = str(
+        getv(
+            product,
+            "createdAt",
+            "created_at",
+            "launch_date",
+            default="",
+        )
+        or ""
+    )[:10]
+
+    capture_date = str(
+        getv(
+            product,
+            "lastCapturedAt",
+            "last_updated_at",
+            "captured_at",
+            default="",
+        )
+        or ""
+    )[:10]
+
     thumbnail = (
         getv(
-            p,
+            product,
             "thumbnailUrl",
             "thumbnail_url",
             default="",
@@ -1300,7 +1046,9 @@ def to_dashboard(p, classification):
             source_id
         ),
 
-        "sourceProductId": source_id,
+        "sourceProductId": (
+            source_id
+        ),
 
         "source": (
             "Product Hunt · Auto"
@@ -1312,7 +1060,7 @@ def to_dashboard(p, classification):
 
         "name": (
             getv(
-                p,
+                product,
                 "name",
                 default="",
             )
@@ -1328,18 +1076,16 @@ def to_dashboard(p, classification):
                 "productCore"
             )
             or getv(
-                p,
+                product,
                 "tagline",
                 default="",
             )
             or ""
         ),
 
-        "biz": (
-            classification.get(
-                "businessModel"
-            )
-            or "待核实"
+        "biz": classification.get(
+            "businessModel",
+            "待核实",
         ),
 
         "website": (
@@ -1358,29 +1104,23 @@ def to_dashboard(p, classification):
             f"rating {rating}"
         ),
 
-        "reason": (
-            classification.get(
-                "whyInteresting",
-                "",
-            )
+        "reason": classification.get(
+            "whyInteresting",
+            "",
         ),
 
-        "launchDate": str(
-            created_at
-        )[:10],
-
-        "pattern": (
-            classification.get(
-                "pattern",
-                "",
-            )
+        "launchDate": (
+            launch_date
         ),
 
-        "inspiration": (
-            classification.get(
-                "inspiration",
-                "",
-            )
+        "pattern": classification.get(
+            "pattern",
+            "",
+        ),
+
+        "inspiration": classification.get(
+            "inspiration",
+            "",
         ),
 
         "signal": (
@@ -1388,19 +1128,14 @@ def to_dashboard(p, classification):
             f"{comments} comments"
         ),
 
-        "captureDate": str(
-            captured_at
-        )[:10],
+        "captureDate": (
+            capture_date
+        ),
 
         "foundedDate": "待核实",
 
-        # ----------------------------------------
         # Manual fields
-        # These must never be destroyed by sync.
-        # ----------------------------------------
-
         "starred": False,
-
         "teamNote": "",
 
         "researchPriority": (
@@ -1420,10 +1155,7 @@ def to_dashboard(p, classification):
             )
         ),
 
-        # ----------------------------------------
-        # Automatic research fields
-        # ----------------------------------------
-
+        # Automatic research
         "autoResearchPriority": (
             classification.get(
                 "autoResearchPriority",
@@ -1454,11 +1186,9 @@ def to_dashboard(p, classification):
 
         "autoClassified": True,
 
-        "isAI": (
-            classification.get(
-                "isAI",
-                False,
-            )
+        "isAI": classification.get(
+            "isAI",
+            False,
         ),
 
         "sceneConfidence": (
@@ -1489,10 +1219,7 @@ def to_dashboard(p, classification):
             )
         ),
 
-        # ----------------------------------------
-        # Product Hunt metrics
-        # ----------------------------------------
-
+        # PH metrics
         "thumbnailUrl": thumbnail,
         "phVotes": votes,
         "phComments": comments,
@@ -1501,11 +1228,23 @@ def to_dashboard(p, classification):
 
 
 # ============================================================
-# Main pipeline
+# Main
 # ============================================================
 
 def main():
-    raw = load(
+    if not API_KEY:
+        raise RuntimeError(
+            "Missing local environment variable: "
+            "LITELLM_API_KEY"
+        )
+
+    if not BASE_URL:
+        raise RuntimeError(
+            "Missing local environment variable: "
+            "LITELLM_BASE_URL"
+        )
+
+    raw_products = load(
         DATA / "products_raw.json",
         [],
     )
@@ -1525,40 +1264,39 @@ def main():
             "config/scenes.json contains no scenes"
         )
 
-    old_products = load(
+    previous_products = load(
         DATA / "products_auto.json",
         [],
     )
 
-    old_by_source_id = {
+    previous_by_id = {
         str(
             item.get(
                 "sourceProductId"
             )
         ): item
-        for item in old_products
+
+        for item in previous_products
+
         if item.get(
             "sourceProductId"
         )
     }
 
-    use_llm = bool(
-        API_KEY
-        and BASE_URL
-    )
+    client = build_client()
 
     output = []
     errors = []
 
-    llm_calls = 0
+    new_llm_calls = 0
     reused_llm = 0
-    rule_only = 0
+    rules_only = 0
     skipped_by_limit = 0
 
     total_input_tokens = 0
     total_output_tokens = 0
 
-    for product in raw:
+    for product in raw_products:
         source_id = str(
             getv(
                 product,
@@ -1569,31 +1307,24 @@ def main():
             or ""
         )
 
-        previous = (
-            old_by_source_id.get(
-                source_id,
-                {},
-            )
+        previous = previous_by_id.get(
+            source_id,
+            {},
         )
 
         try:
 
-            # ========================================================
-            # 1. Already researched by LLM
-            # Reuse previous result for zero additional cost.
-            # ========================================================
-
+            # Already researched by LLM:
+            # ZERO new API cost.
             if (
                 previous
                 and previous.get(
                     "researchStatus"
-                )
-                == "llm"
+                ) == "llm"
                 and previous.get(
                     "researchModel"
                 )
             ):
-
                 classification = (
                     classification_from_previous(
                         previous
@@ -1602,15 +1333,11 @@ def main():
 
                 reused_llm += 1
 
-            # ========================================================
-            # 2. Clearly not an AI candidate
-            # Do not waste money on model call.
-            # ========================================================
-
+            # Clearly non-AI:
+            # free rule classification.
             elif not is_ai_candidate(
                 product
             ):
-
                 classification = (
                     rule_classify(
                         product,
@@ -1618,35 +1345,32 @@ def main():
                     )
                 )
 
-                rule_only += 1
+                rules_only += 1
 
-            # ========================================================
-            # 3. AI candidate + API available
-            # Send to Luna.
-            # ========================================================
-
+            # AI candidate:
+            # send to Luna.
             elif (
-                use_llm
-                and llm_calls
+                new_llm_calls
                 < MAX_LLM_CALLS
             ):
-
-                product_name = getv(
-                    product,
-                    "name",
-                    default="unknown",
+                product_name = (
+                    getv(
+                        product,
+                        "name",
+                        default="unknown",
+                    )
                 )
 
                 print(
                     f"[LLM "
-                    f"{llm_calls + 1}"
-                    f"/"
-                    f"{MAX_LLM_CALLS}] "
+                    f"{new_llm_calls + 1}"
+                    f"/{MAX_LLM_CALLS}] "
                     f"{product_name}"
                 )
 
                 classification = (
                     llm_classify(
+                        client,
                         product,
                         scenes,
                     )
@@ -1668,22 +1392,14 @@ def main():
                     or 0
                 )
 
-                llm_calls += 1
+                new_llm_calls += 1
 
-                # Slight delay to be friendlier to
-                # internal LiteLLM rate limits.
                 time.sleep(
                     0.15
                 )
 
-            # ========================================================
-            # 4. API unavailable or safety limit reached
-            # Keep rule result temporarily.
-            # It can be researched next run.
-            # ========================================================
-
+            # Safety limit reached.
             else:
-
                 classification = (
                     rule_classify(
                         product,
@@ -1691,34 +1407,37 @@ def main():
                     )
                 )
 
-                if use_llm:
-                    skipped_by_limit += 1
+                skipped_by_limit += 1
 
         except Exception as exc:
-
             product_name = getv(
                 product,
                 "name",
                 default="unknown",
             )
 
-            errors.append(
+            error_message = (
                 f"{product_name}: "
                 f"{type(exc).__name__}: "
                 f"{exc}"
             )
 
-            # If an old LLM result already exists,
-            # never destroy it because of a transient API failure.
+            print(
+                "[ERROR] "
+                + error_message
+            )
 
+            errors.append(
+                error_message
+            )
+
+            # Never destroy old LLM research.
             if (
                 previous
                 and previous.get(
                     "researchStatus"
-                )
-                == "llm"
+                ) == "llm"
             ):
-
                 classification = (
                     classification_from_previous(
                         previous
@@ -1726,7 +1445,6 @@ def main():
                 )
 
             else:
-
                 classification = (
                     rule_classify(
                         product,
@@ -1734,40 +1452,19 @@ def main():
                     )
                 )
 
-        try:
+        item = to_dashboard(
+            product,
+            classification,
+        )
 
-            item = to_dashboard(
-                product,
-                classification,
-            )
-
-        except Exception as exc:
-
-            product_name = getv(
-                product,
-                "name",
-                default="unknown",
-            )
-
-            errors.append(
-                f"{product_name}: "
-                f"{type(exc).__name__}: "
-                f"{exc}"
-            )
-
-            continue
-
-        # ============================================================
-        # Preserve manual fields
-        # ============================================================
-
+        # Preserve any manual fields already
+        # contained in products_auto.json.
         for key in (
             "starred",
             "teamNote",
             "researchPriority",
             "researchWhy",
         ):
-
             if (
                 key in previous
                 and previous.get(key)
@@ -1783,8 +1480,6 @@ def main():
             item
         )
 
-    # Newest launches first,
-    # then higher-vote products.
     output.sort(
         key=lambda item: (
             item.get(
@@ -1800,14 +1495,9 @@ def main():
     )
 
     dump(
-        DATA
-        / "products_auto.json",
+        DATA / "products_auto.json",
         output,
     )
-
-    # ================================================================
-    # Cost estimation
-    # ================================================================
 
     estimated_cost_rmb = (
         total_input_tokens
@@ -1831,16 +1521,10 @@ def main():
             ).isoformat(),
 
             "classifier": (
-                f"llm:{MODEL}"
-                if use_llm
-                else "rules"
+                f"local-llm:{MODEL}"
             ),
 
-            "llmModel": (
-                MODEL
-                if use_llm
-                else ""
-            ),
+            "llmModel": MODEL,
 
             "totalAutoProducts": len(
                 output
@@ -1849,13 +1533,11 @@ def main():
             "aiProducts": sum(
                 1
                 for item in output
-                if item.get(
-                    "isAI"
-                )
+                if item.get("isAI")
             ),
 
             "llmCallsThisRun": (
-                llm_calls
+                new_llm_calls
             ),
 
             "llmReusedThisRun": (
@@ -1863,7 +1545,7 @@ def main():
             ),
 
             "ruleOnlyThisRun": (
-                rule_only
+                rules_only
             ),
 
             "llmSkippedByLimit": (
@@ -1890,84 +1572,60 @@ def main():
     )
 
     dump(
-        DATA
-        / "scan_status.json",
+        DATA / "scan_status.json",
         status,
     )
 
-    # ================================================================
-    # GitHub Actions log summary
-    # ================================================================
+    ai_count = sum(
+        1
+        for item in output
+        if item.get("isAI")
+    )
 
     print("")
     print(
-        "========== "
-        "CLASSIFICATION SUMMARY "
-        "=========="
+        "========== CLASSIFICATION SUMMARY =========="
     )
-
     print(
-        "Model: "
-        f"{MODEL if use_llm else 'rules only'}"
+        f"Model: {MODEL}"
     )
-
     print(
-        f"Total products: "
-        f"{len(output)}"
+        f"Total products: {len(output)}"
     )
-
     print(
-        "AI products: "
-        f"{sum(
-            1
-            for item in output
-            if item.get('isAI')
-        )}"
+        f"AI products: {ai_count}"
     )
-
     print(
-        f"New LLM calls: "
-        f"{llm_calls}"
+        f"New LLM calls: {new_llm_calls}"
     )
-
     print(
-        f"Reused old LLM research: "
-        f"{reused_llm}"
+        f"Reused old LLM research: {reused_llm}"
     )
-
     print(
-        f"Rules only: "
-        f"{rule_only}"
+        f"Rules only: {rules_only}"
     )
-
     print(
         "Skipped because "
-        "MAX_LLM_CALLS reached: "
+        f"MAX_LLM_CALLS reached: "
         f"{skipped_by_limit}"
     )
-
     print(
         "Input tokens this run: "
         f"{total_input_tokens}"
     )
-
     print(
         "Output tokens this run: "
         f"{total_output_tokens}"
     )
-
     print(
         "Estimated cost this run: "
         f"¥{estimated_cost_rmb:.4f}"
     )
-
     print(
-        f"Errors: "
-        f"{len(errors)}"
+        f"Errors: {len(errors)}"
     )
-
     print(
-        "================================"
+        "============================================"
     )
 
 
