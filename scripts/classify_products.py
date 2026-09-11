@@ -1,26 +1,17 @@
 #!/usr/bin/env python3
 
 """
-Local AI research pipeline for 2C AI Radar.
+2C AI Radar - Local AI Research Pipeline V2
 
-Run this script on a machine that can access the company LiteLLM gateway.
+Run on a machine that can access the company LiteLLM gateway.
 
-Pipeline:
-Product Hunt raw products
-    ->
-cheap AI candidate filter
-    ->
-GPT-5.6 Luna
-    ->
-scene classification + lightweight product research
-    ->
-products_auto.json
-
-Important:
-- API key is read ONLY from local environment variables.
-- Already researched products are reused and are NOT charged again.
-- Manual fields are preserved.
-- Non-AI candidates do not consume LLM tokens.
+What V2 changes:
+1. Separates automatic research priority from manual overrides.
+2. Adds consumer / 2C relevance.
+3. Prevents B2B developer infra from dominating the 2C opportunity radar.
+4. Only proposes a new scene when the unmet scene is genuinely 2C-relevant.
+5. Uses researchVersion to invalidate old LLM research when the rubric changes.
+6. Reuses already completed V2 research to avoid repeated API cost.
 """
 
 from __future__ import annotations
@@ -62,8 +53,6 @@ BASE_URL = os.environ.get(
     "",
 ).strip()
 
-
-# Maximum NEW products researched each local run.
 MAX_LLM_CALLS = int(
     os.environ.get(
         "MAX_LLM_CALLS",
@@ -71,8 +60,6 @@ MAX_LLM_CALLS = int(
     )
 )
 
-
-# RMB pricing used only for cost estimation.
 INPUT_PRICE_RMB_PER_M = float(
     os.environ.get(
         "INPUT_PRICE_RMB_PER_M",
@@ -86,6 +73,14 @@ OUTPUT_PRICE_RMB_PER_M = float(
         "8.11",
     )
 )
+
+
+# Change this string whenever the research rubric materially changes.
+# Old LLM results with a different version will be researched again.
+RESEARCH_VERSION = os.environ.get(
+    "RESEARCH_VERSION",
+    "v2-consumer-fit-20260911",
+).strip()
 
 
 # ============================================================
@@ -277,8 +272,6 @@ def rule_classify(product, scenes):
         product
     )
 
-    # Fallback only.
-    # Luna normally handles actual scene mapping.
     best_scene = scenes[0]
 
     votes = int(
@@ -291,19 +284,26 @@ def rule_classify(product, scenes):
         or 0
     )
 
-    priority = 1
-
-    if is_ai:
+    if not is_ai:
+        priority = 1
+        consumer_relevance = 1
+    else:
         if votes >= 500:
-            priority = 4
-        elif votes >= 200:
             priority = 3
+        elif votes >= 200:
+            priority = 2
         else:
             priority = 2
 
+        consumer_relevance = 2
+
     return {
         "isAI": is_ai,
-        "sceneId": best_scene["sceneId"],
+
+        "sceneId": best_scene[
+            "sceneId"
+        ],
+
         "sceneConfidence": 0.2,
 
         "productCore": (
@@ -325,8 +325,31 @@ def rule_classify(product, scenes):
         "pattern": "",
         "inspiration": "",
 
-        "autoResearchPriority": priority,
-        "priorityReason": "",
+        "productType": (
+            "unknown"
+            if is_ai
+            else "non-ai"
+        ),
+
+        "consumerRelevance": (
+            consumer_relevance
+        ),
+
+        "consumerRelevanceReason": (
+            "尚未完成LLM研究。"
+            if is_ai
+            else "非核心AI产品。"
+        ),
+
+        "autoResearchPriority": (
+            priority
+        ),
+
+        "priorityReason": (
+            "规则初筛，等待LLM研究。"
+            if is_ai
+            else "非核心AI产品。"
+        ),
 
         "businessModel": "待核实",
 
@@ -336,11 +359,12 @@ def rule_classify(product, scenes):
 
         "researchModel": "",
         "researchStatus": "rules",
+        "researchVersion": "",
     }
 
 
 # ============================================================
-# LiteLLM client
+# LiteLLM
 # ============================================================
 
 def build_client():
@@ -365,18 +389,10 @@ def build_client():
 
 
 # ============================================================
-# Data sent to LLM
+# Public data sent to LLM
 # ============================================================
 
 def product_payload(product):
-    """
-    Only public Product Hunt information is sent.
-
-    Browser LocalStorage data such as:
-    TAM / teamNote / starred / manual score
-    is NOT sent to the model.
-    """
-
     return {
         "name": (
             getv(
@@ -468,7 +484,9 @@ def scene_payload(scenes):
     for scene in scenes:
         result.append(
             {
-                "sceneId": scene["sceneId"],
+                "sceneId": scene[
+                    "sceneId"
+                ],
                 "domain": scene.get(
                     "domain",
                     "",
@@ -488,74 +506,198 @@ def scene_payload(scenes):
 
 
 # ============================================================
-# Product strategy prompt
+# Prompt
 # ============================================================
 
 SYSTEM_PROMPT = """
 你是一名负责2C通用AI助手 / AI Chatbot的资深产品策略研究员。
 
-目标不是给Product Hunt产品写宣传文案，而是帮助产品团队发现：
-
-1. 新出现或正在增强的消费者需求
-2. AI原生产品交互范式
-3. Agent、Memory、多模态、长期任务等新能力
+我们的目标不是收集所有AI产品，而是发现：
+1. 消费者新需求
+2. 2C AI产品的新交互
+3. Personal Agent、Memory、多模态、长期任务等新范式
 4. 可以迁移到通用AI Assistant的产品机制
-5. 有明显用户验证、热度或商业化潜力的产品
+5. 有真实用户信号或商业化潜力的产品
 
+你必须区分：
+“技术上很AI-native”
+和
+“对2C通用AI助手产品策略真正有价值”。
+
+====================
 
 【isAI】
 
-只有AI、机器学习或生成式模型是产品核心能力、
-核心体验或关键价值来源时，才判断为true。
+只有AI、机器学习或生成式模型是产品核心体验、
+核心能力或关键价值来源时，才为true。
 
-普通软件只是加一个AI按钮，不应因此成为高价值AI产品。
+普通软件只是加AI按钮，不算高价值AI产品。
 
+====================
+
+【productType】
+
+只能选：
+
+consumer
+prosumer
+b2b
+developer
+mixed
+non-ai
+unknown
+
+含义：
+
+consumer：
+主要面向普通个人消费者。
+
+prosumer：
+主要面向创作者、自由职业者、专业个人用户。
+
+b2b：
+主要面向企业团队、业务部门。
+
+developer：
+主要面向开发者、AI工程师、技术团队。
+
+mixed：
+同时有明显个人与企业用户。
+
+====================
+
+【consumerRelevance】
+
+1-5分。
+
+5：
+直接是高价值2C产品，
+或验证了非常重要的新消费者需求。
+
+4：
+明显面向个人用户，
+且AI体验或需求机制值得通用助手借鉴。
+
+3：
+不一定是纯2C，
+但产品机制对通用AI助手具有较强迁移价值。
+
+2：
+主要是B2B / Developer工具，
+只有局部机制值得参考。
+
+1：
+与2C通用AI助手几乎无关。
+
+注意：
+AI技术先进 ≠ consumerRelevance高。
+
+====================
 
 【sceneId】
 
-按照“用户真正想完成什么任务”分类。
+按照用户真正想完成什么任务分类，
+不要按底层技术分类。
 
-不是按照底层技术标签分类。
+如果产品主要是B2B / Developer工具，
+但没有合适的2C场景，
+可以选择最接近的已有场景，
+同时降低sceneConfidence。
 
+不要为了B2B开发工具强行创造新的2C场景。
+
+====================
+
+【newSceneCandidate】
+
+只有同时满足以下条件才可以为true：
+
+1. consumerRelevance >= 4
+2. 产品代表真实的消费者需求
+3. 现有场景库确实缺失这个需求
+
+例如：
+
+AI Agent监控平台
+Agent评测工具
+LLM开发基础设施
+
+不应该因为场景库没有对应分类，
+就新增2C场景。
+
+====================
 
 【autoResearchPriority】
 
-只能为1到5：
+这是“我们2C通用AI助手团队是否值得进一步研究”的优先级。
+
+只能为1-5。
 
 1：
-基本无需研究。普通套壳、同质化严重、需求较弱。
+基本无需研究。
+非AI、普通套壳、弱需求，
+或与2C方向明显无关。
 
 2：
-一般。产品合理，但新意有限。
+一般。
+产品合理，但2C价值或新意有限。
 
 3：
-值得关注。需求明确，有一定产品差异化。
+值得关注。
+需求明确、机制有一定新意，
+或虽然不是2C产品但存在明显迁移价值。
 
 4：
-建议研究。有明显AI-native机制、新交互、
-新需求趋势或较强迁移价值。
+建议重点研究。
+具有明显AI-native机制、
+新消费者需求、新交互、
+Personal Agent / Memory / Multimodal /
+长期任务等战略价值。
 
 5：
-强烈建议研究。代表新范式、新需求，
-或对通用AI Assistant具有明显战略启发。
+强烈建议研究。
+代表新产品范式、新消费者需求，
+有强用户信号，
+或可能影响通用AI Assistant路线。
 
-不要因为Product Hunt votes高就直接打高分。
+一般情况下：
 
+consumerRelevance <= 2 的产品
+autoResearchPriority不应高于3。
+
+纯Developer / B2B工具，
+除非存在极强战略迁移价值，
+通常不应给4或5。
+
+Product Hunt votes高，
+不能单独构成高分理由。
+
+====================
 
 【pattern】
 
-抽象产品机制，而不是重复产品功能。
+抽象产品机制，
+不要重复产品功能描述。
 
 例如：
 
 Camera as Input + Longitudinal Memory
+
 Ambient Agent
+
 Voice-first Companion
+
 Generative UI
+
 Personal Context + Proactive Action
+
 Agentic Commerce
+
 Continuous Monitoring + Proactive Alert
 
+Cross-App Task Execution + Human Approval
+
+====================
 
 【inspiration】
 
@@ -564,6 +706,10 @@ Continuous Monitoring + Proactive Alert
 如果我们是一个2C通用AI Chatbot / Assistant团队，
 这个产品最值得借鉴什么？
 
+如果启发很弱，
+直接说“直接启发有限”。
+
+====================
 
 【输出原则】
 
@@ -571,12 +717,13 @@ Continuous Monitoring + Proactive Alert
 不要夸大。
 不要编造。
 无法确认的信息写“待核实”。
+
 只输出JSON。
 """
 
 
 # ============================================================
-# LLM classification + lightweight research
+# LLM research
 # ============================================================
 
 def llm_classify(
@@ -584,12 +731,16 @@ def llm_classify(
     product,
     scenes,
 ):
-    public_product = product_payload(
-        product
+    public_product = (
+        product_payload(
+            product
+        )
     )
 
-    public_scenes = scene_payload(
-        scenes
+    public_scenes = (
+        scene_payload(
+            scenes
+        )
     )
 
     user_prompt = f"""
@@ -602,7 +753,7 @@ def llm_classify(
     ensure_ascii=False
 )}
 
-【场景库】
+【2C场景库】
 
 {json.dumps(
     public_scenes,
@@ -613,10 +764,18 @@ def llm_classify(
 
 {{
   "isAI": true,
+
+  "productType": "consumer",
+
+  "consumerRelevance": 4,
+
+  "consumerRelevanceReason": "一句话解释为什么与2C通用AI助手相关或不相关",
+
   "sceneId": 123,
+
   "sceneConfidence": 0.90,
 
-  "productCore": "一句话说明产品是什么以及解决什么需求",
+  "productCore": "一句话说明产品是什么、给谁用、解决什么需求",
 
   "whyInteresting": "一句话说明为什么值得或不值得关注",
 
@@ -624,9 +783,9 @@ def llm_classify(
 
   "inspiration": "一句话说明对2C通用AI助手的启发",
 
-  "autoResearchPriority": 1,
+  "autoResearchPriority": 4,
 
-  "priorityReason": "一句话解释优先级",
+  "priorityReason": "一句话解释为什么值得这个研究优先级",
 
   "businessModel": "已知则简述，否则待核实",
 
@@ -639,19 +798,38 @@ def llm_classify(
 
 要求：
 
+1.
 sceneId必须来自场景库。
 
+2.
+consumerRelevance只能为1-5整数。
+
+3.
 autoResearchPriority只能为1-5整数。
 
+4.
 sceneConfidence必须为0-1。
 
+5.
+如果consumerRelevance <= 2，
+原则上autoResearchPriority <= 3。
+
+6.
+只有consumerRelevance >= 4时，
+newSceneCandidate才允许为true。
+
+7.
+开发者工具、AI infra、Agent评测、
+模型监控等产品，
+不能因为技术先进就给高2C研究优先级。
+
+8.
 每个文字字段尽量控制在60个中文字以内。
 
+9.
 不要输出Markdown。
 """
 
-    # Company LiteLLM gateway:
-    # use OpenAI-compatible Chat Completions directly.
     response = (
         client.chat.completions.create(
             model=MODEL,
@@ -688,7 +866,9 @@ sceneConfidence必须为0-1。
         flags=re.S,
     )
 
-    raw = json.loads(text)
+    raw = json.loads(
+        text
+    )
 
     allowed_scene_ids = {
         scene["sceneId"]
@@ -699,10 +879,29 @@ sceneConfidence必须为0-1。
         "sceneId"
     )
 
-    if scene_id not in allowed_scene_ids:
+    if (
+        scene_id
+        not in allowed_scene_ids
+    ):
         raise ValueError(
-            f"Unknown sceneId: {scene_id}"
+            f"Unknown sceneId: "
+            f"{scene_id}"
         )
+
+    consumer_relevance = int(
+        raw.get(
+            "consumerRelevance",
+            2,
+        )
+    )
+
+    consumer_relevance = max(
+        1,
+        min(
+            5,
+            consumer_relevance,
+        ),
+    )
 
     priority = int(
         raw.get(
@@ -719,6 +918,15 @@ sceneConfidence必须为0-1。
         ),
     )
 
+    # Hard safety rule:
+    # low consumer relevance should not dominate
+    # the 2C research radar.
+    if (
+        consumer_relevance <= 2
+        and priority > 3
+    ):
+        priority = 3
+
     confidence = float(
         raw.get(
             "sceneConfidence",
@@ -733,6 +941,41 @@ sceneConfidence必须为0-1。
             confidence,
         ),
     )
+
+    product_type = str(
+        raw.get(
+            "productType",
+            "unknown",
+        )
+    ).strip().lower()
+
+    allowed_product_types = {
+        "consumer",
+        "prosumer",
+        "b2b",
+        "developer",
+        "mixed",
+        "non-ai",
+        "unknown",
+    }
+
+    if (
+        product_type
+        not in allowed_product_types
+    ):
+        product_type = "unknown"
+
+    new_scene_candidate = bool(
+        raw.get(
+            "newSceneCandidate",
+            False,
+        )
+    )
+
+    # Do not let B2B / dev infra generate
+    # fake 2C scene proposals.
+    if consumer_relevance < 4:
+        new_scene_candidate = False
 
     usage = getattr(
         response,
@@ -770,7 +1013,26 @@ sceneConfidence必须为0-1。
             )
         ),
 
-        "sceneId": scene_id,
+        "productType": (
+            product_type
+        ),
+
+        "consumerRelevance": (
+            consumer_relevance
+        ),
+
+        "consumerRelevanceReason": (
+            str(
+                raw.get(
+                    "consumerRelevanceReason",
+                    "",
+                )
+            ).strip()
+        ),
+
+        "sceneId": (
+            scene_id
+        ),
 
         "sceneConfidence": round(
             confidence,
@@ -805,7 +1067,9 @@ sceneConfidence必须为0-1。
             )
         ).strip(),
 
-        "autoResearchPriority": priority,
+        "autoResearchPriority": (
+            priority
+        ),
 
         "priorityReason": str(
             raw.get(
@@ -824,37 +1088,50 @@ sceneConfidence必须为0-1。
             or "待核实"
         ),
 
-        "newSceneCandidate": bool(
-            raw.get(
-                "newSceneCandidate",
-                False,
-            )
+        "newSceneCandidate": (
+            new_scene_candidate
         ),
 
-        "suggestedNewScene": str(
-            raw.get(
-                "suggestedNewScene",
-                "",
-            )
-        ).strip(),
+        "suggestedNewScene": (
+            str(
+                raw.get(
+                    "suggestedNewScene",
+                    "",
+                )
+            ).strip()
+            if new_scene_candidate
+            else ""
+        ),
 
-        "newSceneReason": str(
-            raw.get(
-                "newSceneReason",
-                "",
-            )
-        ).strip(),
+        "newSceneReason": (
+            str(
+                raw.get(
+                    "newSceneReason",
+                    "",
+                )
+            ).strip()
+            if new_scene_candidate
+            else ""
+        ),
 
         "researchModel": MODEL,
         "researchStatus": "llm",
+        "researchVersion": (
+            RESEARCH_VERSION
+        ),
 
-        "_inputTokens": input_tokens,
-        "_outputTokens": output_tokens,
+        "_inputTokens": (
+            input_tokens
+        ),
+
+        "_outputTokens": (
+            output_tokens
+        ),
     }
 
 
 # ============================================================
-# Reuse previous LLM result
+# Reuse previous V2 research
 # ============================================================
 
 def classification_from_previous(
@@ -866,13 +1143,34 @@ def classification_from_previous(
             False,
         ),
 
+        "productType": previous.get(
+            "productType",
+            "unknown",
+        ),
+
+        "consumerRelevance": (
+            previous.get(
+                "consumerRelevance",
+                2,
+            )
+        ),
+
+        "consumerRelevanceReason": (
+            previous.get(
+                "consumerRelevanceReason",
+                "",
+            )
+        ),
+
         "sceneId": previous.get(
             "sceneId"
         ),
 
-        "sceneConfidence": previous.get(
-            "sceneConfidence",
-            0,
+        "sceneConfidence": (
+            previous.get(
+                "sceneConfidence",
+                0,
+            )
         ),
 
         "productCore": previous.get(
@@ -912,19 +1210,25 @@ def classification_from_previous(
             "待核实",
         ),
 
-        "newSceneCandidate": previous.get(
-            "newSceneCandidate",
-            False,
+        "newSceneCandidate": (
+            previous.get(
+                "newSceneCandidate",
+                False,
+            )
         ),
 
-        "suggestedNewScene": previous.get(
-            "suggestedNewScene",
-            "",
+        "suggestedNewScene": (
+            previous.get(
+                "suggestedNewScene",
+                "",
+            )
         ),
 
-        "newSceneReason": previous.get(
-            "newSceneReason",
-            "",
+        "newSceneReason": (
+            previous.get(
+                "newSceneReason",
+                "",
+            )
         ),
 
         "researchModel": previous.get(
@@ -933,17 +1237,85 @@ def classification_from_previous(
         ),
 
         "researchStatus": "llm",
+
+        "researchVersion": (
+            previous.get(
+                "researchVersion",
+                RESEARCH_VERSION,
+            )
+        ),
     }
 
 
 # ============================================================
-# Dashboard product format
+# Manual override detection
+# ============================================================
+
+def has_manual_priority_override(
+    previous,
+):
+    """
+    Only preserve a previous researchPriority when it is
+    explicitly marked as manual.
+
+    Old rule-generated values such as:
+    researchPriority = 2
+    researchWhy = "规则初筛..."
+    must NOT override new LLM research.
+    """
+
+    if not previous:
+        return False
+
+    if previous.get(
+        "researchPriorityManual"
+    ) is True:
+        return True
+
+    if (
+        previous.get(
+            "researchPrioritySource"
+        )
+        == "manual"
+    ):
+        return True
+
+    return False
+
+
+def has_manual_reason_override(
+    previous,
+):
+    if not previous:
+        return False
+
+    if previous.get(
+        "researchWhyManual"
+    ) is True:
+        return True
+
+    if (
+        previous.get(
+            "researchWhySource"
+        )
+        == "manual"
+    ):
+        return True
+
+    return False
+
+
+# ============================================================
+# Dashboard schema
 # ============================================================
 
 def to_dashboard(
     product,
     classification,
+    previous=None,
 ):
+    previous = previous or {}
+
     source_id = str(
         getv(
             product,
@@ -1041,6 +1413,72 @@ def to_dashboard(
         or ""
     )
 
+    auto_priority = int(
+        classification.get(
+            "autoResearchPriority",
+            2,
+        )
+        or 2
+    )
+
+    auto_reason = (
+        classification.get(
+            "priorityReason",
+            "",
+        )
+        or classification.get(
+            "whyInteresting",
+            "",
+        )
+    )
+
+    # Default dashboard priority = newest automatic research.
+    research_priority = (
+        auto_priority
+    )
+
+    research_why = (
+        auto_reason
+    )
+
+    research_priority_source = (
+        "auto"
+    )
+
+    research_why_source = (
+        "auto"
+    )
+
+    # Only explicit manual override is preserved.
+    if has_manual_priority_override(
+        previous
+    ):
+        research_priority = int(
+            previous.get(
+                "researchPriority",
+                auto_priority,
+            )
+        )
+
+        research_priority_source = (
+            "manual"
+        )
+
+    if has_manual_reason_override(
+        previous
+    ):
+        research_why = str(
+            previous.get(
+                "researchWhy",
+                auto_reason,
+            )
+            or ""
+        )
+
+        research_why_source = (
+            "manual"
+        )
+
     return {
         "id": stable_id(
             source_id
@@ -1067,9 +1505,11 @@ def to_dashboard(
             or ""
         ),
 
-        "sceneId": classification[
-            "sceneId"
-        ],
+        "sceneId": (
+            classification[
+                "sceneId"
+            ]
+        ),
 
         "intro": (
             classification.get(
@@ -1104,23 +1544,29 @@ def to_dashboard(
             f"rating {rating}"
         ),
 
-        "reason": classification.get(
-            "whyInteresting",
-            "",
+        "reason": (
+            classification.get(
+                "whyInteresting",
+                "",
+            )
         ),
 
         "launchDate": (
             launch_date
         ),
 
-        "pattern": classification.get(
-            "pattern",
-            "",
+        "pattern": (
+            classification.get(
+                "pattern",
+                "",
+            )
         ),
 
-        "inspiration": classification.get(
-            "inspiration",
-            "",
+        "inspiration": (
+            classification.get(
+                "inspiration",
+                "",
+            )
         ),
 
         "signal": (
@@ -1132,40 +1578,90 @@ def to_dashboard(
             capture_date
         ),
 
-        "foundedDate": "待核实",
+        "foundedDate": (
+            previous.get(
+                "foundedDate",
+                "待核实",
+            )
+        ),
 
-        # Manual fields
-        "starred": False,
-        "teamNote": "",
+        # --------------------------------
+        # Manual / dashboard fields
+        # --------------------------------
+
+        "starred": bool(
+            previous.get(
+                "starred",
+                False,
+            )
+        ),
+
+        "teamNote": (
+            previous.get(
+                "teamNote",
+                "",
+            )
+            or ""
+        ),
 
         "researchPriority": (
-            classification.get(
-                "autoResearchPriority",
-                2,
-            )
+            research_priority
         ),
 
         "researchWhy": (
-            classification.get(
-                "priorityReason"
-            )
-            or classification.get(
-                "whyInteresting",
-                "",
-            )
+            research_why
         ),
 
+        "researchPrioritySource": (
+            research_priority_source
+        ),
+
+        "researchWhySource": (
+            research_why_source
+        ),
+
+        "researchPriorityManual": (
+            research_priority_source
+            == "manual"
+        ),
+
+        "researchWhyManual": (
+            research_why_source
+            == "manual"
+        ),
+
+        # --------------------------------
         # Automatic research
+        # --------------------------------
+
         "autoResearchPriority": (
-            classification.get(
-                "autoResearchPriority",
-                2,
-            )
+            auto_priority
         ),
 
         "priorityReason": (
             classification.get(
                 "priorityReason",
+                "",
+            )
+        ),
+
+        "productType": (
+            classification.get(
+                "productType",
+                "unknown",
+            )
+        ),
+
+        "consumerRelevance": (
+            classification.get(
+                "consumerRelevance",
+                2,
+            )
+        ),
+
+        "consumerRelevanceReason": (
+            classification.get(
+                "consumerRelevanceReason",
                 "",
             )
         ),
@@ -1181,6 +1677,13 @@ def to_dashboard(
             classification.get(
                 "researchStatus",
                 "rules",
+            )
+        ),
+
+        "researchVersion": (
+            classification.get(
+                "researchVersion",
+                "",
             )
         ),
 
@@ -1219,11 +1722,25 @@ def to_dashboard(
             )
         ),
 
-        # PH metrics
-        "thumbnailUrl": thumbnail,
-        "phVotes": votes,
-        "phComments": comments,
-        "phRating": rating,
+        # --------------------------------
+        # Product Hunt metrics
+        # --------------------------------
+
+        "thumbnailUrl": (
+            thumbnail
+        ),
+
+        "phVotes": (
+            votes
+        ),
+
+        "phComments": (
+            comments
+        ),
+
+        "phRating": (
+            rating
+        ),
     }
 
 
@@ -1314,8 +1831,12 @@ def main():
 
         try:
 
-            # Already researched by LLM:
-            # ZERO new API cost.
+            # --------------------------------
+            # Reuse only CURRENT V2 research.
+            # Old V1 results are intentionally
+            # researched again.
+            # --------------------------------
+
             if (
                 previous
                 and previous.get(
@@ -1324,6 +1845,10 @@ def main():
                 and previous.get(
                     "researchModel"
                 )
+                and previous.get(
+                    "researchVersion"
+                )
+                == RESEARCH_VERSION
             ):
                 classification = (
                     classification_from_previous(
@@ -1333,8 +1858,11 @@ def main():
 
                 reused_llm += 1
 
+            # --------------------------------
             # Clearly non-AI:
-            # free rule classification.
+            # zero LLM cost.
+            # --------------------------------
+
             elif not is_ai_candidate(
                 product
             ):
@@ -1347,8 +1875,11 @@ def main():
 
                 rules_only += 1
 
+            # --------------------------------
             # AI candidate:
-            # send to Luna.
+            # Luna research.
+            # --------------------------------
+
             elif (
                 new_llm_calls
                 < MAX_LLM_CALLS
@@ -1398,7 +1929,10 @@ def main():
                     0.15
                 )
 
-            # Safety limit reached.
+            # --------------------------------
+            # Safety cap reached.
+            # --------------------------------
+
             else:
                 classification = (
                     rule_classify(
@@ -1431,12 +1965,17 @@ def main():
                 error_message
             )
 
-            # Never destroy old LLM research.
+            # Preserve previous current-version
+            # LLM research if an API error occurs.
             if (
                 previous
                 and previous.get(
                     "researchStatus"
                 ) == "llm"
+                and previous.get(
+                    "researchVersion"
+                )
+                == RESEARCH_VERSION
             ):
                 classification = (
                     classification_from_previous(
@@ -1455,26 +1994,8 @@ def main():
         item = to_dashboard(
             product,
             classification,
+            previous=previous,
         )
-
-        # Preserve any manual fields already
-        # contained in products_auto.json.
-        for key in (
-            "starred",
-            "teamNote",
-            "researchPriority",
-            "researchWhy",
-        ):
-            if (
-                key in previous
-                and previous.get(key)
-                not in (
-                    None,
-                    "",
-                    False,
-                )
-            ):
-                item[key] = previous[key]
 
         output.append(
             item
@@ -1509,6 +2030,38 @@ def main():
         * OUTPUT_PRICE_RMB_PER_M
     )
 
+    ai_count = sum(
+        1
+        for item in output
+        if item.get(
+            "isAI"
+        )
+    )
+
+    consumer_high_count = sum(
+        1
+        for item in output
+        if int(
+            item.get(
+                "consumerRelevance",
+                0,
+            )
+            or 0
+        ) >= 4
+    )
+
+    priority_high_count = sum(
+        1
+        for item in output
+        if int(
+            item.get(
+                "autoResearchPriority",
+                0,
+            )
+            or 0
+        ) >= 4
+    )
+
     status = load(
         DATA / "scan_status.json",
         {},
@@ -1516,24 +2069,38 @@ def main():
 
     status.update(
         {
-            "classifiedAt": datetime.now(
-                timezone.utc
-            ).isoformat(),
+            "classifiedAt": (
+                datetime.now(
+                    timezone.utc
+                ).isoformat()
+            ),
 
             "classifier": (
                 f"local-llm:{MODEL}"
             ),
 
-            "llmModel": MODEL,
-
-            "totalAutoProducts": len(
-                output
+            "llmModel": (
+                MODEL
             ),
 
-            "aiProducts": sum(
-                1
-                for item in output
-                if item.get("isAI")
+            "researchVersion": (
+                RESEARCH_VERSION
+            ),
+
+            "totalAutoProducts": (
+                len(output)
+            ),
+
+            "aiProducts": (
+                ai_count
+            ),
+
+            "consumerRelevantProducts": (
+                consumer_high_count
+            ),
+
+            "highPriorityProducts": (
+                priority_high_count
             ),
 
             "llmCallsThisRun": (
@@ -1576,33 +2143,44 @@ def main():
         status,
     )
 
-    ai_count = sum(
-        1
-        for item in output
-        if item.get("isAI")
-    )
-
     print("")
     print(
         "========== CLASSIFICATION SUMMARY =========="
     )
     print(
+        f"Research version: "
+        f"{RESEARCH_VERSION}"
+    )
+    print(
         f"Model: {MODEL}"
     )
     print(
-        f"Total products: {len(output)}"
+        f"Total products: "
+        f"{len(output)}"
     )
     print(
-        f"AI products: {ai_count}"
+        f"AI products: "
+        f"{ai_count}"
     )
     print(
-        f"New LLM calls: {new_llm_calls}"
+        f"Consumer relevance >= 4: "
+        f"{consumer_high_count}"
     )
     print(
-        f"Reused old LLM research: {reused_llm}"
+        f"Auto priority >= 4: "
+        f"{priority_high_count}"
     )
     print(
-        f"Rules only: {rules_only}"
+        f"New LLM calls: "
+        f"{new_llm_calls}"
+    )
+    print(
+        f"Reused current V2 LLM research: "
+        f"{reused_llm}"
+    )
+    print(
+        f"Rules only: "
+        f"{rules_only}"
     )
     print(
         "Skipped because "
@@ -1622,7 +2200,8 @@ def main():
         f"¥{estimated_cost_rmb:.4f}"
     )
     print(
-        f"Errors: {len(errors)}"
+        f"Errors: "
+        f"{len(errors)}"
     )
     print(
         "============================================"
