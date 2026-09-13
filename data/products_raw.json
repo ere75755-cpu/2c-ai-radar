@@ -1,6 +1,41 @@
 [
   {
     "source": "Product Hunt",
+    "source_product_id": "1248412",
+    "name": "PermitCore",
+    "tagline": "Software licensing infrastructure built for developers",
+    "description": "PermitCore helps developers add licensing without building and maintaining a second product. Issue and revoke keys, limit device activations, configure entitlements, and support offline, floating, and subscription licenses through one API. It includes customer and reseller portals, Stripe payments, webhooks, zero-knowledge license storage, and official SDKs forNET, Node.js, Python, Java, C++, and PHP. There is a permanent free plan, and paid plans include a three-month trial.",
+    "source_url": "https://www.producthunt.com/products/permitcore-2?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/NVVXJHJSRGCUCA?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/a5437a8d-1b54-4519-a0a4-5b7abfb50018.png?auto=format",
+    "launch_date": "2026-09-13T20:01:00Z",
+    "created_at": "2026-09-13T20:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "88",
+        "name": "API",
+        "slug": "api-1"
+      },
+      {
+        "id": "267",
+        "name": "Developer Tools",
+        "slug": "developer-tools"
+      },
+      {
+        "id": "865",
+        "name": "Security",
+        "slug": "security"
+      }
+    ],
+    "last_updated_at": "2026-09-13T20:31:53.606498+00:00",
+    "captured_at": "2026-09-13T20:31:53.606498+00:00"
+  },
+  {
+    "source": "Product Hunt",
     "source_product_id": "1249081",
     "name": "صار معي",
     "tagline": "صار معي موقع تواصل اجتماعي اكتب موقف صار معك وحوله الى لوحة",
