@@ -1691,78 +1691,77 @@ function _phSlugFromUrl(v){
 function _existingPHSlug(p){return _phSlugFromUrl(p.website)||_phSlugFromUrl(p.demo)||_phSlugFromUrl(p.producthuntUrl)}
 
 function mergeAutoProducts(remote){
-  if(!Array.isArray(remote)) return {added:0,updated:0,skipped:0};
-  // For an existing v31 product, v31's human-curated content and scene mapping win.
-  // Auto sync only refreshes machine/source metadata and PH metrics. New PH products are inserted with auto fields.
-  const bySource=new Map(products.filter(p=>p.sourceProductId).map(p=>[String(p.sourceProductId),p]));
-  const bySlug=new Map(products.map(p=>[_existingPHSlug(p),p]).filter(([k])=>k));
-  const byName=new Map(products.map(p=>[_normName(p.name),p]).filter(([k])=>k));
-  let added=0,updated=0,skipped=0;
-  for(const rp of remote){
-    if(rp.isAI===false){skipped++;continue}
+  if(!Array.isArray(remote)) return {added:0,updated:0,removed:0,skipped:0};
+
+  // GitHub products_auto.json is the source of truth for auto/PH product facts.
+  // LocalStorage only overlays explicit human annotations (star/note/manual overrides).
+  const localProducts=Array.isArray(products)?products:[];
+  const bySource=new Map(localProducts.filter(p=>p.sourceProductId).map(p=>[String(p.sourceProductId),p]));
+  const bySlug=new Map(localProducts.map(p=>[_existingPHSlug(p),p]).filter(([k])=>k));
+  const byName=new Map(localProducts.map(p=>[_normName(p.name),p]).filter(([k])=>k));
+
+  function findLocal(rp){
     const sourceId=String(rp.sourceProductId||"");
     const slug=_existingPHSlug(rp);
     const keyName=_normName(rp.name);
-    const old=(sourceId&&bySource.get(sourceId))||(slug&&bySlug.get(slug))||(keyName&&byName.get(keyName));
-    if(old){
-      // V2 auto research is authoritative for machine-researched fields.
-      // Explicit human annotations still win: starred/teamNote and fields marked manual.
-      const refresh=[
-        "sourceProductId","phVotes","phComments","phRating","thumbnailUrl",
-        "autoResearchPriority","autoClassified","isAI","sceneConfidence",
-        "researchStatus","researchVersion","productType","consumerRelevance",
-        "consumerRelevanceReason","productCore","whyInteresting","pattern",
-        "inspiration","priorityReason","businessModel","newSceneCandidate",
-        "suggestedNewScene","newSceneReason"
-      ];
-      refresh.forEach(k=>{if(rp[k]!==undefined) old[k]=rp[k]});
-
-      // V2 scene mapping replaces stale rule mapping unless the scene was explicitly marked manual.
-      const sceneIsManual = old.sceneIdManual===true || old.sceneSource==="manual";
-      if(!sceneIsManual && rp.sceneId!==undefined) old.sceneId=rp.sceneId;
-
-      // Keep explicit manual priority/reason; otherwise use the V2 result.
-      const priorityIsManual = old.researchPriorityManual===true || old.researchPrioritySource==="manual";
-      const reasonIsManual = old.researchWhyManual===true || old.researchWhySource==="manual";
-      if(!priorityIsManual && rp.researchPriority!==undefined){
-        old.researchPriority=rp.researchPriority;
-        old.researchPrioritySource=rp.researchPrioritySource||"auto";
-      }
-      if(!reasonIsManual && (rp.researchWhy!==undefined || rp.priorityReason!==undefined)){
-        old.researchWhy=rp.researchWhy||rp.priorityReason||"";
-        old.researchWhySource=rp.researchWhySource||"auto";
-      }
-
-      // Bridge V2 field names into the legacy v31 display fields.
-      if(rp.productCore!==undefined) old.intro=rp.productCore;
-      if(rp.businessModel!==undefined) old.biz=rp.businessModel;
-      if(rp.pattern!==undefined) old.pattern=rp.pattern;
-      if(rp.inspiration!==undefined) old.inspiration=rp.inspiration;
-      if(rp.consumerRelevanceReason!==undefined) old.feedback=rp.consumerRelevanceReason;
-
-      if(rp.captureDate) old.autoLastCaptureDate=rp.captureDate;
-      if(rp.captureDate) old.captureDate=rp.captureDate;
-      if(rp.launchDate) old.launchDate=rp.launchDate;
-      old.autoSynced=true;
-      updated++;
-      if(sourceId) bySource.set(sourceId,old);
-    }else{
-      // New records start from auto classification, but remain fully editable in v31 afterwards.
-      const np={...rp,autoSynced:true};
-      if(np.productCore!==undefined) np.intro=np.productCore;
-      if(np.businessModel!==undefined) np.biz=np.businessModel;
-      if(np.priorityReason && !np.researchWhy) np.researchWhy=np.priorityReason;
-      if(np.consumerRelevanceReason!==undefined && !np.feedback) np.feedback=np.consumerRelevanceReason;
-      products.push(np); added++;
-      if(sourceId) bySource.set(sourceId,np);
-      if(slug) bySlug.set(slug,np);
-      if(keyName) byName.set(keyName,np);
-    }
+    return (sourceId&&bySource.get(sourceId))||(slug&&bySlug.get(slug))||(keyName&&byName.get(keyName))||null;
   }
-  saveAll();
-  return {added,updated,skipped};
-}
 
+  function withManualOverlay(rp,old){
+    const np={...rp,autoSynced:true};
+    // Bridge V2 field names into the legacy dashboard display fields.
+    if(np.productCore!==undefined) np.intro=np.productCore;
+    if(np.businessModel!==undefined) np.biz=np.businessModel;
+    if(np.priorityReason && !np.researchWhy) np.researchWhy=np.priorityReason;
+    if(np.consumerRelevanceReason!==undefined) np.feedback=np.consumerRelevanceReason;
+
+    if(old){
+      // Local-only human annotations.
+      if(old.starred===true) np.starred=true;
+      if(old.teamNote) np.teamNote=old.teamNote;
+      if(old.foundedDateManual===true && old.foundedDate) np.foundedDate=old.foundedDate;
+
+      // Explicit manual overrides beat auto facts; stale rule/default values do not.
+      const sceneManual=old.sceneIdManual===true || old.sceneSource==="manual";
+      if(sceneManual){np.sceneId=old.sceneId;np.sceneIdManual=true;np.sceneSource="manual";}
+
+      const priorityManual=old.researchPriorityManual===true || old.researchPrioritySource==="manual";
+      if(priorityManual){np.researchPriority=old.researchPriority;np.researchPriorityManual=true;np.researchPrioritySource="manual";}
+
+      const reasonManual=old.researchWhyManual===true || old.researchWhySource==="manual";
+      if(reasonManual){np.researchWhy=old.researchWhy;np.researchWhyManual=true;np.researchWhySource="manual";}
+    }
+    if(np.starred===undefined) np.starred=false;
+    if(np.teamNote===undefined) np.teamNote="";
+    return np;
+  }
+
+  const nextAuto=[];
+  let added=0,updated=0,skipped=0;
+  const matchedLocal=new Set();
+  for(const rp of remote){
+    // V2 says non-AI => do not keep it in the AI product pool.
+    if(rp.isAI===false){skipped++;continue;}
+    const old=findLocal(rp);
+    if(old) matchedLocal.add(old);
+    const np=withManualOverlay(rp,old);
+    nextAuto.push(np);
+    if(old) updated++; else added++;
+  }
+
+  // Preserve genuinely curated/non-auto products (a16z, YC, historical manual research, etc.).
+  // Drop stale auto-synced PH products that are no longer in the authoritative AI dataset.
+  const curated=localProducts.filter(p=>{
+    if(matchedLocal.has(p)) return false;
+    const looksAuto = p.autoSynced===true || !!p.sourceProductId || p.captureSource==="Product Hunt" && p.researchStatus==="rules";
+    return !looksAuto;
+  });
+  const removed=Math.max(0,localProducts.length-curated.length-matchedLocal.size);
+
+  products=[...curated,...nextAuto];
+  saveAll();
+  return {added,updated,removed,skipped};
+}
 function _setAutoBadge(text,ok){
   const el=document.getElementById("autoSyncBadge"); if(!el)return;
   el.textContent=text;
@@ -1776,7 +1775,7 @@ async function syncAutoData(){
     if(!resp.ok) throw new Error(`HTTP ${resp.status}`);
     const result=mergeAutoProducts(await resp.json());
     window.__autoSync={ok:true,...result};
-    _setAutoBadge(`PH自动同步：+${result.added} 新增 / ${result.updated} 更新`,true);
+    _setAutoBadge(`PH自动同步：+${result.added} 新增 / ${result.updated} 更新 / ${result.removed||0} 清理`,true);
   }catch(e){
     window.__autoSync={ok:false,error:String(e)};
     _setAutoBadge("PH自动同步：未连接（当前用本地数据）",false);
