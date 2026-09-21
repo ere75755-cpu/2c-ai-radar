@@ -9,5 +9,21 @@
   "fetched_this_run": 0,
   "total_products_raw": 2248,
   "truncated_by_safety_cap": false,
-  "status": "success"
+  "status": "success",
+  "classifiedAt": "2026-09-21T07:46:47.086333+00:00",
+  "classifier": "local-llm:gpt-5.6-luna",
+  "llmModel": "gpt-5.6-luna",
+  "totalAutoProducts": 574,
+  "aiProducts": 177,
+  "llmCallsThisRun": 109,
+  "llmReusedThisRun": 110,
+  "ruleOnlyThisRun": 355,
+  "llmSkippedByLimit": 0,
+  "llmInputTokensThisRun": 526776,
+  "llmOutputTokensThisRun": 47769,
+  "estimatedLlmCostRmbThisRun": 1.0986,
+  "classificationErrors": [],
+  "researchVersion": "v2-consumer-fit-20260911",
+  "consumerRelevantProducts": 87,
+  "highPriorityProducts": 37
 }
