@@ -1,13 +1,13 @@
 {
   "source": "Product Hunt",
-  "last_scan_at": "2026-10-08T05:19:38.689618+00:00",
-  "window_start": "2026-10-07T20:54:35.032110+00:00",
-  "window_end": "2026-10-08T05:24:38.689618+00:00",
+  "last_scan_at": "2026-10-08T13:05:22.206727+00:00",
+  "window_start": "2026-10-08T03:19:38.689618+00:00",
+  "window_end": "2026-10-08T13:10:22.206727+00:00",
   "page_size": 10,
-  "pages_fetched": 1,
+  "pages_fetched": 20,
   "max_pages": 20,
-  "fetched_this_run": 0,
-  "total_products_raw": 5499,
-  "truncated_by_safety_cap": false,
+  "fetched_this_run": 200,
+  "total_products_raw": 5698,
+  "truncated_by_safety_cap": true,
   "status": "success"
 }
