@@ -1,6 +1,41 @@
 [
   {
     "source": "Product Hunt",
+    "source_product_id": "1277882",
+    "name": "Confidence by Spotify ",
+    "tagline": "Build products at full speed, with both hands on the wheel",
+    "description": "Confidence is a product intelligence platform built by Spotify. Spotify's approach to building products has always combined data with judgment and taste, and that scientific rigor is what Confidence brings to customers. Confidence is born from experimentation, but that’s now part of a wider story. Confidence analyzes your user signals, surfaces what's working, suggests the next move, and validates the hypothesis before it ships. You stay in the loop and approve the moves that matter.",
+    "source_url": "https://www.producthunt.com/products/spotify?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/MGDVIGENYLUYIW?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/0119dba6-9fcd-48bf-8092-d651f7d76a67.x-icon?auto=format",
+    "launch_date": "2026-10-14T13:36:15Z",
+    "created_at": "2026-10-14T13:36:15Z",
+    "featured_at": "2026-10-14T13:36:15Z",
+    "votes_count": 94,
+    "comments_count": 3,
+    "reviews_rating": 4.67,
+    "topics": [
+      {
+        "id": "108",
+        "name": "Analytics",
+        "slug": "analytics"
+      },
+      {
+        "id": "130",
+        "name": "A/B Testing",
+        "slug": "a-b-testing"
+      },
+      {
+        "id": "237",
+        "name": "SaaS",
+        "slug": "saas"
+      }
+    ],
+    "last_updated_at": "2026-10-14T16:51:18.452886+00:00",
+    "captured_at": "2026-10-14T16:51:18.452886+00:00"
+  },
+  {
+    "source": "Product Hunt",
     "source_product_id": "1278480",
     "name": "人形布偶娃娃訂製製作廠商",
     "tagline": "人形布偶,布偶娃娃,娃娃訂製廠商",
