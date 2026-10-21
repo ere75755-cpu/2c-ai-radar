@@ -1,6 +1,31 @@
 [
   {
     "source": "Product Hunt",
+    "source_product_id": "1286035",
+    "name": "KVWang",
+    "tagline": "Browser phone and follow-up notes for US customer calls",
+    "description": "Manually call US customers from your browser and keep contacts, call history and next-step notes together. Try a simulated demo with no real calls. Real calling requires individual approval and number assignment. Operated by Tapilot LLC. $15/month includes 200 ordinary US billed minutes; extra minutes cost $0.02. High-cost and special destinations are blocked. Not an autonomous AI calling agent.",
+    "source_url": "https://www.producthunt.com/products/kvwang?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/BGZTW4VEOK7QN2?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/8e7e33fb-ec65-4999-af9b-2f9f742d88b2.png?auto=format",
+    "launch_date": "2026-10-21T01:01:00Z",
+    "created_at": "2026-10-21T01:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "46",
+        "name": "Productivity",
+        "slug": "productivity"
+      }
+    ],
+    "last_updated_at": "2026-10-21T03:58:18.725920+00:00",
+    "captured_at": "2026-10-21T03:58:18.725920+00:00"
+  },
+  {
+    "source": "Product Hunt",
     "source_product_id": "1255919",
     "name": "welldonesteel.com",
     "tagline": "From Design to Delivery — Steel Warehouses Made Simple.",
