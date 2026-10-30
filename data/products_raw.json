@@ -1,6 +1,41 @@
 [
   {
     "source": "Product Hunt",
+    "source_product_id": "1296580",
+    "name": "Opus 5.5 Video Generator",
+    "tagline": "Turn a text prompt into a 1080p motion-graphics MP4",
+    "description": "Describe a video and Claude Opus 5.5 storyboards it, writes the animation as code and checks its own preview frames, then we render every frame to a 1080p, 30 fps MP4 with music. Built for launch videos, explainers, kinetic typography, animated charts and social ads where text, numbers and brand colors must stay exact. 15 to 60 seconds, 16:9, 9:16 or 1:1, no install or API key, and failed videos are refunded.",
+    "source_url": "https://www.producthunt.com/products/opus-5-5-video-generator-2?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/X6ORQT2VTUSRDE?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/a2e0676f-4117-4b4d-97fb-46ccdca7b628.png?auto=format",
+    "launch_date": "2026-10-30T00:01:00Z",
+    "created_at": "2026-10-30T00:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "44",
+        "name": "Design Tools",
+        "slug": "design-tools"
+      },
+      {
+        "id": "268",
+        "name": "Artificial Intelligence",
+        "slug": "artificial-intelligence"
+      },
+      {
+        "id": "857",
+        "name": "Video",
+        "slug": "video"
+      }
+    ],
+    "last_updated_at": "2026-10-30T05:01:15.124570+00:00",
+    "captured_at": "2026-10-30T05:01:15.124570+00:00"
+  },
+  {
+    "source": "Product Hunt",
     "source_product_id": "1296629",
     "name": "Ăn Gì Đây?",
     "tagline": "CSGO-style roulette to decide what to eat today",
