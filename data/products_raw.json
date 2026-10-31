@@ -1,6 +1,41 @@
 [
   {
     "source": "Product Hunt",
+    "source_product_id": "1296708",
+    "name": "Raindance Maker",
+    "tagline": "Turn two photos into the viral Raindance AI pier video",
+    "description": "Upload two photos and Raindance Maker recasts the viral seaside-pier Raindance AI video: photo 1 becomes the person seated at the start, photo 2 the one who walks in and takes the close-ups. Pick 5, 10, 15 or 30 seconds, a Seedance or MiniMax H3 model and a resolution, see the exact credit cost, then download a 4:3 MP4 with the soundtrack. More trend templates on the same site include Hotel Lobby, Alors on Danse, Smalltown Boy and APT.",
+    "source_url": "https://www.producthunt.com/products/raindance-maker?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/5HL2HTIF7J4RNN?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/4a98886c-c249-4e26-84db-3a9ef5ced223.png?auto=format",
+    "launch_date": "2026-10-31T00:01:00Z",
+    "created_at": "2026-10-31T00:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "104",
+        "name": "Social Media",
+        "slug": "social-media"
+      },
+      {
+        "id": "268",
+        "name": "Artificial Intelligence",
+        "slug": "artificial-intelligence"
+      },
+      {
+        "id": "857",
+        "name": "Video",
+        "slug": "video"
+      }
+    ],
+    "last_updated_at": "2026-10-31T04:48:36.374086+00:00",
+    "captured_at": "2026-10-31T04:48:36.374086+00:00"
+  },
+  {
+    "source": "Product Hunt",
     "source_product_id": "1260590",
     "name": "v<ticker>",
     "tagline": "Video Model Prices Tracked. Updated Daily.",
