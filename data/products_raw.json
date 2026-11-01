@@ -1,6 +1,41 @@
 [
   {
     "source": "Product Hunt",
+    "source_product_id": "1296818",
+    "name": "Genjutsu AI",
+    "tagline": "Swap characters, outfits or backgrounds and keep the motion",
+    "description": "Genjutsu AI edits a video you already have. Upload a clip, add up to nine reference images and describe the change to replace a character, outfit, product or background, or restyle the whole shot, while the original motion, camera movement and timing stay in place. Choose Seedance 2.5, Seedance 2.0 or MiniMax H3, 5 to 30 seconds and 480p to 1080p, and download an MP4 that keeps the source audio. Independent tool, not affiliated with Higgsfield.",
+    "source_url": "https://www.producthunt.com/products/genjutsu-ai-3?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/7JBISPPERDPRB6?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/db7d740f-47e2-4123-b9e6-1c2c1b234e9a.png?auto=format",
+    "launch_date": "2026-11-01T00:01:00Z",
+    "created_at": "2026-11-01T00:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "164",
+        "name": "Marketing",
+        "slug": "marketing"
+      },
+      {
+        "id": "268",
+        "name": "Artificial Intelligence",
+        "slug": "artificial-intelligence"
+      },
+      {
+        "id": "857",
+        "name": "Video",
+        "slug": "video"
+      }
+    ],
+    "last_updated_at": "2026-11-01T05:12:41.547217+00:00",
+    "captured_at": "2026-11-01T05:12:41.547217+00:00"
+  },
+  {
+    "source": "Product Hunt",
     "source_product_id": "1298311",
     "name": "“发生了什么”苹果APP",
     "tagline": "缘起：视频回放的工作不该长时间由人来看",
