@@ -1,6 +1,41 @@
 [
   {
     "source": "Product Hunt",
+    "source_product_id": "1299308",
+    "name": "AI Manga Translator",
+    "tagline": "Translate full manga pages with text back in the bubbles",
+    "description": "Upload a Japanese manga, Korean manhwa or Chinese comic page and get a translated image with the dialogue placed back on the page, instead of copying bubbles one by one. Translate a single page, queue up to 20 pages, convert a CBZ or ZIP chapter, or use the Chrome extension on the page you're reading. 1 credit is 1 page, failed pages are refunded, and one-time packs never expire.",
+    "source_url": "https://www.producthunt.com/products/ai-manga-translator-7?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/GIBZPWQACUCO7P?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/e97a7a54-b8ee-4a1e-bef0-198b2e9b93d3.png?auto=format",
+    "launch_date": "2026-11-02T00:01:00Z",
+    "created_at": "2026-11-02T00:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "209",
+        "name": "Languages",
+        "slug": "languages"
+      },
+      {
+        "id": "221",
+        "name": "Comics & Graphic Novels",
+        "slug": "comics-graphic-novels"
+      },
+      {
+        "id": "268",
+        "name": "Artificial Intelligence",
+        "slug": "artificial-intelligence"
+      }
+    ],
+    "last_updated_at": "2026-11-02T05:12:38.196288+00:00",
+    "captured_at": "2026-11-02T05:12:38.196288+00:00"
+  },
+  {
+    "source": "Product Hunt",
     "source_product_id": "1283955",
     "name": "webtoapkfree",
     "tagline": "Turn any website into a signed Android APK and AAB, free",
