@@ -83718,5 +83718,37 @@
     "votes_count": 3,
     "comments_count": 1,
     "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1300629",
+    "date": "2026-11-03",
+    "votes_count": 0,
+    "comments_count": 0,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1300646",
+    "date": "2026-11-03",
+    "votes_count": 0,
+    "comments_count": 0,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1300622",
+    "date": "2026-11-03",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1300557",
+    "date": "2026-11-03",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0
   }
 ]

@@ -1,6 +1,146 @@
 [
   {
     "source": "Product Hunt",
+    "source_product_id": "1300629",
+    "name": "padit",
+    "tagline": "Wie viel von deinem Gehalt wirklich übrig ist",
+    "description": "Die App rechnet von Gehalt zu Gehalt: was fix abgeht, was du wirklich frei hast, wie viel pro Tag. Ohne Konto, ohne Cloud, ohne Werbung.",
+    "source_url": "https://www.producthunt.com/products/padit?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/ZPWFP3DQLKO6XL?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/7d707e4d-0991-46dc-8407-15cb1a560ef8.svg?auto=format",
+    "launch_date": "2026-11-02T17:01:00Z",
+    "created_at": "2026-11-02T17:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 0,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "2",
+        "name": "Android",
+        "slug": "android"
+      },
+      {
+        "id": "362",
+        "name": "Apple",
+        "slug": "apple"
+      },
+      {
+        "id": "611",
+        "name": "Finance",
+        "slug": "finance"
+      },
+      {
+        "id": "792",
+        "name": "Personal Finance",
+        "slug": "personal-finance"
+      }
+    ],
+    "last_updated_at": "2026-11-03T00:45:42.508899+00:00",
+    "captured_at": "2026-11-03T00:45:42.508899+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1300646",
+    "name": "WayR",
+    "tagline": "Get your personalized route",
+    "description": "Personalized routes for better days away.",
+    "source_url": "https://www.producthunt.com/products/wayr?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/I6NQVRDJGOFMB4?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/558e7c5a-2afe-4661-903e-926381f4d0a4.png?auto=format",
+    "launch_date": "2026-11-02T17:01:00Z",
+    "created_at": "2026-11-02T17:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 0,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "250",
+        "name": "Travel",
+        "slug": "travel"
+      },
+      {
+        "id": "308",
+        "name": "Maps",
+        "slug": "maps"
+      }
+    ],
+    "last_updated_at": "2026-11-03T00:45:42.508899+00:00",
+    "captured_at": "2026-11-03T00:45:42.508899+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1300622",
+    "name": "Flashcade",
+    "tagline": "Study flashcards by playing games",
+    "description": "AI generates flashcards and lets you study them through interactive games.",
+    "source_url": "https://www.producthunt.com/products/flashcade?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/HY3WPTIHJI2KNW?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/069cef10-a60d-4fd0-990e-0cecb6bd3742.png?auto=format",
+    "launch_date": "2026-11-02T17:01:00Z",
+    "created_at": "2026-11-02T17:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "204",
+        "name": "Education",
+        "slug": "education"
+      },
+      {
+        "id": "209",
+        "name": "Languages",
+        "slug": "languages"
+      },
+      {
+        "id": "353",
+        "name": "Games",
+        "slug": "games"
+      }
+    ],
+    "last_updated_at": "2026-11-03T00:45:42.508899+00:00",
+    "captured_at": "2026-11-03T00:45:42.508899+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1300557",
+    "name": "CutNest",
+    "tagline": "Cut List Optimiser for Sheet, Bar & Tube",
+    "description": "Cut list optimisation software for sheet metal fabricators, joiners, timber merchants and anyone cutting sheet, bar or tube. Minimise waste, order less, and turn the cut list into a customer quote.",
+    "source_url": "https://www.producthunt.com/products/cutnest?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/ZCXGLVM2AUUQMM?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/19fe30d6-9d32-4885-81a9-d9436162d33d.svg?auto=format",
+    "launch_date": "2026-11-02T16:01:00Z",
+    "created_at": "2026-11-02T16:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "44",
+        "name": "Design Tools",
+        "slug": "design-tools"
+      },
+      {
+        "id": "46",
+        "name": "Productivity",
+        "slug": "productivity"
+      },
+      {
+        "id": "371",
+        "name": "Maker Tools",
+        "slug": "maker-tools"
+      }
+    ],
+    "last_updated_at": "2026-11-03T00:45:42.508899+00:00",
+    "captured_at": "2026-11-03T00:45:42.508899+00:00"
+  },
+  {
+    "source": "Product Hunt",
     "source_product_id": "1300334",
     "name": "MomFlexTechnologies",
     "tagline": "Let's Simplify Single Parenting.",
