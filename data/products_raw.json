@@ -1,6 +1,41 @@
 [
   {
     "source": "Product Hunt",
+    "source_product_id": "1303653",
+    "name": "Online Plaid Pattern Maker",
+    "tagline": "Online Plaid Pattern Maker",
+    "description": "Create yarn-dyed plaid, tartan, check and stripe patterns online with editable warp, weft and weave structures.",
+    "source_url": "https://www.producthunt.com/products/online-plaid-pattern-maker?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/DHSYRIROCF5ZJ3?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/1b1dc778-581e-4f10-9115-573f28ce3fe7.png?auto=format",
+    "launch_date": "2026-11-05T00:01:00Z",
+    "created_at": "2026-11-05T00:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "44",
+        "name": "Design Tools",
+        "slug": "design-tools"
+      },
+      {
+        "id": "46",
+        "name": "Productivity",
+        "slug": "productivity"
+      },
+      {
+        "id": "267",
+        "name": "Developer Tools",
+        "slug": "developer-tools"
+      }
+    ],
+    "last_updated_at": "2026-11-05T05:52:37.231725+00:00",
+    "captured_at": "2026-11-05T05:52:37.231725+00:00"
+  },
+  {
+    "source": "Product Hunt",
     "source_product_id": "1303540",
     "name": "whalstreet",
     "tagline": "Track the portfolios of superinvestors",
