@@ -1,6 +1,41 @@
 [
   {
     "source": "Product Hunt",
+    "source_product_id": "1327040",
+    "name": "QRCodeAlchemy QR Code Generator",
+    "tagline": "Creating QR Codes Online",
+    "description": "QRCodeAlchemy is an AI-powered online QR code generator that helps individuals and businesses create beautiful, customizable, and functional QR codes. It offers AI art QR codes, custom QR designs, dynamic QR codes, image QR codes, bulk generation, and scan analytics. Users can customize colors, patterns, logos, and frames, and export QR codes in multiple formats, including PNG, SVG, and PDF. Whether for marketing, business, restaurants, or personal use",
+    "source_url": "https://www.producthunt.com/products/qrcodealchemy-qr-code-generator?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/ZTLUDXDWQYEAM3?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/90ff686d-eb98-4a4b-ac5c-3a842a365162.svg?auto=format",
+    "launch_date": "2026-11-23T06:01:00Z",
+    "created_at": "2026-11-23T06:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "44",
+        "name": "Design Tools",
+        "slug": "design-tools"
+      },
+      {
+        "id": "76",
+        "name": "Art",
+        "slug": "art"
+      },
+      {
+        "id": "164",
+        "name": "Marketing",
+        "slug": "marketing"
+      }
+    ],
+    "last_updated_at": "2026-11-23T06:40:13.206376+00:00",
+    "captured_at": "2026-11-23T06:40:13.206376+00:00"
+  },
+  {
+    "source": "Product Hunt",
     "source_product_id": "1325692",
     "name": "pomo pact",
     "tagline": "Can't Focus? Create a Pact with Friends and Focus Together",
