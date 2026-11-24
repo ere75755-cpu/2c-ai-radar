@@ -1,6 +1,3756 @@
 [
   {
     "source": "Product Hunt",
+    "source_product_id": "1327075",
+    "name": "viAct - Data Centre Safety",
+    "tagline": "AI-Powered Safety & Security for Modern Data Centres",
+    "description": "viAct is an AI-powered data centre safety and security platform that transforms existing CCTV into intelligent monitoring systems. Using computer vision, AI video analytics, IoT and smart wearables, it detects PPE violations, unauthorised access, unsafe activities, worker falls and restricted-area breaches. With cloud, on-premise and hybrid deployment options, viAct helps data centre operators improve workplace safety, strengthen security and manage operational risks proactively.",
+    "source_url": "https://www.producthunt.com/products/viact-ai?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/USWRYWB6YSPZXX?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/9e0180f6-9271-4570-9b90-042fe7e2e550.jpeg?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 0,
+    "reviews_rating": 5.0,
+    "topics": [
+      {
+        "id": "237",
+        "name": "SaaS",
+        "slug": "saas"
+      },
+      {
+        "id": "268",
+        "name": "Artificial Intelligence",
+        "slug": "artificial-intelligence"
+      },
+      {
+        "id": "352",
+        "name": "Tech",
+        "slug": "tech"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1328555",
+    "name": "systemdesign.academy",
+    "tagline": "Learn system design and AI engineering by doing",
+    "description": "Interactive system design (770 lessons) and AI engineering (219 lessons) courses with step-by-step diagrams, runnable Python and an AI tutor, plus hands-on GPU and AWS courses, an interview bootcamp, live classes and interview packs. Pay once, free lessons.",
+    "source_url": "https://www.producthunt.com/products/systemdesign-academy?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/WNCNVG5TGT4ZEW?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/03b3fc46-f96e-4e00-ab97-4bd13bcf655a.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "204",
+        "name": "Education",
+        "slug": "education"
+      },
+      {
+        "id": "267",
+        "name": "Developer Tools",
+        "slug": "developer-tools"
+      },
+      {
+        "id": "268",
+        "name": "Artificial Intelligence",
+        "slug": "artificial-intelligence"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1327844",
+    "name": "maverickbuilds.app",
+    "tagline": "Build planning, analytics & data apps. Now free.",
+    "description": "Companies used to buy platforms from Oracle, IBM, SAP and others to build planning, analytics and data management apps. Now it's free for internal use with unlimited users and no license fees. Multidimensional models, interactive dashboards, role-based workflows, integrations, automations with MCP server and AI builder inside: everything you need to run budgets, forecasts, reports, HR plans, sales targets, CRM, Helpdesk and much more.",
+    "source_url": "https://www.producthunt.com/products/maverickbuilds-app?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/P3R5RCA5XMUXHI?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/236d1dc1-f99f-49bf-b8fa-8fd73dda66f1.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "46",
+        "name": "Productivity",
+        "slug": "productivity"
+      },
+      {
+        "id": "268",
+        "name": "Artificial Intelligence",
+        "slug": "artificial-intelligence"
+      },
+      {
+        "id": "272",
+        "name": "GitHub",
+        "slug": "github"
+      },
+      {
+        "id": "279",
+        "name": "YouTube",
+        "slug": "youtube"
+      },
+      {
+        "id": "470",
+        "name": "No-Code",
+        "slug": "no-code"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1320618",
+    "name": "iSmoke",
+    "tagline": "Counts down to your next cigarette, not up from your last",
+    "description": "A quit-smoking app that counts down to your next cigarette. Cut down a bit at a time or pick your quit day. A slip is logged, not punished, and your plan adjusts as you go. For iPhone and Android; uses the open screen on iPhone Duo.",
+    "source_url": "https://www.producthunt.com/products/ismoke?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/LKCCEOPZL6TGF6?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/32d17347-4d66-45b1-a286-d3541718a244.gif?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "2",
+        "name": "Android",
+        "slug": "android"
+      },
+      {
+        "id": "8",
+        "name": "iOS",
+        "slug": "ios"
+      },
+      {
+        "id": "43",
+        "name": "Health & Fitness",
+        "slug": "health-fitness"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1324090",
+    "name": "ccGenie",
+    "tagline": "Find the credit card that pays you back the most",
+    "description": "Most people carry the wrong credit card. Not a bad card - just the wrong one for how they actually spend. ccGenie shows you the difference, in money. Enter your typical monthly spending by category, and ccGenie compares it against a directory of credit cards to estimate what each one would earn you on the same spending. No guesswork about multipliers and categories: just the annual difference between the card in your pocket and the card that fits your life.",
+    "source_url": "https://www.producthunt.com/products/ccgenie?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/TF2USWZMDXPNDX?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/75e3bddc-aa3e-4a42-9418-255eceb28e21.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "2",
+        "name": "Android",
+        "slug": "android"
+      },
+      {
+        "id": "94",
+        "name": "Fintech",
+        "slug": "fintech"
+      },
+      {
+        "id": "792",
+        "name": "Personal Finance",
+        "slug": "personal-finance"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1328741",
+    "name": "Zen Oracle",
+    "tagline": "Ancient I Ching, grounded in Jung - not superstition",
+    "description": "Zen Oracle combines I Ching bronze-coin casting and Sacred Glyph reflection. Each reading pairs a deterministic, locally computed cast with AI interpretation grounded in that result - insight, not prediction. - The cast is arithmetic, not AI: same tosses, same hexagram, every time. - The AI only interprets the computed result. - Honest limits: no prediction claims. Framed through Jung's synchronicity. Free first reading, no account: https://zenoracle.life",
+    "source_url": "https://www.producthunt.com/products/zen-oracle?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/ZCMTUPLBO4BWKY?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/cbd280c0-992a-4aa3-adcd-bb289b83b31e.webp?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "43",
+        "name": "Health & Fitness",
+        "slug": "health-fitness"
+      },
+      {
+        "id": "665",
+        "name": "Lifestyle",
+        "slug": "lifestyle"
+      },
+      {
+        "id": "838",
+        "name": "Spirituality",
+        "slug": "spirituality"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1327133",
+    "name": "YouTube Comment Search",
+    "tagline": "Find comments and replies on YouTube by keyword",
+    "description": "YouTube Comment Search is a free Chrome extension that helps you quickly find comments by keyword without endless scrolling. Search comments and replies, highlight matching words, and open relevant comments directly on YouTube. Works with regular videos and Shorts.",
+    "source_url": "https://www.producthunt.com/products/youtube-comment-search?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/URGERL244IFMZ3?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/f77dab47-d2bb-4519-8df1-28f6e9550f49.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "34",
+        "name": "Chrome Extensions",
+        "slug": "chrome-extensions"
+      },
+      {
+        "id": "46",
+        "name": "Productivity",
+        "slug": "productivity"
+      },
+      {
+        "id": "279",
+        "name": "YouTube",
+        "slug": "youtube"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1319063",
+    "name": "Xaldro",
+    "tagline": "Webflow Ecommerce orders, posted to Xero or QuickBooks",
+    "description": "Xaldro posts each Webflow Ecommerce order to Xero or QuickBooks Online as an itemised invoice: one line per product, plus shipping, discounts and the tax the customer paid under your mapped code. Payments and refunds post too. After posting, it reads every invoice back; if the total or tax is off by more than 1 cent, it voids the invoice and holds the order with a reason. Read-only access to Webflow. Flat plans from $19 a month, no fee per order, and a 14-day free trial.",
+    "source_url": "https://www.producthunt.com/products/xaldro?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/IN3DWUVWLMVC57?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/0356ae61-2fd0-4e2e-9887-fe7f7f4458df.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "237",
+        "name": "SaaS",
+        "slug": "saas"
+      },
+      {
+        "id": "278",
+        "name": "E-Commerce",
+        "slug": "e-commerce"
+      },
+      {
+        "id": "764",
+        "name": "Accounting",
+        "slug": "accounting"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1326975",
+    "name": "W-8BEN & USD Invoice Studio",
+    "tagline": "100% browser-only W-8BEN, W-9 & bilingual USD invoice PDFs",
+    "description": "Generate IRS W-8BEN / W-9 vendor onboarding sheets and crisp A4 USD, EUR & GBP invoices 100% locally in your browser. Zero sign-up, zero cloud uploads, works offline with ACH, SWIFT, Wise & PingPong wire presets.",
+    "source_url": "https://www.producthunt.com/products/w-8ben-usd-invoice-studio?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/KX57ZQBZNUKHT7?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/c4f8add1-67fa-4cce-976a-12955124a03b.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "46",
+        "name": "Productivity",
+        "slug": "productivity"
+      },
+      {
+        "id": "72",
+        "name": "Freelance",
+        "slug": "freelance"
+      },
+      {
+        "id": "94",
+        "name": "Fintech",
+        "slug": "fintech"
+      },
+      {
+        "id": "272",
+        "name": "GitHub",
+        "slug": "github"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1323196",
+    "name": "ViralTap",
+    "tagline": "Turn any topic into a ready-to-post short video in one tap",
+    "description": "Pick a format, tap once, and get a finished vertical video: voiceover, word-by-word captions, music and motion. Quizzes, stories, Would You Rather, Top 5, Fact or Fake, memes and more. No camera, no editing, no face, no account. 133 styles, 14 formats, nearly 6,000 ready ideas and 10 languages, so you never start from a blank page. Videos are made on your phone and never leave it. Try it free in your browser; the Android app is coming to Google Play.",
+    "source_url": "https://www.producthunt.com/products/viraltap?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/Q4UADW5IJQJYUF?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/064c7ae2-9f2d-4baa-b7f2-b71fccd2ddec.gif?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "2",
+        "name": "Android",
+        "slug": "android"
+      },
+      {
+        "id": "104",
+        "name": "Social Media",
+        "slug": "social-media"
+      },
+      {
+        "id": "857",
+        "name": "Video",
+        "slug": "video"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1327970",
+    "name": "Viktor Code",
+    "tagline": "Coding agents know your repo. Viktor knows your company.",
+    "description": "Coding agents know your repository. Viktor knows your company: your customers, your metrics and the decisions behind the work. So you give him a business outcome, not a ticket. He splits it into the technical and the non-technical work. He opens pull requests on your GitHub, GitLab or Bitbucket repos and brings them back for your review. His projects belong to the whole team, in Slack, Teams or Discord. Anyone can code now. Free to start, with up to $100 in credits.",
+    "source_url": "https://www.producthunt.com/products/viktor?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/PN7G3CJSNEP2H7?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/launch-image-uploads/2bfe1778-633c-4765-8e09-bc023871dfcf/10e27f21dc4ab6544dd2d740e5d26c3839ff4e199af371fdc23a098beeaca07d.gif?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": "2026-11-24T08:01:00Z",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 4.88,
+    "topics": [
+      {
+        "id": "46",
+        "name": "Productivity",
+        "slug": "productivity"
+      },
+      {
+        "id": "267",
+        "name": "Developer Tools",
+        "slug": "developer-tools"
+      },
+      {
+        "id": "268",
+        "name": "Artificial Intelligence",
+        "slug": "artificial-intelligence"
+      },
+      {
+        "id": "279",
+        "name": "YouTube",
+        "slug": "youtube"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1327355",
+    "name": "Trust Wallet Clone",
+    "tagline": "Develop a Crypto Wallet with Token Swaps and Web3 Access",
+    "description": "Building a Trust Wallet-like platform requires careful planning beyond the visible wallet interface. Our Trust Wallet Clone Development approach focuses on blockchain compatibility, transaction validation logic, and asset ownership consistency across networks. We develop wallet infrastructure with attention to how different blockchain protocols handle transaction states, ensuring a reliable foundation for businesses entering the digital asset ecosystem.",
+    "source_url": "https://www.producthunt.com/products/crypto-copy-trading-software-development?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/72G3QJSINIU3DZ?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/b7b100a8-0e7d-471d-8f6a-9bf0ef0f5910.webp?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 0,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "212",
+        "name": "Crypto",
+        "slug": "crypto"
+      },
+      {
+        "id": "352",
+        "name": "Tech",
+        "slug": "tech"
+      },
+      {
+        "id": "501",
+        "name": "Web3",
+        "slug": "web3"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1327826",
+    "name": "Toom",
+    "tagline": "Screen Recorder & Automatic Video Editor",
+    "description": "Hit record and Toom does the editing: zooms on every click, a smooth cursor, captions from your voice and private details hidden automatically. For Mac and Windows.",
+    "source_url": "https://www.producthunt.com/products/toom?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/YLLYGUGWHGLQ25?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/639a62c9-5506-43f7-b712-2005d50f301e.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "46",
+        "name": "Productivity",
+        "slug": "productivity"
+      },
+      {
+        "id": "164",
+        "name": "Marketing",
+        "slug": "marketing"
+      },
+      {
+        "id": "352",
+        "name": "Tech",
+        "slug": "tech"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1328383",
+    "name": "TokenDiet Pro",
+    "tagline": "Cut Claude, Grok & OpenAI tokens 45-90% locally",
+    "description": "100% local AI token-saving proxy & AST repo packer (Python stdlib, zero cloud). Shrinks stack traces (-98%), packs repos into AST skeletons (-88%), deduplicates chat history & caches repeat prompts at $0. Includes a free browser Token Crusher & ROI calculator.",
+    "source_url": "https://www.producthunt.com/products/tokendiet-pro?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/HQ6DRH44DDIWCF?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/d88c3926-1adc-4f14-af61-99e2ab9a0c64.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "46",
+        "name": "Productivity",
+        "slug": "productivity"
+      },
+      {
+        "id": "267",
+        "name": "Developer Tools",
+        "slug": "developer-tools"
+      },
+      {
+        "id": "268",
+        "name": "Artificial Intelligence",
+        "slug": "artificial-intelligence"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1327539",
+    "name": "Tinker",
+    "tagline": "30+ file tools in your Mac's right-click menu",
+    "description": "Tinker adds quick file tools to Finder's right-click menu: HEIC → JPG, MOV → MP4, merge PDFs, compress videos, remove backgrounds, text from images and more. Menu bar tools add clipboard history, Screen to Text, a color picker and QR codes. Everything runs on your Mac, with no uploads. Free basics, a 14-day trial, then $9.99 (₹899) once. Launch week: 30% off with code LAUNCH30.",
+    "source_url": "https://www.producthunt.com/products/tinker-3?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/BNE6BZBH27ECRU?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/704182d0-d33d-4b11-9f3b-33c78b65733f.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "19",
+        "name": "Mac",
+        "slug": "mac"
+      },
+      {
+        "id": "46",
+        "name": "Productivity",
+        "slug": "productivity"
+      },
+      {
+        "id": "248",
+        "name": "Privacy",
+        "slug": "privacy"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1318330",
+    "name": "TheApp",
+    "tagline": "20 offline Android tools in one app, no ads, no account",
+    "description": "I built TheApp because my phone was full of single purpose apps, each one with ads, an account or a subscription. TheApp puts 20 everyday tools in one Android app that works offline: gallery and file explorer, PDF scan, sign and merge, encrypted password vault, app lock, video editor, video and PDF compression, audio extraction, image converter, notes, budgets and more. No ads, no account, no cloud: your files never leave the phone. One payment, no subscription.",
+    "source_url": "https://www.producthunt.com/products/theapp?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/X3GQORRD5QCY7Z?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/6352c61e-ca5f-40e4-a3f6-1db044e09235.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "2",
+        "name": "Android",
+        "slug": "android"
+      },
+      {
+        "id": "46",
+        "name": "Productivity",
+        "slug": "productivity"
+      },
+      {
+        "id": "248",
+        "name": "Privacy",
+        "slug": "privacy"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1327738",
+    "name": "The Good Tracker",
+    "tagline": "Voice-first symptom, food and medicine tracker",
+    "description": "The Good Tracker is a voice-first symptom, food and medicine tracker. Say or type how the day went and get a daily log. See what tends to line up in your entries, as a pattern, not a cause. One Insights chart you can adjust, a short doctor summary, a weather heads-up for tomorrow from your logs. Installs to the home screen. Free during early access. There is nothing to buy and no card is needed. A free account is required. Not medical advice.",
+    "source_url": "https://www.producthunt.com/products/the-good-tracker?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/4YBKE2NZP35WQ7?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/cb67d6ce-a820-4dc8-94ec-f834b59480db.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "21",
+        "name": "Web App",
+        "slug": "web-app"
+      },
+      {
+        "id": "43",
+        "name": "Health & Fitness",
+        "slug": "health-fitness"
+      },
+      {
+        "id": "46",
+        "name": "Productivity",
+        "slug": "productivity"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1327490",
+    "name": "Teacher Bureau",
+    "tagline": "#students",
+    "description": "Experienced male & female home tutors in your locality: school, college, competitive exams, languages, music, dance and more. Book a free demo.",
+    "source_url": "https://www.producthunt.com/products/teacher-bureau?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/MOZ4EIDI7XZGLS?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/a8ac945d-2ddd-42fc-acf1-5f0c00cefef5.jpeg?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 0,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "204",
+        "name": "Education",
+        "slug": "education"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1323310",
+    "name": "Taskcell",
+    "tagline": "Label an issue. Get a tested pull request.",
+    "description": "Write what the business needs as an issue and add one label. Taskcell codes it in a sealed Docker cell, your tests and a second model check it, and you merge the pull request. Self-hosted and MIT, on the Claude, Codex or OpenRouter plan you already pay for.",
+    "source_url": "https://www.producthunt.com/products/taskcell?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/E7R276WZ73EC4R?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/3b480e91-5ffd-4e3d-9432-1e2d08b4536c.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "89",
+        "name": "Open Source",
+        "slug": "open-source"
+      },
+      {
+        "id": "267",
+        "name": "Developer Tools",
+        "slug": "developer-tools"
+      },
+      {
+        "id": "268",
+        "name": "Artificial Intelligence",
+        "slug": "artificial-intelligence"
+      },
+      {
+        "id": "272",
+        "name": "GitHub",
+        "slug": "github"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1328247",
+    "name": "Studiora Ai Coach",
+    "tagline": "builds personalized study plans to keep you on track",
+    "description": "Study smarter with AI tutoring, personalized study plans, interactive flashcards, SAT preparation, practice exams, and progress tracking—all in one platform.",
+    "source_url": "https://www.producthunt.com/products/studiora-ai-coach?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/3RP4WOCPZ3JXOL?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/6d329d07-e682-4052-9fb1-5ee0900e29ec.svg?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "204",
+        "name": "Education",
+        "slug": "education"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1328653",
+    "name": "StrikeWard",
+    "tagline": "All-in-one cybersecurity, risk & compliance platform",
+    "description": "All-in-one cybersecurity and compliance platform covering ISO 27001, Essential Eight, Microsoft 365 security, AI security, vendor risk and application security. Backed by expert cybersecurity consulting and engineering services.",
+    "source_url": "https://www.producthunt.com/products/strikeward?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/D5UPYECGYZENG4?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/66e6cd48-9588-4b28-bede-eb75d5034c08.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "237",
+        "name": "SaaS",
+        "slug": "saas"
+      },
+      {
+        "id": "352",
+        "name": "Tech",
+        "slug": "tech"
+      },
+      {
+        "id": "865",
+        "name": "Security",
+        "slug": "security"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1325958",
+    "name": "Sofia Public Transport Live",
+    "tagline": "Never wait again on the bus stop",
+    "description": "No more waiting at stops without knowing if or when your bus will arrive! Sofia Bus is a fully Bulgarian public transport app, built with one single goal: to make getting around Sofia a pleasant, fast and modern experience. Our aim is to become the best public transport app in Sofia, and we'd love to hear whether we're getting there :). Sofia Bus is a small, optimized app that does exactly what it was made for: helping you reach any point in the city quickly and easily by public transport.",
+    "source_url": "https://www.producthunt.com/products/sofiabus?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/3JSC4LEUQ3GUFU?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/b9fbd2a1-5093-4576-885b-87d10631fd76.jpeg?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 0,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "2",
+        "name": "Android",
+        "slug": "android"
+      },
+      {
+        "id": "250",
+        "name": "Travel",
+        "slug": "travel"
+      },
+      {
+        "id": "258",
+        "name": "Transportation",
+        "slug": "transportation"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1327633",
+    "name": "SnapTube APK",
+    "tagline": "Baixe o SnapTube APK para Android",
+    "description": "Descubra informações sobre o SnapTube APK para Android. Conheça seus recursos, aprenda como baixar vídeos e músicas de diferentes plataformas e confira orientações de instalação, formatos compatíveis e dicas para aproveitar melhor o aplicativo.",
+    "source_url": "https://www.producthunt.com/products/snaptube-apk-4?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/HNKWY62Z2FXORH?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/64e2be2e-3c25-464f-af55-00c30e6ce1d7.webp?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "57",
+        "name": "Music",
+        "slug": "music"
+      },
+      {
+        "id": "266",
+        "name": "Streaming Services",
+        "slug": "streaming-services"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1319069",
+    "name": "Singular House",
+    "tagline": "Walk through your house in 3D from your architect's plans",
+    "description": "Turns an architect's plans (DWFX, DWG/DXF, PDF or images) into a 3D house you can walk through before it's built. Compare finishes and furniture on it, see what each option costs, and let Claude or ChatGPT work it via MCP. Every change waits for your yes.",
+    "source_url": "https://www.producthunt.com/products/singular-house?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/6C6LAX5KDSZ3IM?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/66f42930-7e47-42cc-9612-2646828b336c.svg?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "73",
+        "name": "Home",
+        "slug": "home"
+      },
+      {
+        "id": "268",
+        "name": "Artificial Intelligence",
+        "slug": "artificial-intelligence"
+      },
+      {
+        "id": "624",
+        "name": "Graphics & Design",
+        "slug": "graphics-design"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1319231",
+    "name": "SigBatch",
+    "tagline": "Bulk email signatures from one spreadsheet",
+    "description": "Most tools are a free one-person generator or monthly per-seat platform. SigBatch sits in the gap: paste a CSV, choose a design, and download a ZIP of HTML signatures for every person. Works with Gmail, Outlook and Apple Mail. Your staff list stays in your browser; only a logo you choose to upload is hosted. Single signatures are free, with a 3-row bulk trial. Unlimited bulk is a £19 one-time Team Pack, VAT included, 14-day refund. It does not auto-deploy into Microsoft 365 or Google Workspace.",
+    "source_url": "https://www.producthunt.com/products/sigbatch?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/52OTCNYOZCMDOH?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/c6938c44-9724-4f8f-9bb1-3043ff950b74.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "39",
+        "name": "Email",
+        "slug": "email"
+      },
+      {
+        "id": "46",
+        "name": "Productivity",
+        "slug": "productivity"
+      },
+      {
+        "id": "570",
+        "name": "Business",
+        "slug": "business"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1313848",
+    "name": "ShowTake",
+    "tagline": "Your coding agent films your app's demo video",
+    "description": "ShowTake is a Mac app with a built-in MCP server. Ask Claude Code, Codex or Cursor for a demo: the agent drives your iOS app in the Simulator or your Mac app while ShowTake records every tap. You get zooms on the tapped element, music and captions, idle time cut, App Store previews checked against Apple's rules, social cuts and screenshots. Each take replays as a flow for the next build or language. Local-first. Free with a watermark.",
+    "source_url": "https://www.producthunt.com/products/showtake?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/RMOESZLXT3MAIR?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/5c35809f-0b6c-45b6-8f88-556653ecd2cf.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "19",
+        "name": "Mac",
+        "slug": "mac"
+      },
+      {
+        "id": "267",
+        "name": "Developer Tools",
+        "slug": "developer-tools"
+      },
+      {
+        "id": "857",
+        "name": "Video",
+        "slug": "video"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1327640",
+    "name": "Saychip",
+    "tagline": "Mac dictation for developers and coding agents",
+    "description": "Voice typing for software engineers on macOS. Press ⌥ Space, talk, add screenshots, drawings, clipboard and file paths, then paste into any app, e.g. Claude Code, Cursor or Codex. Speech is transcribed on your Mac.",
+    "source_url": "https://www.producthunt.com/products/saychip?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/FNJYWMFVGZSSGF?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/2b061ce2-9a54-4bf3-868b-704462bce8a0.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "267",
+        "name": "Developer Tools",
+        "slug": "developer-tools"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1328420",
+    "name": "SZNS",
+    "tagline": "Seasonal lights and desktop effects for Mac",
+    "description": "Hang custom lights on your Mac’s Dock and menu bar, then watch snow pile up, leaves drift, or koi swim across your desktop. Pick from 22 scenes, mix their layers, or make your own with custom colors and SVG bulbs. Quiet Hours and timed pauses give you a break when you need one. Free and open source for macOS 14+.",
+    "source_url": "https://www.producthunt.com/products/szns?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/2K53KJFACQAQ22?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/launch-image-uploads/e4b2a58f-2cf8-44ea-a160-4072ec8e5d2c/20fd8f120659aff9c75b2d585dd19d754609fa15cb17a9ca6021bf97504c20cf.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "19",
+        "name": "Mac",
+        "slug": "mac"
+      },
+      {
+        "id": "89",
+        "name": "Open Source",
+        "slug": "open-source"
+      },
+      {
+        "id": "272",
+        "name": "GitHub",
+        "slug": "github"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1279955",
+    "name": "SVR Deals",
+    "tagline": "Verified deals and coupons from top brands, updated daily",
+    "description": "SVRDeals is a deals platform where shoppers find verified discounts from top brands. We curate deals, coupon codes, and price drops and promote them across svrdeals.com, the SVR Deals iOS and Android apps, and our Instagram audience. Our customers are deal-seekers who shop with intent to buy. We work with brands that want straightforward, performance-driven promotion.",
+    "source_url": "https://www.producthunt.com/products/svr-deals?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/SH7Y7PY26WLBSE?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/bea31e10-6d2e-424e-970d-18468fe339a4.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "2",
+        "name": "Android",
+        "slug": "android"
+      },
+      {
+        "id": "278",
+        "name": "E-Commerce",
+        "slug": "e-commerce"
+      },
+      {
+        "id": "713",
+        "name": "Shopping",
+        "slug": "shopping"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1324615",
+    "name": "STLabs",
+    "tagline": "AI that resolves employee IT requests end to end",
+    "description": "STLabs is an AI service management platform that resolves employee requests end-to-end, grounded in a living model of the enterprise. Because it knows the people, systems, services and policies behind each request, requests that used to take days of back-and-forth resolve in minutes, right where employees already work: Slack, Microsoft Teams or the web app. Tickets that need a person arrive with context and a suggested fix.",
+    "source_url": "https://www.producthunt.com/products/stlabs?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/XRYAGVPQTRKQQW?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/28f95bb3-39c0-4829-83e5-712317ad0f1a.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "46",
+        "name": "Productivity",
+        "slug": "productivity"
+      },
+      {
+        "id": "237",
+        "name": "SaaS",
+        "slug": "saas"
+      },
+      {
+        "id": "268",
+        "name": "Artificial Intelligence",
+        "slug": "artificial-intelligence"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1328096",
+    "name": "Roast my Threads",
+    "tagline": "AI roasts your Threads profile and tells you what to fix",
+    "description": "Upload a screenshot of your Threads profile. AI scores it out of 10, roasts your bio and posts with humor and gives 3 concrete fixes. Free, no sign-up, 7 languages, and the screenshot is never stored.",
+    "source_url": "https://www.producthunt.com/products/roast-my-threads?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/JNCQPTOBWEL63D?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/cd59d3fd-5fab-4c93-a2eb-96c2e692ac37.svg?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "104",
+        "name": "Social Media",
+        "slug": "social-media"
+      },
+      {
+        "id": "164",
+        "name": "Marketing",
+        "slug": "marketing"
+      },
+      {
+        "id": "268",
+        "name": "Artificial Intelligence",
+        "slug": "artificial-intelligence"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1327115",
+    "name": "ResumeStart",
+    "tagline": "Turn every job ad into a resume that gets interviews",
+    "description": "Applying everywhere and hearing nothing? Paste a job ad and ResumeStart shows your ATS score, which requirements you’re missing, and the lines to fix. You approve every change. Free: build, check and download a PDF that matches the preview, no card needed. Then go further with cover letters, interview questions for that exact job, a Chrome extension that fills applications, a tracker for every role, and a portfolio site that updates with your resume.",
+    "source_url": "https://www.producthunt.com/products/resumestart?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/EJ2TGPCXEC7TT2?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/d51faf8f-264e-4544-a97f-443ab791e928.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "46",
+        "name": "Productivity",
+        "slug": "productivity"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1327420",
+    "name": "Replay",
+    "tagline": "Turn your WhatsApp and iMessage conversations into a book",
+    "description": "Your WhatsApp, iMessage, Instagram, Messenger, Snapchat or TikTok conversations become a book: your story told like a novel, with your messages quoted word for word.",
+    "source_url": "https://www.producthunt.com/products/replay-12?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/I62C3T2YNN2CXZ?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/b49dd15e-5698-4d44-ba4c-1b2831ac8652.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "60",
+        "name": "Messaging",
+        "slug": "messaging"
+      },
+      {
+        "id": "354",
+        "name": "Books",
+        "slug": "books"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1325857",
+    "name": "Rami 51",
+    "tagline": "Free multiplayer Rummy 51 in your browser",
+    "description": "Rami 51 is the classic French rummy, free and multiplayer, right in the browser. No download, no sign-up: open a table and play against real players in seconds. Two 54-card decks, traditional rules, daily challenges, and a coach that teaches you the game. Available in 17 languages, with iOS and Android apps for games with friends.",
+    "source_url": "https://www.producthunt.com/products/rami-51?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/7ADN7VWEM35WZM?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/c6e270ea-078f-42d9-8777-8b892f0c4256.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "353",
+        "name": "Games",
+        "slug": "games"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1292013",
+    "name": "PromptMake",
+    "tagline": "Prompts for Claude Skills, coding agent loops and images",
+    "description": "PromptMake turns a rough idea into a prompt shaped for the place you'll use it. Describe a repeatable job and get a Claude SKILL.md, a Custom GPT config or a Gemini Gem. Describe a coding task and get a /goal or /loop command for Claude Code or Codex with success checks, a turn cap and stop rules. It also writes image prompts from a photo, video prompts with camera and pacing or a plain text prompt. Free to try without an account. Pro is $9 a month.",
+    "source_url": "https://www.producthunt.com/products/promptmake?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/XKUD56V3MGS3DQ?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/a897bb0a-fa94-46ba-a48f-f7abc2856c31.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "46",
+        "name": "Productivity",
+        "slug": "productivity"
+      },
+      {
+        "id": "267",
+        "name": "Developer Tools",
+        "slug": "developer-tools"
+      },
+      {
+        "id": "268",
+        "name": "Artificial Intelligence",
+        "slug": "artificial-intelligence"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1327442",
+    "name": "Prismbox",
+    "tagline": "Edit your React Three Fiber scene live, by hand or by agent",
+    "description": "Open-source visual editor for React Three Fiber. Drag a gizmo or slider on your real Vite page and the change lands in yourtsx as a one-line, undoable diff. Claude Code or Cursor can make the same edits over MCP. Try it free in the browser, no install.",
+    "source_url": "https://www.producthunt.com/products/prismbox-2?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/WBB7H4EUGD7W7R?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/691a083f-c7fd-47a6-9d76-73c50bf39855.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 2,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "89",
+        "name": "Open Source",
+        "slug": "open-source"
+      },
+      {
+        "id": "267",
+        "name": "Developer Tools",
+        "slug": "developer-tools"
+      },
+      {
+        "id": "268",
+        "name": "Artificial Intelligence",
+        "slug": "artificial-intelligence"
+      },
+      {
+        "id": "272",
+        "name": "GitHub",
+        "slug": "github"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1325372",
+    "name": "Prates",
+    "tagline": "Learns how you write, then writes exactly as you would",
+    "description": "Prates learns from what you write across any app: who you write to, your projects, your views and your wording. It turns speech into finished text, drafts replies and completes what you type. What it learns stays as short notes on your Mac that you can read or delete. Voice and text go only to the models you choose and have available, locally or in the cloud. macOS 14+. 7-day free trial, then $9.99 per month.",
+    "source_url": "https://www.producthunt.com/products/prates?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/GAYHNYN7MV6XF5?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/49ff4f29-f47a-4aeb-8a69-25b0961c0c9b.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": "2026-11-24T08:01:00Z",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "19",
+        "name": "Mac",
+        "slug": "mac"
+      },
+      {
+        "id": "46",
+        "name": "Productivity",
+        "slug": "productivity"
+      },
+      {
+        "id": "268",
+        "name": "Artificial Intelligence",
+        "slug": "artificial-intelligence"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1328763",
+    "name": "Paperpilot PDF toolkit",
+    "tagline": "Private, local-first PDF toolkit for Windows",
+    "description": "Paperpilot PDF Toolkit is a private, local-first Windows app for managing PDFs, documents, and images. Batch-rename files, keeping your originals untouched. Compress PDFs locally toward under 100 KB, with clear results if quality would suffer. Find exact duplicates using on-device fingerprints. Scan PDFs for issues like missing selectable text or large size. Free for essentials. Pro is a one-time, pay-what-you-want upgrade from ₹99 (via Gumroad) for unlimited batches and document chats.",
+    "source_url": "https://www.producthunt.com/products/paperpilot-pdf-toolkit?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/K6DW6D7BW6PBWB?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/a851454f-612b-4cb4-af38-2f9e3ccc09eb.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 0,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "18",
+        "name": "Windows",
+        "slug": "windows"
+      },
+      {
+        "id": "46",
+        "name": "Productivity",
+        "slug": "productivity"
+      },
+      {
+        "id": "248",
+        "name": "Privacy",
+        "slug": "privacy"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1328451",
+    "name": "Pantry to Plate",
+    "tagline": "Pantry, recipes, meal plans and shopping lists in sync",
+    "description": "Make more of the food you already have. Track pantry, fridge and freezer ingredients; find and import recipes; plan meals, leftovers and eating out; and build shopping lists. Keep private recipes private, share favorites with the community, and turn collections into downloadable cookbooks. Available on the web and iPhone/iPad, with Mac beta and Android preview downloads.",
+    "source_url": "https://www.producthunt.com/products/pantry-to-plate-2?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/V75KCCUVYUTUC5?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/692af235-8a13-419a-830c-a4c7707beb33.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "8",
+        "name": "iOS",
+        "slug": "ios"
+      },
+      {
+        "id": "46",
+        "name": "Productivity",
+        "slug": "productivity"
+      },
+      {
+        "id": "176",
+        "name": "Cooking",
+        "slug": "cooking"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1327043",
+    "name": "PHP 8.6",
+    "tagline": "Modern PHP with cleaner functions and scalable I/O",
+    "description": "PHP 8.6 is a major update to the open-source programming language powering millions of websites and applications. It introduces Partial Function Application for cleaner code, a native Polling API for scalable I/O, and a new Time\\Duration class for precise time handling. Also new: clamp(), type-safe sorting, readonly property defaults, stronger session security, and performance improvements. Available now for developers to download and use.",
+    "source_url": "https://www.producthunt.com/products/php-8?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/JDVYAMEPIXCBV7?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/1302e092-41b2-42c7-9d50-3b9d7457a296.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 5.0,
+    "topics": [
+      {
+        "id": "89",
+        "name": "Open Source",
+        "slug": "open-source"
+      },
+      {
+        "id": "779",
+        "name": "Development Language",
+        "slug": "development-language"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1326150",
+    "name": "Oxlao Car Marketplace",
+    "tagline": "Buy Smart. Sell Easy. Drive Better.",
+    "description": "Oxlao Car is a smart online automotive marketplace that connects vehicle buyers and sellers through a seamless digital experience. Our platform makes it easy to discover, compare, buy, and sell cars in one convenient place. With intelligent search, verified listings, and user-friendly features, Oxlao Car aims to make vehicle trading faster, smarter, safer, and more accessible for everyone.",
+    "source_url": "https://www.producthunt.com/products/oxlao-car-marketplace?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/LH7QW6QPJL6O5J?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/3b907a4e-e42d-446a-9312-298bcbe97a51.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 0,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "92",
+        "name": "Cars",
+        "slug": "cars"
+      },
+      {
+        "id": "164",
+        "name": "Marketing",
+        "slug": "marketing"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1328547",
+    "name": "Ownerr Live",
+    "tagline": "Built for founders to exit and buyers to acquire",
+    "description": "Ownerr is a startup acquisition marketplace connecting founders who want to sell with buyers looking for their next opportunity. Discover 1,575+ startup listings across SaaS, mobile apps, eCommerce and more. Explore businesses with connected payment-platform data and useful business signals, then connect with founders to take the conversation forward. We're making startup discovery and acquisition more accessible, transparent and founder-friendly.",
+    "source_url": "https://www.producthunt.com/products/ownerr-live?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/HXX2EPAFXTA3EP?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/56496647-8cfe-41c0-aeb5-c902dfd39603.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "164",
+        "name": "Marketing",
+        "slug": "marketing"
+      },
+      {
+        "id": "237",
+        "name": "SaaS",
+        "slug": "saas"
+      },
+      {
+        "id": "713",
+        "name": "Shopping",
+        "slug": "shopping"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1326416",
+    "name": "OctoMX",
+    "tagline": "Innovative P2P app combining many networks in one",
+    "description": "The most innovative P2P app: 90s WinMX style, brought into the future. One classic interface, one search across BitTorrent, eD2k/Kad, Gnutella, HTTP and more, and a single download can pull blocks from several networks at once. Open source, GPL3. Windows/Linux/macOS. Let's change the P2P world together. Why WinMX style? Just because the world is overcomplicating everything and I wanted to go back to the base, where everything started. Independent project, not affiliated with the original WinMX.",
+    "source_url": "https://www.producthunt.com/products/winmx-ng?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/6UTDKQSG4M6XH7?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/launch-image-uploads/2b850499-4565-4345-8c7f-98caeba78f9e/2dd428562a3a6d82bc7472b7d0b843404785ac7cb4493ea6c898c674beeeca1d.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "13",
+        "name": "Linux",
+        "slug": "linux"
+      },
+      {
+        "id": "18",
+        "name": "Windows",
+        "slug": "windows"
+      },
+      {
+        "id": "89",
+        "name": "Open Source",
+        "slug": "open-source"
+      },
+      {
+        "id": "272",
+        "name": "GitHub",
+        "slug": "github"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1328725",
+    "name": "ORAE",
+    "tagline": "Korean birth chart astrology (Saju) in plain English",
+    "description": "Calculate your Korean Saju (Four Pillars) birth chart free with no signup and no Chinese characters to decode. Explore 45 free English guides and 2027 Fire Goat forecasts on the web, or read Chapter 1 free of paid reports ($3.99+) on Android.",
+    "source_url": "https://www.producthunt.com/products/orae?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/AFATQ4H2XYHJ3Y?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/0308e9e2-8ba5-4764-94a6-4c1bf25e23f9.svg?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "21",
+        "name": "Web App",
+        "slug": "web-app"
+      },
+      {
+        "id": "204",
+        "name": "Education",
+        "slug": "education"
+      },
+      {
+        "id": "665",
+        "name": "Lifestyle",
+        "slug": "lifestyle"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1327653",
+    "name": "Nice To Boost",
+    "tagline": "Fresh juice recipes with ready-made shopping lists",
+    "description": "Make fresh juices at home without guesswork. Nice To Boost is a PDF guide of tested recipes, each with exact quantities, plus week-by-week shopping lists and 7-to-30-day routines. Available in English and French, delivered instantly by email.",
+    "source_url": "https://www.producthunt.com/products/nice-to-boost?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/XCLRNS3WP7256C?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/79aac3fe-4738-4a77-b61b-b900e7999654.svg?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "43",
+        "name": "Health & Fitness",
+        "slug": "health-fitness"
+      },
+      {
+        "id": "617",
+        "name": "Food & Drink",
+        "slug": "food-drink"
+      },
+      {
+        "id": "665",
+        "name": "Lifestyle",
+        "slug": "lifestyle"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1326413",
+    "name": "Naukri Profile Optimizer",
+    "tagline": "Find out why recruiters skip your Naukri profile",
+    "description": "Free Naukri profile checker by FirstDay AI. Scores your profile out of 100, lists the fixes that cost you the most points, shows the recruiter keywords you're missing for 15 roles, and rewrites your headline and summary with AI. Free online, open source on GitHub.",
+    "source_url": "https://www.producthunt.com/products/naukri-profile-optimizer?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/OP4PW4Z6YXPEQ5?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/0117f22d-9fef-4cce-b611-2aeed36b75c6.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "41",
+        "name": "Hiring",
+        "slug": "hiring"
+      },
+      {
+        "id": "89",
+        "name": "Open Source",
+        "slug": "open-source"
+      },
+      {
+        "id": "268",
+        "name": "Artificial Intelligence",
+        "slug": "artificial-intelligence"
+      },
+      {
+        "id": "272",
+        "name": "GitHub",
+        "slug": "github"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1327562",
+    "name": "My AI Memory Kit",
+    "tagline": "Keep working across AIs, right from your chat.",
+    "description": "Switch AIs and the work restarts: the new AI can't see what the last one made, or why. My AI Memory Kit keeps the thread. In your chat, you ask your AI to save — the decisions, their reasons, and original files. Another compatible AI can then retrieve them and continue. No separate app: the conversation is the interface. Verified: a local AI's saved memory and file were retrieved byte-for-byte by another AI outside the PC (SHA-256 match). One-time $4.99. Setup is required; nothing is automatic.",
+    "source_url": "https://www.producthunt.com/products/my-ai-memory-kit?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/CO74OS2VOONPGN?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/d672ddfd-21b2-4f7c-a5a9-560c95957bf5.jpeg?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "46",
+        "name": "Productivity",
+        "slug": "productivity"
+      },
+      {
+        "id": "267",
+        "name": "Developer Tools",
+        "slug": "developer-tools"
+      },
+      {
+        "id": "268",
+        "name": "Artificial Intelligence",
+        "slug": "artificial-intelligence"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1325753",
+    "name": "Moonlighter",
+    "tagline": "An AI that does small paid jobs, and says it's an AI",
+    "description": "Moonlighter is a public experiment: can an AI (Claude) earn an honest living doing small jobs? You email a request, the AI asks questions, quotes, sends a free preview, and delivers after payment. Data reports on any coin or stock from $2, translations from $2, script fixes from $4, custom Python scripts and Telegram bots from $8. A human owns the accounts; the AI does the work and always says it's an AI. The first 5 jobs are free in exchange for honest feedback.",
+    "source_url": "https://www.producthunt.com/products/moonlighter-4?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/K45UVZLWX4NT3Z?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/31a4d300-ec8d-4628-a50f-29a32b8461b8.svg?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "46",
+        "name": "Productivity",
+        "slug": "productivity"
+      },
+      {
+        "id": "267",
+        "name": "Developer Tools",
+        "slug": "developer-tools"
+      },
+      {
+        "id": "268",
+        "name": "Artificial Intelligence",
+        "slug": "artificial-intelligence"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1327812",
+    "name": "Meronch",
+    "tagline": "Targeted B2B lead lists, 100 contacts in 24h",
+    "description": "Done-for-you lead lists for agencies and small B2B teams. Tell me your niche; I build it in Clay: companies, decision-makers, work emails with a confidence note, as a CSV. 100 contacts for $250 in 24h. Free 10-contact sample first. One person, AI-assisted.",
+    "source_url": "https://www.producthunt.com/products/meronch?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/K6FMK46MAULL35?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/9937c7a9-45aa-4eb4-8378-642f77957bef.vnd.microsoft.icon?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "39",
+        "name": "Email",
+        "slug": "email"
+      },
+      {
+        "id": "164",
+        "name": "Marketing",
+        "slug": "marketing"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1327338",
+    "name": "MagLanceWire",
+    "tagline": "Latest News, Insights & Trends Across Industries",
+    "description": "Latest postsMaglanceWire is a digital publication sharing the latest news, insights, and informative articles across technology, business, finance, lifestyle, entertainment, and other industries. Our goal is to keep readers informed with relevant content, emerging trends, and valuable perspectives.",
+    "source_url": "https://www.producthunt.com/products/maglancewire?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/ICH6CL6W5XDGWH?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/df185230-2bc6-468d-b9e3-bf908d956413.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "352",
+        "name": "Tech",
+        "slug": "tech"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1322569",
+    "name": "Macapp.space",
+    "tagline": "Discover Mac apps & keep track of the ones that matter.",
+    "description": "Never miss a Mac app you meant to try. Mark apps you want or use, group them into collections, and come back to them later. Find the right Mac app for the job, even when you don’t know its name. Browse about 5,000 apps by category or topic, compare alternatives, and check price, macOS requirements and where to get each one on a single page. Makers list theirs for free.",
+    "source_url": "https://www.producthunt.com/products/macapp-space?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/IHGEI4YMJTDEXJ?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/d9d4568c-ec6a-4106-a345-7d3f0f4311db.svg?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "19",
+        "name": "Mac",
+        "slug": "mac"
+      },
+      {
+        "id": "46",
+        "name": "Productivity",
+        "slug": "productivity"
+      },
+      {
+        "id": "267",
+        "name": "Developer Tools",
+        "slug": "developer-tools"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1319274",
+    "name": "LinkySend",
+    "tagline": "Post once to 16 social networks, in one click",
+    "description": "Write your post once and publish or schedule it on Instagram, TikTok, YouTube, LinkedIn, X, Threads and 10 more networks at the same time. Built-in AI writes captions, hashtags and carousels. Workspaces per brand, 21 languages. Free plan available.",
+    "source_url": "https://www.producthunt.com/products/linkysend?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/CZQ3ISILAV7IUO?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/93688de4-e6a4-4ad6-a750-3c2041d69e89.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "46",
+        "name": "Productivity",
+        "slug": "productivity"
+      },
+      {
+        "id": "104",
+        "name": "Social Media",
+        "slug": "social-media"
+      },
+      {
+        "id": "845",
+        "name": "Social media marketing",
+        "slug": "social-media-marketing"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1301371",
+    "name": "Lamxo",
+    "tagline": "Free POS app for physical shops, works offline",
+    "description": "Lamxo is a point-of-sale app for physical shops. Sell on an Android phone or tablet, or in a browser. Stock at each outlet goes down by itself, shifts and cash are recorded, and reports are ready to read. When the internet drops, the till keeps selling. Barcode and SKU scanning, items sold by weight, cash, your shop's own QR or bank EDC, with money going straight to the shop's bank account. For clothing stores, grocery stores, phone shops, cafés and restaurants.",
+    "source_url": "https://www.producthunt.com/products/lamxo?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/SGCKQCZSHLWJL4?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/36dc4671-46c3-4289-9b6c-0c6ead067af2.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "46",
+        "name": "Productivity",
+        "slug": "productivity"
+      },
+      {
+        "id": "278",
+        "name": "E-Commerce",
+        "slug": "e-commerce"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1327569",
+    "name": "Konos",
+    "tagline": "Local AI meeting notes",
+    "description": "Konos is a privacy-first desktop AI meeting notetaker. Capture your microphone and system audio with no meeting bot, transcribe locally with Whisper/Parakeet/OmniASR with speaker diarization, and chat with your transcripts using local open-weight LLM or your own AI providers. Jump to any moment on the speaker timeline, extract follow-ups with screen context, and export to audio, Markdown, or a Konos Archive",
+    "source_url": "https://www.producthunt.com/products/konos?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/BM4CKVQZVWQKLA?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/c14b178a-d5a2-4f2c-9836-8f840a5b0cb0.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "46",
+        "name": "Productivity",
+        "slug": "productivity"
+      },
+      {
+        "id": "252",
+        "name": "Meetings",
+        "slug": "meetings"
+      },
+      {
+        "id": "268",
+        "name": "Artificial Intelligence",
+        "slug": "artificial-intelligence"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1324358",
+    "name": "K-Stra",
+    "tagline": "Geomarketing for Australia, with an AI that does the maths",
+    "description": "Where should we open next? K-Stra answers that for retailers, franchise networks and property teams in Australia. Give it an address and it draws the real drive-time catchment, then shows who lives there, what they earn and spend, which competitors are nearby, what property costs and an estimate of road and foot traffic. An AI assistant sets up the analysis from a plain-English question and shows the price in credits before anything runs. Free to explore, no subscription required.",
+    "source_url": "https://www.producthunt.com/products/k-stra?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/BQNNWKPEMX5XAK?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/60470418-6e07-4749-9bab-40479949cb08.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": "2026-11-24T08:01:00Z",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "108",
+        "name": "Analytics",
+        "slug": "analytics"
+      },
+      {
+        "id": "268",
+        "name": "Artificial Intelligence",
+        "slug": "artificial-intelligence"
+      },
+      {
+        "id": "308",
+        "name": "Maps",
+        "slug": "maps"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1327318",
+    "name": "JustMac",
+    "tagline": "A real Mac in your browser tab, rented by the day",
+    "description": "Rent a dedicated Mac mini or MacBook Air by the day, week or month. The macOS desktop opens in a browser tab, nothing to install. Build iOS apps from Windows, test in the iPhone Simulator, run AI coding agents. From $10/day.",
+    "source_url": "https://www.producthunt.com/products/justmac?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/RA6UZXZWI4O64S?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/364128da-3b8b-4670-adab-d53fc653c716.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "19",
+        "name": "Mac",
+        "slug": "mac"
+      },
+      {
+        "id": "46",
+        "name": "Productivity",
+        "slug": "productivity"
+      },
+      {
+        "id": "267",
+        "name": "Developer Tools",
+        "slug": "developer-tools"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1328556",
+    "name": "JLPT Mini Game",
+    "tagline": "Make learning Japanese and practicing JLPT feel like a game",
+    "description": "Improve your Japanese skills while having fun. JLPT Mini Game turns JLPT practice into bite-sized interactive games, helping you reinforce vocabulary, kanji, and grammar through quick and engaging challenges.",
+    "source_url": "https://www.producthunt.com/products/jlpt-mini-game?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/QGB2IAHX6DOXD4?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/48a54f8c-66d1-4367-a4d4-68fcb8d8be27.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 0,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "204",
+        "name": "Education",
+        "slug": "education"
+      },
+      {
+        "id": "209",
+        "name": "Languages",
+        "slug": "languages"
+      },
+      {
+        "id": "353",
+        "name": "Games",
+        "slug": "games"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1327630",
+    "name": "Intonella",
+    "tagline": "Catch every word at native speed, then say it like a native",
+    "description": "For people who can read a language but lose it at native speed. Intonella works on one short dialogue at a time: listen without the text until you catch every word, read along, then speak along with the speakers (shadowing). The check draws the melody of your voice over theirs, line by line, beside your first cold read. English (US and UK), Spanish, French, German and Italian. Every pack has a free sample; buy a pack once, no subscription, no account.",
+    "source_url": "https://www.producthunt.com/products/intonella?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/FWMDWY7DVL3KQL?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/35d6c01b-1980-4ba3-8718-7a64eca1b0fb.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "2",
+        "name": "Android",
+        "slug": "android"
+      },
+      {
+        "id": "8",
+        "name": "iOS",
+        "slug": "ios"
+      },
+      {
+        "id": "204",
+        "name": "Education",
+        "slug": "education"
+      },
+      {
+        "id": "209",
+        "name": "Languages",
+        "slug": "languages"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1327786",
+    "name": "ImageAlbums",
+    "tagline": "Event photo albums guests open with one link or QR code",
+    "description": "Turn your wedding, birthday or party photos into a beautiful online album. Share one link or a QR code: guests open it on any phone, no app or account. Guestbook, live slideshow and a printable photo book PDF. Free to start, in 10 languages.",
+    "source_url": "https://www.producthunt.com/products/imagealbums?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/4ER6FKLKXJDVIC?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/52004b1d-71e3-4335-876a-4fe12dfbb5ab.svg?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "46",
+        "name": "Productivity",
+        "slug": "productivity"
+      },
+      {
+        "id": "251",
+        "name": "Photography",
+        "slug": "photography"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1322640",
+    "name": "Howly – Track Your Things",
+    "tagline": "Remember when to replace everyday things",
+    "description": "Howly helps you remember when everyday household items need replacing, cleaning, or checking. From toothbrush heads and water filters to bedsheets, coffee, and pantry essentials, simply add an item and track when you started using or opened it. Howly keeps track of the time, reminds you when something needs attention, and helps you organize what to buy next with a built-in shopping list.",
+    "source_url": "https://www.producthunt.com/products/howly-track-your-things?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/4XK4EXRF7SZPWJ?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/889d4b69-ef4a-4110-9545-6cc41dc86714.jpeg?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "44",
+        "name": "Design Tools",
+        "slug": "design-tools"
+      },
+      {
+        "id": "46",
+        "name": "Productivity",
+        "slug": "productivity"
+      },
+      {
+        "id": "665",
+        "name": "Lifestyle",
+        "slug": "lifestyle"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1320602",
+    "name": "How many sleeps until...",
+    "tagline": "Count the sleeps until the days that matter",
+    "description": "Count the sleeps until Christmas, a birthday, a holiday or the first day of school. Make a free countdown in seconds, with no sign-up, and share the link with family and friends.",
+    "source_url": "https://www.producthunt.com/products/how-many-sleeps-until?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/G6X2MUNOGP5JBU?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/aafe2029-aa87-467b-974f-aebcccf9d9ac.svg?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "46",
+        "name": "Productivity",
+        "slug": "productivity"
+      },
+      {
+        "id": "256",
+        "name": "Calendar",
+        "slug": "calendar"
+      },
+      {
+        "id": "659",
+        "name": "Kids & Parenting",
+        "slug": "kids-parenting"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1328586",
+    "name": "HTML to EPUB",
+    "tagline": "Convert HTML to EPUB in your browser",
+    "description": "Convert HTML files or pasted HTML into an EPUB in your browser. Files are not uploaded.",
+    "source_url": "https://www.producthunt.com/products/html-to-epub?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/DV6FXLU72SCFSZ?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/d4cb016d-78e9-4a70-baa6-58da71f1c02b.svg?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "46",
+        "name": "Productivity",
+        "slug": "productivity"
+      },
+      {
+        "id": "90",
+        "name": "Writing",
+        "slug": "writing"
+      },
+      {
+        "id": "354",
+        "name": "Books",
+        "slug": "books"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1319018",
+    "name": "Gwak Gwak",
+    "tagline": "Run your whole shop from one phone or tablet",
+    "description": "Gwak Gwak turns a phone or tablet into a point of sale for cafés, restaurants, shops and market stalls. Every bill gets a PromptPay QR for the exact amount, stock drops as you sell, members collect points, and owners see sales from anywhere. Free plan; Party free for 30 days, no card.",
+    "source_url": "https://www.producthunt.com/products/gwak-gwak?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/UXAXJM6JJWUIBE?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/adf84705-583f-4e20-a0e9-02755b54cb41.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "2",
+        "name": "Android",
+        "slug": "android"
+      },
+      {
+        "id": "71",
+        "name": "Sales",
+        "slug": "sales"
+      },
+      {
+        "id": "570",
+        "name": "Business",
+        "slug": "business"
+      },
+      {
+        "id": "617",
+        "name": "Food & Drink",
+        "slug": "food-drink"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1327686",
+    "name": "Groomera",
+    "tagline": "All-in-one software & AI voice booking for grooming shops",
+    "description": "Groomera is the all-in-one business platform built for pet groomers, barbershops, and salons. Most shop owners miss 20–35% of incoming phone calls because their hands are physically busy holding shears, clippers, or wet pets. Groomera solves this with a 24/7 AI Voice Phone Receptionist that speaks naturally, answers FAQs, and books appointments directly into your calendar. Groomera gives independent service businesses an enterprise-grade operating system starting at just $9.99/mo.",
+    "source_url": "https://www.producthunt.com/products/groomera?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/XWZC6S7I5DOKPL?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/5b501c2e-e398-4ee9-bf4e-2edcffac3368.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "199",
+        "name": "Pets",
+        "slug": "pets"
+      },
+      {
+        "id": "237",
+        "name": "SaaS",
+        "slug": "saas"
+      },
+      {
+        "id": "268",
+        "name": "Artificial Intelligence",
+        "slug": "artificial-intelligence"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1322050",
+    "name": "Granular.Build",
+    "tagline": "Put your AI agents to work in a visual workspace",
+    "description": "Big ideas shouldn't require a dozen AI tools or a programming background. Granular brings your models, agents, files, and project context into one visual workspace. Give a boss agent your goal, let it coordinate specialists in parallel, and watch apps, designs, or videos take shape with live previews. Bring your own AI, use built-in terminals and plugins when you need them, and keep each project's memory and files in one place. Go from first plan to published result.",
+    "source_url": "https://www.producthunt.com/products/granular-build?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/WWPJRVRNRSEYXS?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/e171c526-c3db-4c20-b658-3c88d11873a0.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": "2026-11-24T08:01:00Z",
+    "votes_count": 0,
+    "comments_count": 2,
+    "reviews_rating": 5.0,
+    "topics": [
+      {
+        "id": "46",
+        "name": "Productivity",
+        "slug": "productivity"
+      },
+      {
+        "id": "267",
+        "name": "Developer Tools",
+        "slug": "developer-tools"
+      },
+      {
+        "id": "268",
+        "name": "Artificial Intelligence",
+        "slug": "artificial-intelligence"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1328721",
+    "name": "GoTime",
+    "tagline": "Plan together, spend smarter, and make every trip count.",
+    "description": "GoTime is an all-in-one group travel planning platform that makes organizing trips easier. From building itineraries and discovering activities to managing budgets and tracking plans, GoTime brings everything together in one place so groups can spend less time coordinating and more time enjoying the trip.",
+    "source_url": "https://www.producthunt.com/products/gotime-2?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/L7TVEACMVI4HGN?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/a255c6d0-190c-4ad1-9113-01e5593f98e9.jpeg?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "250",
+        "name": "Travel",
+        "slug": "travel"
+      },
+      {
+        "id": "268",
+        "name": "Artificial Intelligence",
+        "slug": "artificial-intelligence"
+      },
+      {
+        "id": "352",
+        "name": "Tech",
+        "slug": "tech"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1327391",
+    "name": "FreeToolHubs",
+    "tagline": "PDF, image & dev tools that never upload your files",
+    "description": "Stop uploading your photos, signatures and documents to websites you don't know. FreeToolHubs is 139 free tools that do the work inside your browser, so your files stay on your device. Resize an exam photo to the exact SSC, UPSC or IBPS size in one click, edit and sign a Word file and save it as a PDF, merge or split PDFs, or format a 40 MB JSON file in about a second. No sign-up, no watermark, no daily limits.",
+    "source_url": "https://www.producthunt.com/products/freetoolhubs?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/OR2O6H65F4YUFC?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/a8572466-f4f8-4ddf-84f0-4640dcce2206.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "46",
+        "name": "Productivity",
+        "slug": "productivity"
+      },
+      {
+        "id": "204",
+        "name": "Education",
+        "slug": "education"
+      },
+      {
+        "id": "267",
+        "name": "Developer Tools",
+        "slug": "developer-tools"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1321790",
+    "name": "Free Photo Tools by Lluis Ridao",
+    "tagline": "25 free browser tools for photographers, no uploads",
+    "description": "25 free photography tools that run in your browser, no sign-up and no uploads: AI keywords for Adobe Stock, blur faces, social media sizes, print size, 500 rule, exposure simulator and more. Made by a Barcelona photographer.",
+    "source_url": "https://www.producthunt.com/products/free-photo-tools-by-lluis-ridao?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/KNLNX4PEBI3OFX?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/69fc2b16-37be-4b70-9fd9-15cb774dbcaf.jpeg?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "44",
+        "name": "Design Tools",
+        "slug": "design-tools"
+      },
+      {
+        "id": "46",
+        "name": "Productivity",
+        "slug": "productivity"
+      },
+      {
+        "id": "251",
+        "name": "Photography",
+        "slug": "photography"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1300811",
+    "name": "Forkmatic",
+    "tagline": "Forklift pre-shift checks, fleet log and safety guide",
+    "description": "Forkmatic is the guide and the log for your forklifts: a 73-item pre-shift check for 15 machine types with drawings of where to look, inspection dates, maintenance and capacity calculations. Works offline, no account. iPhone, iPad, Android.",
+    "source_url": "https://www.producthunt.com/products/forkmatic?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/EPG3RNPYVDY74M?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/26b5ea6a-c9af-437f-952e-ea47428de7b7.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "2",
+        "name": "Android",
+        "slug": "android"
+      },
+      {
+        "id": "8",
+        "name": "iOS",
+        "slug": "ios"
+      },
+      {
+        "id": "46",
+        "name": "Productivity",
+        "slug": "productivity"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1318843",
+    "name": "Forgetta",
+    "tagline": "Sends your birthday greetings in Telegram and Facebook",
+    "description": "Forgetta doesn't remind you about birthdays: it sends the greeting itself, from your own Telegram or Facebook Messenger account. Each morning it checks whose birthday it is (Telegram, Facebook and, if you like, Google contacts) and sends one of the texts you picked. Greetings carry no name or age, so one text fits everyone; switch on several and it rotates them. 16 languages. Everything stays on the phone: no server, no ads, no AI. Android.",
+    "source_url": "https://www.producthunt.com/products/forgetta?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/WDJVGB25W6ITTQ?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/bc414660-c1b7-4b5c-b5af-98e7cdd2354d.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "2",
+        "name": "Android",
+        "slug": "android"
+      },
+      {
+        "id": "29",
+        "name": "Telegram",
+        "slug": "telegram"
+      },
+      {
+        "id": "46",
+        "name": "Productivity",
+        "slug": "productivity"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1305677",
+    "name": "Flourish",
+    "tagline": "The AI coach helping you complete tasks & achieve your goals",
+    "description": "Most apps help you do more. Flourish helps you do what matters. Get everything out of your head, by voice or text, and Flourish helps you prioritise, plan your day around your calendar and turn bigger goals into manageable steps. Then starts doing them with you. It checks in to keep you moving, learns your priorities over time and adjusts with you when life changes, even if that means making today’s plan smaller. Less mental load. More room for life.",
+    "source_url": "https://www.producthunt.com/products/flourish-daily?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/H3I2DHD43PRF74?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/a0fc18a1-5055-48a9-a208-68b1215ed33a.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 2,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "46",
+        "name": "Productivity",
+        "slug": "productivity"
+      },
+      {
+        "id": "268",
+        "name": "Artificial Intelligence",
+        "slug": "artificial-intelligence"
+      },
+      {
+        "id": "282",
+        "name": "Virtual Assistants",
+        "slug": "virtual-assistants"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1323555",
+    "name": "First Mix",
+    "tagline": "Learn to DJ in your browser for free using your keyboard",
+    "description": "First Mix is a free two deck DJ mixer that runs in your browser. A 9 chapter tour guides you through the routine DJs use: cue the next track, match the speed, swap the bass and blend. Every button has a key, so all you need is a laptop and headphones.",
+    "source_url": "https://www.producthunt.com/products/first-mix?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/GZGZPF3SC7VVPE?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/launch-image-uploads/61b43f6d-04c7-42ba-97a4-7dd448c5c28d/feafd3167ca6e8ceb85e2db71b16ef01a58637caced00bf3555d1fbbd8051ea8.gif?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "21",
+        "name": "Web App",
+        "slug": "web-app"
+      },
+      {
+        "id": "57",
+        "name": "Music",
+        "slug": "music"
+      },
+      {
+        "id": "204",
+        "name": "Education",
+        "slug": "education"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1328582",
+    "name": "Finer Screenshot",
+    "tagline": "Add text that automatically stays readable on any background",
+    "description": "It's faster to show than to tell. Text you add gets an outline and shadow that adapt to what's under it, so it stays readable on any background. Finer Screenshot opens in about 200 ms, and its redaction mosaic is drawn from made-up text, so there's nothing underneath to recover. $19.99 once, 14-day free trial. Mac now, Windows is coming soon.",
+    "source_url": "https://www.producthunt.com/products/finer-screenshot?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/MUTQHFOR3CX7V7?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/db9956e4-904c-4852-a4a9-144878e3f926.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": "2026-11-24T08:01:00Z",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "19",
+        "name": "Mac",
+        "slug": "mac"
+      },
+      {
+        "id": "44",
+        "name": "Design Tools",
+        "slug": "design-tools"
+      },
+      {
+        "id": "46",
+        "name": "Productivity",
+        "slug": "productivity"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1327753",
+    "name": "FileQuickDrop",
+    "tagline": "Send files between phone & PC with no app",
+    "description": "Send photos, videos, and documents up to 1 GB between phone and computer instantly using a short code or QR scan. No app install or cables required—files transfer directly device-to-device via WebRTC with zero server storage.",
+    "source_url": "https://www.producthunt.com/products/filequickdrop?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/XAVENQFLJMPYHA?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/11dcd2c3-f0ad-41c1-81b7-1dc954ae80f2.svg?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "21",
+        "name": "Web App",
+        "slug": "web-app"
+      },
+      {
+        "id": "46",
+        "name": "Productivity",
+        "slug": "productivity"
+      },
+      {
+        "id": "237",
+        "name": "SaaS",
+        "slug": "saas"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1328531",
+    "name": "FileBreeze",
+    "tagline": "Transform, Compress & Protect.",
+    "description": "Convert and compress images, videos, audio, and documents directly in your browser. 100% private, client-side WebAssembly, with zero server uploads.",
+    "source_url": "https://www.producthunt.com/products/filebreeze-2?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/5EIBNH6JW76WAO?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/990f0977-417a-4918-a030-bb1ea0f90cf6.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "46",
+        "name": "Productivity",
+        "slug": "productivity"
+      },
+      {
+        "id": "93",
+        "name": "User Experience",
+        "slug": "user-experience"
+      },
+      {
+        "id": "352",
+        "name": "Tech",
+        "slug": "tech"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1328395",
+    "name": "Fayna",
+    "tagline": "A workspace for job applications, from résumé to tracker",
+    "description": "Fayna is a workspace for job applications. Add your résumé or start blank: its jobs and courses quietly build a private career profile. Pick from 115 designs, tailor the résumé to each vacancy, draft a matching cover letter, and track every application.",
+    "source_url": "https://www.producthunt.com/products/fayna?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/FMTZFZ5K24ASDB?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/926d4606-a126-43d5-a74d-5643611e81fd.svg?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "46",
+        "name": "Productivity",
+        "slug": "productivity"
+      },
+      {
+        "id": "268",
+        "name": "Artificial Intelligence",
+        "slug": "artificial-intelligence"
+      },
+      {
+        "id": "835",
+        "name": "Career",
+        "slug": "career"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1328292",
+    "name": "Fasting Host",
+    "tagline": "Cloud VPS and cPanel hosting for sites, apps and stores",
+    "description": "Fasting Host provides web hosting for businesses and developers worldwide. Choose from 20 DDoS-protected Cloud VPS configurations in the Netherlands, starting at $4.99/mo, with full server access and a browser console. cPanel hosting includes LiteSpeed, WordPress Toolkit Deluxe, Object Cache Pro (Redis) and free AutoSSL for eligible domains. Domain registration and optional paid SSL certificates are available.",
+    "source_url": "https://www.producthunt.com/products/fasting-host?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/S4R6KIOUFI3EOK?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/52376ff7-f1f2-4c85-8113-efab26c1e075.svg?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 0,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "242",
+        "name": "WordPress",
+        "slug": "wordpress"
+      },
+      {
+        "id": "267",
+        "name": "Developer Tools",
+        "slug": "developer-tools"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1324113",
+    "name": "Fandeck",
+    "tagline": "Private business card scanner that never leaves your phone",
+    "description": "Fandeck turns a pile of business cards into contacts you'll actually use, privately. Point your camera at a card and it finds the edges, waits for a sharp shot, and reads everything on your phone in seconds: English, Arabic, Chinese, Japanese and 70 more languages. No account, no cloud, nothing uploaded. File people by event, set follow-up reminders, export to CSV or vCard, share your own card by QR code. Free for your first 50 cards.",
+    "source_url": "https://www.producthunt.com/products/fandeck?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/2YY2UJ6EEUQMAT?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/daa582a9-6c81-4ff9-a6d3-d6a112179074.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "2",
+        "name": "Android",
+        "slug": "android"
+      },
+      {
+        "id": "46",
+        "name": "Productivity",
+        "slug": "productivity"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1324154",
+    "name": "Expode",
+    "tagline": "Valid studio-focused line",
+    "description": "consent-based, Guest app, liveness, per-guest matches, studio controls.",
+    "source_url": "https://www.producthunt.com/products/expode?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/TAUKMM4PAUUWAW?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/545c266c-a04d-44d6-a14c-fd59eabe6250.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "237",
+        "name": "SaaS",
+        "slug": "saas"
+      },
+      {
+        "id": "251",
+        "name": "Photography",
+        "slug": "photography"
+      },
+      {
+        "id": "268",
+        "name": "Artificial Intelligence",
+        "slug": "artificial-intelligence"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1324446",
+    "name": "Event Horizon",
+    "tagline": "Fly a ship around a real black hole, ray traced live",
+    "description": "Fly a ship around a real black hole in your browser. Every pixel is a ray of light traced through curved spacetime on your graphics card, live. Dive past the horizon and watch your clock drift from Earth's. Free and open source, nothing to install.",
+    "source_url": "https://www.producthunt.com/products/event-horizon?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/KBHG6P7AZBD5NX?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/6f93d36a-78e8-4c9f-81ef-83e343212177.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "89",
+        "name": "Open Source",
+        "slug": "open-source"
+      },
+      {
+        "id": "152",
+        "name": "Free Games",
+        "slug": "free-games"
+      },
+      {
+        "id": "227",
+        "name": "Space",
+        "slug": "space"
+      },
+      {
+        "id": "272",
+        "name": "GitHub",
+        "slug": "github"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1328122",
+    "name": "Even G2 Enterprise SDK",
+    "tagline": "Build custom business apps for Even G2 smart glasses",
+    "description": "Connect Even G2 smart glasses directly to your own mobile applications with Flutter, native iOS and Android SDKs",
+    "source_url": "https://www.producthunt.com/products/even-g2?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/WJIE3RYDUGRDOH?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/16927864-66ae-4fef-8834-aa9d8c250541.jpeg?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": "2026-11-24T08:01:00Z",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "261",
+        "name": "Wearables",
+        "slug": "wearables"
+      },
+      {
+        "id": "267",
+        "name": "Developer Tools",
+        "slug": "developer-tools"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1325308",
+    "name": "Easel: Focus Timer & Art",
+    "tagline": "A focus timer that reveals a masterpiece as you work",
+    "description": "Easel is a calm focus timer for iPhone and iPad. Pick a length, and a public-domain masterpiece slowly emerges from the fog while you work, fully revealed at 0:00. Every painting you finish hangs in your own gallery. Free, no account, no ads.",
+    "source_url": "https://www.producthunt.com/products/easel-focus-timer-art?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/INY6KWP3LBZ6UD?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/launch-image-uploads/e7e504d5-4eac-41dc-8a75-158e1871bd6d/c79b1c09147596458328a8bdf1ba53dcb879b286b45215cde338ab2cad26693d.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "8",
+        "name": "iOS",
+        "slug": "ios"
+      },
+      {
+        "id": "46",
+        "name": "Productivity",
+        "slug": "productivity"
+      },
+      {
+        "id": "76",
+        "name": "Art",
+        "slug": "art"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1327458",
+    "name": "Eagle Eyes",
+    "tagline": "stocks,stockmarketanalysis,stockpicks,trading,marketanalysis",
+    "description": "Market analytics and reports web-app. It runs stock market data acquisition, collection, analysis on decisions during market open hours and provides users very live insight on the stocks that are primed to move and in watch direction. Greatly cuts user research time by providing pre-vetted stock picks and metric descriptions to back and validate decisions made.",
+    "source_url": "https://www.producthunt.com/products/eagle-eyes?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/CEBNQ3MONMLAGC?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/7171baf0-1023-4665-bc60-64c0814a7b61.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "94",
+        "name": "Fintech",
+        "slug": "fintech"
+      },
+      {
+        "id": "108",
+        "name": "Analytics",
+        "slug": "analytics"
+      },
+      {
+        "id": "164",
+        "name": "Marketing",
+        "slug": "marketing"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1328053",
+    "name": "ETHTokenLaunch",
+    "tagline": "Create ERC-20 tokens on Robinhood Chain, Base and more",
+    "description": "ETHTokenLaunch creates ERC-20 tokens without code on Ethereum, Base, Robinhood Chain, BNB Chain and Elysium, the Hyperliquid Layer 2. Enter a name, symbol and supply, pay one fee from your own wallet, and a fixed-supply token is deployed with the whole supply sent to your wallet. No mint, blacklist or tax functions. It also has a free token lookup for checking any ERC-20 contract, and guides to Robinhood Chain, pons and adding liquidity.",
+    "source_url": "https://www.producthunt.com/products/ethtokenlaunch?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/QLJT3IFCEEDHJ4?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/273fc194-23ea-4d31-b46d-ad21b8199336.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "94",
+        "name": "Fintech",
+        "slug": "fintech"
+      },
+      {
+        "id": "267",
+        "name": "Developer Tools",
+        "slug": "developer-tools"
+      },
+      {
+        "id": "501",
+        "name": "Web3",
+        "slug": "web3"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1328729",
+    "name": "DraftMyDocu Plans",
+    "tagline": "Create Legal Documents in Minutes",
+    "description": "Self-help legal document templates with free preview. Choose a one-time Standard or Professional document, or a monthly or yearly Pro subscription.",
+    "source_url": "https://www.producthunt.com/products/draftmydocu?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/DLGROM7TWXU6WH?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/bc367a4c-c954-4140-ac3f-d728815ecff4.svg?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "46",
+        "name": "Productivity",
+        "slug": "productivity"
+      },
+      {
+        "id": "237",
+        "name": "SaaS",
+        "slug": "saas"
+      },
+      {
+        "id": "259",
+        "name": "Legal",
+        "slug": "legal"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1326305",
+    "name": "DAYFLOW",
+    "tagline": "One calm dashboard for your tasks, events and routines",
+    "description": "DAYFLOW gives you a clear view of your whole day, so you always know what's done, what's next and what's coming up. How it does that: - One dashboard with your tasks, calendar and progress - Repeating routines that come back on their own day - Colour-coded events with countdowns - Quick notes and task search - Sync between phone and laptop, with offline use and backups Free to use, with one small ad at the bottom.",
+    "source_url": "https://www.producthunt.com/products/dayflow-6?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/JBJDNRTLPJ3PAE?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/6b702900-66d4-44fb-bcc2-c24964d9201e.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "46",
+        "name": "Productivity",
+        "slug": "productivity"
+      },
+      {
+        "id": "48",
+        "name": "Task Management",
+        "slug": "task-management"
+      },
+      {
+        "id": "256",
+        "name": "Calendar",
+        "slug": "calendar"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1328428",
+    "name": "Custom Cushion Pads for Chocolate Boxes",
+    "tagline": "Cushion Pads for Chocolate Boxes",
+    "description": "Pack with premium elegance using our cushion pads for chocolate boxes—a true style statement for your artisanal bakery and luxury chocolates. These pads protect delicate treats and elevate packaging aesthetics. Call now and get the best rates!",
+    "source_url": "https://www.producthunt.com/products/greaseproof-papers?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/ZYSWBCJ6GDUF4I?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/a02489d1-96a1-4ba9-819e-4c03f19cb15a.jpeg?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 0,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "278",
+        "name": "E-Commerce",
+        "slug": "e-commerce"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1328706",
+    "name": "Cryptocurrency Exchange Development",
+    "tagline": "Build Your Cryptocurrency Exchange with Expert Developers",
+    "description": "Cryptocurrency Exchange Development requires deep engineering knowledge of blockchain architecture, transaction processing, and market operations. We focus on building exchange platforms with carefully structured backend logic, consistent execution workflows, and reliable system architecture. Our development approach connects technical precision with business objectives, helping startups & enterprises establish cryptocurrency exchange platforms ready for evolving digital asset markets.",
+    "source_url": "https://www.producthunt.com/products/crypto-copy-trading-software-development?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/QFONDVX3XTGJFC?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/dde7f3ad-8787-4de4-bbdd-71ae2eb7def2.webp?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 0,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "501",
+        "name": "Web3",
+        "slug": "web3"
+      },
+      {
+        "id": "758",
+        "name": "Cryptocurrency",
+        "slug": "cryptocurrency"
+      },
+      {
+        "id": "759",
+        "name": "Blockchain",
+        "slug": "blockchain"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1326461",
+    "name": "Creator Ops Pack — GTA 6 Edition",
+    "tagline": "Ops system for GTA 6 creators: calendar, sponsors, finances",
+    "description": "Creator Ops Pack — GTA 6 Edition is a Notion + Google Sheets operating system for gaming creators. Plan content with a calendar and upload pipeline, track sponsorships and affiliates with an FTC disclosure checklist, run video production, and manage creator finances — plus a PDF quick-start guide. Founder pre-order: $29 (list $49), refundable any time before delivery.",
+    "source_url": "https://www.producthunt.com/products/creator-ops-pack-gta-6-edition?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/KLITC4B2I4FBAA?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/40736092-2118-430b-9d09-b30ef72500bc.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "46",
+        "name": "Productivity",
+        "slug": "productivity"
+      },
+      {
+        "id": "353",
+        "name": "Games",
+        "slug": "games"
+      },
+      {
+        "id": "963",
+        "name": "Notion",
+        "slug": "notion"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1326823",
+    "name": "Content Design Report",
+    "tagline": "Live content design job market data: pay, AI skills, careers",
+    "description": "A living report on the content design job market, updated daily from real job postings. See what content designers and UX writers get paid, which AI skills employers are asking for, and where people in these roles go next. Built for content designers, UX writers, and the managers hiring them.",
+    "source_url": "https://www.producthunt.com/products/content-design-report?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/ZG4MN67WDLRQUC?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/e45f7c2f-99ff-4307-8f39-9d03b4a3215d.svg?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "41",
+        "name": "Hiring",
+        "slug": "hiring"
+      },
+      {
+        "id": "90",
+        "name": "Writing",
+        "slug": "writing"
+      },
+      {
+        "id": "93",
+        "name": "User Experience",
+        "slug": "user-experience"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1323294",
+    "name": "Complytic",
+    "tagline": "Tamper-evident execution records for AI agents.",
+    "description": "Open-source tamper-evident execution records for AI agents. Complytic seals signed, hash-linked receipts before every database write, signs them out-of-band, and anyone can verify the chain with just a public key. • Seals intent at T=0, before execution • Detects 6 tampering vectors: alter, rehash, delete, reorder, forge • Public verifier + committed test chain Not a certification, not an audit, no clients yet. Run the tests: github.com/ALY219/complytic-receipts",
+    "source_url": "https://www.producthunt.com/products/complytic?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/OG3TZFH4EIOISV?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/1a353464-100d-4d12-884d-1fbbd62a1bc1.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "267",
+        "name": "Developer Tools",
+        "slug": "developer-tools"
+      },
+      {
+        "id": "268",
+        "name": "Artificial Intelligence",
+        "slug": "artificial-intelligence"
+      },
+      {
+        "id": "272",
+        "name": "GitHub",
+        "slug": "github"
+      },
+      {
+        "id": "865",
+        "name": "Security",
+        "slug": "security"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1328257",
+    "name": "Claude Ship",
+    "tagline": "Ship code as fast as you can write it",
+    "description": "Ship code as fast as you can write it: Claude Ship reviews, fixes, and approves pull requests, taking each one from opened to ready to merge. Code Review posts verified findings on each PR. PR Steward (beta) fixes failing CI, conflicts, and review feedback, but never merges. Claude Approvals (beta) approves routine changes under your team's policy file and asks a human about the rest. Run /ship in Claude Code to push, open the PR, and hand it off. For Claude Team and Enterprise on GitHub.",
+    "source_url": "https://www.producthunt.com/products/claude-code?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/3ENQV4OYKF2LDA?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/f4f24816-4406-4763-b093-f46fc3b8c0e6.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": "2026-11-24T08:01:00Z",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 5.0,
+    "topics": [
+      {
+        "id": "267",
+        "name": "Developer Tools",
+        "slug": "developer-tools"
+      },
+      {
+        "id": "268",
+        "name": "Artificial Intelligence",
+        "slug": "artificial-intelligence"
+      },
+      {
+        "id": "272",
+        "name": "GitHub",
+        "slug": "github"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1320619",
+    "name": "Cibleo",
+    "tagline": "The kind habit tracker: one box a day, joker included",
+    "description": "Tick one box a day in a colourful grid and watch your streak grow. Daily or X-times-a-week goals, a weekly joker, a mini version for hard days, and an evening reminder with a Done button. Free forever with 3 habits, Plus free for 14 days, no card.",
+    "source_url": "https://www.producthunt.com/products/cibleo?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/TXVRUGBJRCAGSO?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/8d4f7401-8715-465e-8cbd-431d2f190727.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "46",
+        "name": "Productivity",
+        "slug": "productivity"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1328043",
+    "name": "Cat Translator: Games for Cats",
+    "tagline": "Laugh at your cat's meows, then let your cat play",
+    "description": "A meow translator, cat sounds and 6 games for cats in one iPhone & iPad app. Hold to record a meow and get a playful line in a chat with your cat, answer in meows, then put the phone on the floor for koi, mice, a feather, a laser dot, bugs and birds.",
+    "source_url": "https://www.producthunt.com/products/cat-translator-games-for-cats?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/MNSAONT7K76MF3?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/2bf6b395-f37d-4328-9d62-6adc47292078.webp?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "8",
+        "name": "iOS",
+        "slug": "ios"
+      },
+      {
+        "id": "199",
+        "name": "Pets",
+        "slug": "pets"
+      },
+      {
+        "id": "353",
+        "name": "Games",
+        "slug": "games"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1326051",
+    "name": "Calcshub",
+    "tagline": "165 free calculators with step-by-step guides",
+    "description": "Calcshub is a free collection of 165 online calculators — BMI, pregnancy due date, dog age, paint coverage, freelance rates, visa points and more. Every calculator comes with a step-by-step guide and worked examples, so you don't just get an answer, you understand it. No sign-up, no ads cluttering the result.",
+    "source_url": "https://www.producthunt.com/products/calcshub-2?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/X7MZXMC7FVJZ6C?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/75d51db9-4ddf-47ae-86c2-05a27174f70f.svg?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 0,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "43",
+        "name": "Health & Fitness",
+        "slug": "health-fitness"
+      },
+      {
+        "id": "46",
+        "name": "Productivity",
+        "slug": "productivity"
+      },
+      {
+        "id": "204",
+        "name": "Education",
+        "slug": "education"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1326147",
+    "name": "Brimlight",
+    "tagline": "Animated Menu Bar Themes & a 3D Pet for Mac",
+    "description": "Your menu bar is the strip of screen you look at all day, and it's always flat gray. Brimlight brings it to life. A 3D cat moves in: it hunts your cursor, chases yarn and naps when you step away. Play music and the bar becomes an equalizer while the cat dances. Pick from 41 living themes, from pixel-art sunsets to a sky that follows the real sun, and hang neon, garlands or sakura along the edge, even around the notch. Menus stay readable and clickable. Free forever. Pro is $6.99, once.",
+    "source_url": "https://www.producthunt.com/products/brimlight?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/PVWLZH5TBAGRHP?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/95ae36fd-78d4-4dba-b5e8-7349c71aff90.gif?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "19",
+        "name": "Mac",
+        "slug": "mac"
+      },
+      {
+        "id": "44",
+        "name": "Design Tools",
+        "slug": "design-tools"
+      },
+      {
+        "id": "46",
+        "name": "Productivity",
+        "slug": "productivity"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1327761",
+    "name": "BoothRev",
+    "tagline": "The Event Workspace for New Business Development",
+    "description": "Getting business from events isn't about capturing every lead or sending cleaner data to your CRM. It's a team effort that takes weeks: learning what matters to each person, replying personally, and following up again, long after this quarter's priorities pull everyone back to the office. BoothRev is a live workspace for event follow-through. Capture what people said, give every conversation an owner and a next step, and hand off to your CRM when it's ready, not before.",
+    "source_url": "https://www.producthunt.com/products/boothrev?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/I2V5BZ2Y4ZI4W3?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/4b086155-4539-49f5-88ee-ab1ebeae7cef.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "71",
+        "name": "Sales",
+        "slug": "sales"
+      },
+      {
+        "id": "84",
+        "name": "Events",
+        "slug": "events"
+      },
+      {
+        "id": "769",
+        "name": "CRM",
+        "slug": "crm"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1327713",
+    "name": "Bite100 Passport",
+    "tagline": "Track baby's first 100 foods, one passport stamp at a time",
+    "description": "A calm starting solids guide and food tracker, from first bites at 6 months to toddler meals at 3. Check off 100 first foods and earn a passport stamp for each one. Inside: 650+ foods with cut-by-age guides, 150+ short videos, a Top 9 allergen plan, 200+ baby and toddler recipes (family-table meals for 12–36 months), feeding schedules by month, 29 guides and 9 free tools. Works for BLW and purees. Created and reviewed by our dietitians, following AAP and NIAID guidance.",
+    "source_url": "https://www.producthunt.com/products/bite100-passport?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/IAHQIEPPLRDY2C?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/963dcdbc-53af-4bad-ae8d-ee719a5cf0d2.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "43",
+        "name": "Health & Fitness",
+        "slug": "health-fitness"
+      },
+      {
+        "id": "82",
+        "name": "Parenting",
+        "slug": "parenting"
+      },
+      {
+        "id": "157",
+        "name": "Kids",
+        "slug": "kids"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1326468",
+    "name": "Aurea: net worth",
+    "tagline": "Your net worth, always in order",
+    "description": "Aurea is your net worth dashboard: everything you own, in one place and always up to date. Aurea updates your holdings' prices automatically, so your net worth stays current without typing anything by hand. Track this month's income and spending and see how your savings grow. A subscription, with a 30-day free trial, unlocks the Exposure, Liquidity, Allocation and Projection views, the product Comparator, the tax report, MyInvestor statement import and up to 5 profiles.",
+    "source_url": "https://www.producthunt.com/products/aurea-net-worth?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/HTF7KW52XAF6CK?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/d512fa92-284d-4897-8f0e-1f96706ec6b1.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "2",
+        "name": "Android",
+        "slug": "android"
+      },
+      {
+        "id": "94",
+        "name": "Fintech",
+        "slug": "fintech"
+      },
+      {
+        "id": "611",
+        "name": "Finance",
+        "slug": "finance"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1328505",
+    "name": "AudioTranscription",
+    "tagline": "Free Audio Transcription in 90+ languages",
+    "description": "AudioTranscription turns audio and video into editable text with timestamps, speaker labels, AI summaries, and document or subtitle exports. Upload a file, record in the browser, or paste a supported public link. Start free; sign in for 240 free minutes daily.",
+    "source_url": "https://www.producthunt.com/products/audiotranscription?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/JWZG5F7RVSVH2N?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/664c095d-d1b6-41fc-bb71-7bc117e6ea32.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "46",
+        "name": "Productivity",
+        "slug": "productivity"
+      },
+      {
+        "id": "268",
+        "name": "Artificial Intelligence",
+        "slug": "artificial-intelligence"
+      },
+      {
+        "id": "471",
+        "name": "Audio",
+        "slug": "audio"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1327831",
+    "name": "Attachment Exporter for ClickUp",
+    "tagline": "Export all ClickUp List attachments in one ZIP",
+    "description": "Unofficial Chrome extension: pick a ClickUp List and export every attachment into one ZIP, with a folder per task plus an index.csv. Uses ClickUp's official API with your own token. No backend server. Free for small exports.",
+    "source_url": "https://www.producthunt.com/products/attachment-exporter-for-clickup?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/ZLDVD3W7CXAHSF?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/c9cbef12-eceb-4e25-bb03-2ab252356c4e.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "34",
+        "name": "Chrome Extensions",
+        "slug": "chrome-extensions"
+      },
+      {
+        "id": "46",
+        "name": "Productivity",
+        "slug": "productivity"
+      },
+      {
+        "id": "48",
+        "name": "Task Management",
+        "slug": "task-management"
+      },
+      {
+        "id": "272",
+        "name": "GitHub",
+        "slug": "github"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1322364",
+    "name": "Astor",
+    "tagline": "AI Thesis Investing",
+    "description": "Astor is the personal investing agent for thesis-driven investors. Tell Astor what you believe in, e.g. “the grid is AI’s bottleneck.” Astor builds the portfolio and explains every pick. It monitors your thesis every market day, and when the story changes, it tells you how to adjust. You approve every trade. Free to start.",
+    "source_url": "https://www.producthunt.com/products/astor?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/AU3ZWCZDGOJNDH?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/a0d4b302-c933-4c97-8ae1-bd49a84de0e5.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": "2026-11-24T08:01:00Z",
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "94",
+        "name": "Fintech",
+        "slug": "fintech"
+      },
+      {
+        "id": "203",
+        "name": "Investing",
+        "slug": "investing"
+      },
+      {
+        "id": "268",
+        "name": "Artificial Intelligence",
+        "slug": "artificial-intelligence"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1326082",
+    "name": "AnswerQuest Solo",
+    "tagline": "Should you go solo? Diagnostic & action plan for 2026",
+    "description": "Developed by the AnswerQuest Methodology Lab, AnswerQuest Solo provides an 8-question empirical readiness diagnostic and concrete 72-hour transition roadmaps. Track A helps senior leaders package high-ticket advisory offers, while Track B helps builders validate their first paid offer with zero runway risk.",
+    "source_url": "https://www.producthunt.com/products/answerquest-solo?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/5G355K25L6XHY2?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/9cf784b9-6715-43f8-9696-cbc017fcc8f2.vnd.microsoft.icon?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "46",
+        "name": "Productivity",
+        "slug": "productivity"
+      },
+      {
+        "id": "766",
+        "name": "Consulting",
+        "slug": "consulting"
+      },
+      {
+        "id": "835",
+        "name": "Career",
+        "slug": "career"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1321802",
+    "name": "Amunta",
+    "tagline": "Offline debt & expense ledger. No account, no ads.",
+    "description": "A private ledger for expenses, debts, invoices and installments. Works offline from first launch with no sign-up. Optional A-Link sends a transaction to another user end-to-end encrypted, so nobody types it twice. 13 languages.",
+    "source_url": "https://www.producthunt.com/products/amunta?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/XM343YR42SBQV4?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/63574e11-bf6c-4482-a1f7-fc6eb437476d.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "2",
+        "name": "Android",
+        "slug": "android"
+      },
+      {
+        "id": "46",
+        "name": "Productivity",
+        "slug": "productivity"
+      },
+      {
+        "id": "248",
+        "name": "Privacy",
+        "slug": "privacy"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1324574",
+    "name": "Aibuku",
+    "tagline": "Check if AI recommends you. Get booked in ChatGPT or Claude.",
+    "description": "Aibuku shows small businesses which competitor ChatGPT, Claude and Gemini recommend instead of them, the pages, posts and listings behind that choice, and what to fix first. Then customers can book, order or ask for a quote right inside ChatGPT or Claude. Agencies keep each client in its own project.",
+    "source_url": "https://www.producthunt.com/products/aibuku?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/BO7Y7H6B4ZGLTQ?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/49b5aa36-b28a-4942-981e-4ecffb8db9ac.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "164",
+        "name": "Marketing",
+        "slug": "marketing"
+      },
+      {
+        "id": "231",
+        "name": "SEO",
+        "slug": "seo"
+      },
+      {
+        "id": "268",
+        "name": "Artificial Intelligence",
+        "slug": "artificial-intelligence"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1292066",
+    "name": "AI SEO (GEO and AEO)",
+    "tagline": "Track and grow your brand in ChatGPT and Google AI answers",
+    "description": "72% of people in Singapore have used an AI assistant to help them shop (Adyen, 2026). Does ChatGPT name your business, or a competitor? Every day we ask four AIs (Google AI Mode, AI Overview, ChatGPT, Gemini) your buyers' questions, drafted by us, approved by you. See every answer, who is named instead and the sites the AIs quote, plus a Monday report. Report only: SGD 300 a month for 3,600 AI answers (30 questions a day), SGD 500 for 6,000. Want the work done too? Our team does it.",
+    "source_url": "https://www.producthunt.com/products/ai-seo-geo-and-aeo?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/NKISMKCZGHYSM2?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/793ba4e7-2600-41f6-a19a-09838481235a.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "164",
+        "name": "Marketing",
+        "slug": "marketing"
+      },
+      {
+        "id": "231",
+        "name": "SEO",
+        "slug": "seo"
+      },
+      {
+        "id": "268",
+        "name": "Artificial Intelligence",
+        "slug": "artificial-intelligence"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1318507",
+    "name": "AI Metadata Remover",
+    "tagline": "Strip GPS and camera info from photos before sharing",
+    "description": "Every photo, video and document carries hidden metadata: where it was taken, which camera or phone took it, its serial number, the author's name — and, for AI-generated images, signed C2PA \"Content Credentials\" that record the generator, the edit history and the source files. AI Metadata Remover shows all of it and lets you remove it before you share. Good to know: AI Metadata Remover removes metadata only.",
+    "source_url": "https://www.producthunt.com/products/ai-metadata-remover-2?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/FPNXAKQYAKJ5OI?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/3e7507df-8e1c-4429-bb69-93d0b88ea28d.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "19",
+        "name": "Mac",
+        "slug": "mac"
+      },
+      {
+        "id": "248",
+        "name": "Privacy",
+        "slug": "privacy"
+      },
+      {
+        "id": "692",
+        "name": "Photo & Video",
+        "slug": "photo-video"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1327798",
+    "name": "AI Crawler Access Checker",
+    "tagline": "Free robots.txt checker for AI crawlers",
+    "description": "See whether your robots.txt lets GPTBot, OAI-SearchBot, ClaudeBot, PerplexityBot, Google-Extended and ten more AI crawlers reach your site, and generate the rules to change it.",
+    "source_url": "https://www.producthunt.com/products/ai-crawler-access-checker-2?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/IZUM64O5ULMTVX?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/6a50a980-db13-4051-a479-0235a121da95.png?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 0,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "164",
+        "name": "Marketing",
+        "slug": "marketing"
+      },
+      {
+        "id": "231",
+        "name": "SEO",
+        "slug": "seo"
+      },
+      {
+        "id": "268",
+        "name": "Artificial Intelligence",
+        "slug": "artificial-intelligence"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
+    "source_product_id": "1328409",
+    "name": "A Novel Appetite Bookstore",
+    "tagline": "Ask a vampire anything. He answers twice a week.",
+    "description": "A secondhand bookshop run by Aspen, a four-hundred-year-old vampire. Browse 25 public-domain classics, each with his verdict. Every page funnels to Office Hours, his public AMA — he answers the winners live Tue & Thu at 1 PM Central. First session Dec 1.",
+    "source_url": "https://www.producthunt.com/products/a-novel-appetite-bookstore?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "website_url": "https://www.producthunt.com/r/S5MJDS5S5BU3AS?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+2C+Product+Radar+%28ID%3A+298587%29",
+    "thumbnail_url": "https://ph-files.imgix.net/92add975-6ac1-4a24-a14c-25e43b0bda4a.webp?auto=format",
+    "launch_date": "2026-11-24T08:01:00Z",
+    "created_at": "2026-11-24T08:01:00Z",
+    "featured_at": null,
+    "votes_count": 0,
+    "comments_count": 1,
+    "reviews_rating": 0.0,
+    "topics": [
+      {
+        "id": "268",
+        "name": "Artificial Intelligence",
+        "slug": "artificial-intelligence"
+      },
+      {
+        "id": "354",
+        "name": "Books",
+        "slug": "books"
+      },
+      {
+        "id": "600",
+        "name": "Entertainment",
+        "slug": "entertainment"
+      }
+    ],
+    "last_updated_at": "2026-11-24T09:08:19.087580+00:00",
+    "captured_at": "2026-11-24T09:08:19.087580+00:00"
+  },
+  {
+    "source": "Product Hunt",
     "source_product_id": "1326088",
     "name": "安卓安卓手机系统修复",
     "tagline": "支持快速修复解决所有Android系统问题",
